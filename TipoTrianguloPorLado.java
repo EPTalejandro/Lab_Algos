@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TipoTrianguloPorLado {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -11,11 +13,11 @@ public class TipoTrianguloPorLado {
         lado3 = scanner.nextDouble();
 
         if (lado1 == lado2 && lado2 == lado3) {
-            System.out.println("El triángulo es equilátero.");
+            System.out.println("1");
         } else if (lado1 == lado2 || lado1 == lado3 || lado2 == lado3) {
-            System.out.println("El triángulo es isósceles.");
+            System.out.println("2");
         } else {
-            System.out.println("El triángulo es escaleno.");
+            System.out.println("3");
         }
     }
 } 

@@ -10,8 +10,13 @@ public class EsMatrizDiagonal {
         int  nfilas_columnas;
         boolean esDiagonal = true;
         
-        System.out.print("Ingrese el número de filas y columnas: ");
+        do {
+        System.out.print("Ingrese el número de filas y columnas (mínimo 2): ");
         nfilas_columnas = scanner.nextInt();
+        if (nfilas_columnas < 2) {
+            System.out.println("El número debe ser mayor o igual a 2. Intente de nuevo.");
+        }
+        } while (nfilas_columnas < 2);
 
         matriz = new int[nfilas_columnas][nfilas_columnas];
         System.out.println("Introduzca los elementos de la matriz:");
