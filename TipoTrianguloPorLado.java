@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class TipoTrianguloPorLado {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double lado1, lado2, lado3;
+        int lado1, lado2, lado3;
 
         System.out.print("Ingrese el primer lado: ");
-        lado1 = scanner.nextDouble();
+        lado1 = scanner.nextInt();
         System.out.print("Ingrese el segundo lado: ");
-        lado2 = scanner.nextDouble();
+        lado2 = scanner.nextInt();
         System.out.print("Ingrese el tercer lado: ");
-        lado3 = scanner.nextDouble();
+        lado3 = scanner.nextInt();
 
         if (lado1 == lado2 && lado2 == lado3) {
             System.out.println("1");
