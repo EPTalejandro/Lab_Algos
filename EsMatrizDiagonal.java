@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class EsMatrizDiagonal {
 
-    public static boolean main(String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int[][] matriz;
@@ -47,6 +47,6 @@ public class EsMatrizDiagonal {
             }
         }
         
-        return esDiagonal;
+        System.out.println(esDiagonal);
     }
 }
