@@ -33,7 +33,7 @@ public class EsMatrizDiagonal {
             for (int j = 0; j < nfilas_columnas; j++) {
                 System.out.print(matriz[i][j] + " ");
             }
-            System.out.print("|\n");
+            System.out.println("|");
         }
         for(int i=0;i<nfilas_columnas;i++){
             for(int j=0;j<nfilas_columnas;j++){
