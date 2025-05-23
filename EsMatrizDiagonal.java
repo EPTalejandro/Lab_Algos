@@ -2,7 +2,12 @@
 import java.util.Scanner;
 
 public class EsMatrizDiagonal {
-
+    //@ requires matriz != null;
+    //@ requires matriz.length >= 2;
+    //@ requires \forall int i; 0 <= i < matriz.length; matriz[i] != null && matriz[i].length == matriz.length;
+    //@ ensures \result == (\forall int i, j; 
+    //@                    0 <= i < matriz.length && 0 <= j < matriz[i].length; 
+    //@                    i != j ==> matriz[i][j] == 0);
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
