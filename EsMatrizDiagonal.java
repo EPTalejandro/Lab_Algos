@@ -22,7 +22,9 @@ public class EsMatrizDiagonal {
         System.out.println("Introduzca los elementos de la matriz:");
         for (int i = 0; i < nfilas_columnas; i++) {
             for (int j = 0; j < nfilas_columnas; j++) {
-                System .out.print("Elemento ["+i+"]["+j+"]: ");
+                int F = i + 1;
+                int C = j + 1;
+                System .out.print("Elemento ["+F+"]["+C+"]: ");
                 matriz[i][j] = scanner.nextInt();
             }
         }
