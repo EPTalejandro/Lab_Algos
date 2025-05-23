@@ -7,13 +7,14 @@ public class DesviacionEstandar{
 
         int N = numeros.length;
         int i;
-
+        double suma = 0;
+        double media = suma / N;
+        double sumaCuadrados = 0;
+        
         if(N == 0){
             throw new IllegalArgumentException("La secuencia no puede estar vacía.");
         }
-
-        double suma = 0;
-
+        
         //@ maintaining 0 <= i <= N;
         //@ maintaining -Long.MAX_VALUE < suma < Long.MAX_VALUE;
         //@ maintaining suma == (\sum int j; 0 <= j < i; S[j]);
@@ -21,9 +22,6 @@ public class DesviacionEstandar{
         for(i = 0; i < N; i++){
             suma += numeros[i];
         }
-
-        double media = suma / N;
-        double sumaCuadrados = 0;
 
         //@ maintaining 0 <= i <= N;
         //@ maintaining -Long.MAX_VALUE < sumaCuadrados < Long.MAX_VALUE;
