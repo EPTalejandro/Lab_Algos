@@ -1,13 +1,16 @@
-import java.util.Scanner;
-
 public class DesviacionEstandar{
 
-    //@ requires N > 0;
-    //@ requires S != null 
-    //@ requires S.lenght = N;
+    //@ requires numeros.length > 0;
     //@ ensures -Long.MAX_VALUE < \result < Long.MAX_VALUE;
     //@ ensures \result == sumaCuadrados/N;
-    public static /*@ pure @*/ double calculoDesviacionEstandar(int[] S,int N,int i){
+    public static /*@ pure @*/ double calculoDesviacionEstandar(double[] numeros){
+
+        int N = numeros.length;
+        int i;
+
+        if(N == 0){
+            throw new IllegalArgumentException("La secuencia no puede estar vacía.");
+        }
 
         double suma = 0;
 
@@ -16,7 +19,7 @@ public class DesviacionEstandar{
         //@ maintaining suma == (\sum int j; 0 <= j < i; S[j]);
         //@ decreasing N - i;
         for(i = 0; i < N; i++){
-            suma += S[i];
+            suma += numeros[i];
         }
 
         double media = suma / N;
@@ -27,43 +30,11 @@ public class DesviacionEstandar{
         //@ maintaining sumaCuadrados == (\sum int j; 0 <= j < i; (S[j] - media)*(S[j] - media));
         //@ decreasing N - i;
         for(i = 0; i < N; i++){
-            sumaCuadrados += Math.pow((S[i] - media), 2);
+            sumaCuadrados += Math.pow((numeros[i] - media), 2);
         }
 
         double desviacionEstandar = Math.sqrt(sumaCuadrados / N);
 
         return desviacionEstandar;
-    }
-
-    public static /*@ pure @*/ void main(String[] args){
-
-        Scanner scanner = new Scanner(System.in);
-
-        int N;
-        int i;
-
-        do{
-            System.out.print("Ingrese la cantidad de números (mínimo 1): ");
-            N = scanner.nextInt();
-            if (N <= 0){
-                System.out.println("La cantidad debe ser mayor a 0");
-            }
-        }while(N <= 0);
-
-        int[] S = new int[N];
-
-        System.out.println("Ingrese los numeros");
-
-        //@ maintaining 0 <= i <= N;
-        //@ maintaining -Long.MAX_VALUE / N <= S[i] <= Long.MAX_VALUE / N
-        //@ decreasing N - i;
-        for(i = 0 ; i < N; i++){
-            int E = i + 1;
-            System.out.print("["+E+"]. ");
-            S[i] = scanner.nextInt();
-        }
-
-        double resultado = calculoDesviacionEstandar(S, N, i);
-        System.out.printf("La desviación estándar es: %.4f\n", resultado);
     }
 }
