@@ -18,9 +18,9 @@ public class EsMatrizDiagonal {
         int nfilas_columnas = (int) Math.sqrt(matriz.length);
         matrizDiagonal = new double[nfilas_columnas][nfilas_columnas];
 
-        //@ maintaining 0 <= i < nfilas_columnas
-        //@ maintaining 0 <= j < nfilas_columnas
-        //@ decreasing matriz.length - N
+        //@ maintaining 0 <= i < nfilas_columnas;
+        //@ maintaining 0 <= j < nfilas_columnas;
+        //@ decreasing matriz.length - N;
         for (int i = 0; i < nfilas_columnas; i++) {
             for (int j = 0; j < nfilas_columnas; j++) {
                 matrizDiagonal[i][j] = matriz[N];
@@ -28,9 +28,9 @@ public class EsMatrizDiagonal {
             }
         }
 
-        //@ maintaining 0 <= i < nfilas_columnas
-        //@ maintaining 0 <= j < nfilas_columnas
-        //@ decreasing matriz.length - N
+        //@ maintaining 0 <= i < nfilas_columnas;
+        //@ maintaining 0 <= j < nfilas_columnas;
+        //@ decreasing matriz.length - N;
         for(int i=0;i<nfilas_columnas;i++){
             for(int j=0;j<nfilas_columnas;j++){
                 if(j!=i && matrizDiagonal[i][j] != 0){
