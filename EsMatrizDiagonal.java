@@ -1,8 +1,7 @@
 public class EsMatrizDiagonal {
 
     //@ requires matriz != null;
-    //@ requires matriz.length >= 2;
-    //@ requires \forall int i; 0 <= i < matriz.length; matriz.length != null;
+    //@ requires matriz.length >= 4;
     //@ ensures \result == (\forall int i, j; 
     //@                    i != j ==> matrizDiagonal[i][j] == 0);
 
