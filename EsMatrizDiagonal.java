@@ -1,57 +1,40 @@
-
-import java.util.Scanner;
-
 public class EsMatrizDiagonal {
+
     //@ requires matriz != null;
     //@ requires matriz.length >= 2;
     //@ requires \forall int i; 0 <= i < matriz.length; matriz[i] != null && matriz[i].length == matriz.length;
     //@ ensures \result == (\forall int i, j; 
     //@                    0 <= i < matriz.length && 0 <= j < matriz[i].length; 
     //@                    i != j ==> matriz[i][j] == 0);
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        int[][] matriz;
-        int  nfilas_columnas;
+    public static /*@ pure @*/ boolean esMatrizDiagonal(double[] matriz) {
+
+        double[][] matrizDiagonal;
         boolean esDiagonal = true;
+        int N = 0;
         
-        do {
-            System.out.print("Ingrese el número de filas y columnas (mínimo 2): ");
-            nfilas_columnas = scanner.nextInt();
-            if (nfilas_columnas < 2) {
-                System.out.println("El número debe ser mayor o igual a 2. Intente de nuevo.");
-            }
-        } while (nfilas_columnas < 2);
-
-        matriz = new int[nfilas_columnas][nfilas_columnas];
-        System.out.println("Introduzca los elementos de la matriz:");
-        
-        for (int i = 0; i < nfilas_columnas; i++) {
-            for (int j = 0; j < nfilas_columnas; j++) {
-                int F = i + 1;
-                int C = j + 1;
-                System .out.print("Elemento ["+F+"]["+C+"]: ");
-                matriz[i][j] = scanner.nextInt();
-            }
+        if(Math.sqrt(matriz.length) != Math.floor(Math.sqrt(matriz.length))){
+            throw new IllegalArgumentException("La matriz no es cuadrada");
         }
+
+        int nfilas_columnas = (int) Math.sqrt(matriz.length);
+        matrizDiagonal = new double[nfilas_columnas][nfilas_columnas];
         
         for (int i = 0; i < nfilas_columnas; i++) {
-            System.out.print("| ");
             for (int j = 0; j < nfilas_columnas; j++) {
-                System.out.print(matriz[i][j] + " ");
+                matrizDiagonal[i][j] = matriz[N];
+                N = N + 1;
             }
-            System.out.println("|");
         }
         
         for(int i=0;i<nfilas_columnas;i++){
             for(int j=0;j<nfilas_columnas;j++){
-                if(j!=i && matriz[i][j] != 0){
+                if(j!=i && matrizDiagonal[i][j] != 0){
                     esDiagonal = false;
                     break;
                 }
             }
         }
-        
-        System.out.println(esDiagonal);
+        return esDiagonal;
     }
 }
