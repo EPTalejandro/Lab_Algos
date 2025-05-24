@@ -2,7 +2,7 @@ public class DesviacionEstandar{
 
     //@ requires numeros.length > 0;
     //@ ensures -Long.MAX_VALUE < \result < Long.MAX_VALUE;
-    //@ ensures \result == sumaCuadrados/D;
+    //@ ensures \result == Math.sqrt((\sum int j; 0 <= j < i; (numeros[j] - (\sum int j; 0 <= j < i; numeros[j])/numeros.length)*(numeros[j] - (\sum int j; 0 <= j < i; numeros[j])/numeros.length)));
     public static /*@ pure @*/ double calculoDesviacionEstandar(double[] numeros){
 
         int N = numeros.length;
