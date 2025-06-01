@@ -1,1 +1,0 @@
-print("chamo colabora")
