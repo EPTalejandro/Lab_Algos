@@ -46,22 +46,58 @@ Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
 Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
     //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
                                                                                                   ^
+Tarea_2/CuentaElementoPosicion.java:12: error: A \count expression does not take an argument list
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
+                             ^
 Tarea_2/CuentaElementoPosicion.java:12: error: Incorrectly formed or terminated loop_invariant statement near here
-        //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
-                                    ^
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
+                                   ^
 Tarea_2/CuentaElementoPosicion.java:12: error: not a statement
-        //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
                                                   ^
 Tarea_2/CuentaElementoPosicion.java:12: error: Expected a declaration or a JML construct inside the JML annotation here
-        //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
                                            ^
 Tarea_2/CuentaElementoPosicion.java:11: error: Loop specifications must immediately precede a loop statement
         //@maintaining 0 <= i < secuencia.lenght;
            ^
 Tarea_2/CuentaElementoPosicion.java:12: error: not a statement
-        //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
                                                                                    ^
+Tarea_2/CuentaElementoPosicion.java:12: error: ';' expected
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
+                                                                                                  ^
 Tarea_2/CuentaElementoPosicion.java:12: error: Expected a declaration or a JML construct inside the JML annotation here
-        //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
                                                                       ^
-22 errors
+Tarea_2/CuentaElementoPosicion.java:12: error: Token @*/ does not introduce an expression
+        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
+                                                                                                    ^
+Tarea_2/CuentaElementoPosicion.java:13: error: illegal start of type
+        for(int i = 0; i < secuencia.length; i++){
+        ^
+Tarea_2/CuentaElementoPosicion.java:13: error: <identifier> expected
+        for(int i = 0; i < secuencia.length; i++){
+           ^
+Tarea_2/CuentaElementoPosicion.java:13: error: ',', ')', or '[' expected
+        for(int i = 0; i < secuencia.length; i++){
+                 ^
+Tarea_2/CuentaElementoPosicion.java:13: error: > or ',' expected
+        for(int i = 0; i < secuencia.length; i++){
+                                           ^
+Tarea_2/CuentaElementoPosicion.java:13: error: <identifier> expected
+        for(int i = 0; i < secuencia.length; i++){
+                                              ^
+Tarea_2/CuentaElementoPosicion.java:13: error: <identifier> expected
+        for(int i = 0; i < secuencia.length; i++){
+                                                ^
+Tarea_2/CuentaElementoPosicion.java:13: error: <identifier> expected
+        for(int i = 0; i < secuencia.length; i++){
+                                                 ^
+Tarea_2/CuentaElementoPosicion.java:19: error: illegal start of type
+        return E;
+        ^
+Tarea_2/CuentaElementoPosicion.java:21: error: class, interface, enum, or record expected
+}
+^
+34 errors
