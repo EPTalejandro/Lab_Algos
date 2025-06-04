@@ -39,7 +39,7 @@ public class EsPermutacion{
         
         /*@
           @ maintaining 0 <= i && i <= S.length;
-          @ maintaining r == \num_of int j; 0 <= j && j < S.length; S[j] == E);
+          @ maintaining r == (\num_of int j; 0 <= j && j < S.length; S[j] == E);
           @ decreasing S.length - i;
           @*/
         for(int i = 0; i < S.length; i++){

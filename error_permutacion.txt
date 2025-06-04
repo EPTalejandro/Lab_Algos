@@ -1,4 +1,74 @@
-Tarea_2/EsPermutacion.java:42: error: Incorrectly formed or terminated loop_invariant statement near here
-          @ maintaining r == \num_of int j; 0 <= j && j < S.length; S[j] == E);
-                                                                             ^
-1 error
+Tarea_2/EsPermutacion.java:34: warning: Method cuentaElementoPosicion(int[],int) has 'assignable \everything', making its caller likely impossible to verify
+          @ requires S != null;
+            ^
+Tarea_2/EsPermutacion.java:23: warning: Associated declaration: Tarea_2/EsPermutacion.java:34:
+            if( !revisado.contains(S1[i]) && cuentaElementoPosicion(S1, S1[i]) == cuentaElementoPosicion(S2, S1[i])){
+                                                                   ^
+Tarea_2/EsPermutacion.java:34: warning: Method cuentaElementoPosicion(int[],int) has 'assignable \everything', making its caller likely impossible to verify
+          @ requires S != null;
+            ^
+Tarea_2/EsPermutacion.java:23: warning: Associated declaration: Tarea_2/EsPermutacion.java:34:
+            if( !revisado.contains(S1[i]) && cuentaElementoPosicion(S1, S1[i]) == cuentaElementoPosicion(S2, S1[i])){
+                                                                                                        ^
+Tarea_2/EsPermutacion.java:42: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+          @ maintaining r == (\num_of int j; 0 <= j && j < S.length; S[j] == E);
+                              ^
+Tarea_2/EsPermutacion.java:42: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+          @ maintaining r == (\num_of int j; 0 <= j && j < S.length; S[j] == E);
+                              ^
+Tarea_2/EsPermutacion.java:42: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+          @ maintaining r == (\num_of int j; 0 <= j && j < S.length; S[j] == E);
+                              ^
+Tarea_2/EsPermutacion.java:42: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+          @ maintaining r == (\num_of int j; 0 <= j && j < S.length; S[j] == E);
+                              ^
+Tarea_2/EsPermutacion.java:35: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+          @ ensures \result == (\num_of int i; 0 <= i && i < S.length; S[i] == E);
+                                ^
+Tarea_2/EsPermutacion.java:42: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method cuentaElementoPosicion
+          @ maintaining r == (\num_of int j; 0 <= j && j < S.length; S[j] == E);
+            ^
+Tarea_2/EsPermutacion.java:42: verify: The prover cannot establish an assertion (LoopInvariant) in method cuentaElementoPosicion
+          @ maintaining r == (\num_of int j; 0 <= j && j < S.length; S[j] == E);
+            ^
+Tarea_2/EsPermutacion.java:51: verify: The prover cannot establish an assertion (Postcondition: Tarea_2/EsPermutacion.java:35:) in method cuentaElementoPosicion
+        return r;
+        ^
+Tarea_2/EsPermutacion.java:35: verify: Associated declaration: Tarea_2/EsPermutacion.java:51:
+          @ ensures \result == (\num_of int i; 0 <= i && i < S.length; S[i] == E);
+            ^
+Tarea_2/EsPermutacion.java:35: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+          @ ensures \result == (\num_of int i; 0 <= i && i < S.length; S[i] == E);
+                                ^
+Tarea_2/EsPermutacion.java:35: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+          @ ensures \result == (\num_of int i; 0 <= i && i < S.length; S[i] == E);
+                                ^
+Tarea_2/EsPermutacion.java:11: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+                (\num_of int i; 0 <= i && i < S1.length; S1[i] == z) == (\num_of int i; 0 <= i && i < S2.length; S2[i] == z));
+                 ^
+Tarea_2/EsPermutacion.java:11: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+                (\num_of int i; 0 <= i && i < S1.length; S1[i] == z) == (\num_of int i; 0 <= i && i < S2.length; S2[i] == z));
+                                                                         ^
+Tarea_2/EsPermutacion.java:23: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method esPermutacion
+            if( !revisado.contains(S1[i]) && cuentaElementoPosicion(S1, S1[i]) == cuentaElementoPosicion(S2, S1[i])){
+                                     ^
+Tarea_2/EsPermutacion.java:30: verify: The prover cannot establish an assertion (Postcondition: Tarea_2/EsPermutacion.java:10:) in method esPermutacion
+        return true;
+        ^
+Tarea_2/EsPermutacion.java:10: verify: Associated declaration: Tarea_2/EsPermutacion.java:30:
+      @ ensures \result == (\forall int z;
+        ^
+Tarea_2/EsPermutacion.java:24: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Iterable.jml:10:) in method esPermutacion: (Caller: EsPermutacion.esPermutacion(int[],int[]), Callee: java.util.ArrayList.add(E))
+                revisado.add(S1[i]);
+                            ^
+/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Iterable.jml:10: verify: Associated declaration: Tarea_2/EsPermutacion.java:24:
+    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
+                   ^
+Tarea_2/EsPermutacion.java:25: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Iterable.jml:10:) in method esPermutacion: (Caller: EsPermutacion.esPermutacion(int[],int[]), Callee: java.util.ArrayList.contains(Object))
+            } else if(revisado.contains(S1[i])){
+                                       ^
+/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Iterable.jml:10: verify: Associated declaration: Tarea_2/EsPermutacion.java:25:
+    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
+                   ^
+13 warnings
+11 verification failures
