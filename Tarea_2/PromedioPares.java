@@ -4,7 +4,7 @@ public class PromedioPares {
         requires secuencia != null;
         requires (\forall int i; 0 <= i && i < secuencia.length; secuencia[i] >= 0);
         ensures \result == 0 <==> (\forall int i; 0 <= i && i < secuencia.length; secuencia[i] % 2 !=0); 
-        ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+        ensures \result == (\sum int i; 0 <= i && i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
     @*/
     public static int promedioPares (int[] secuencia){
 
@@ -14,8 +14,8 @@ public class PromedioPares {
 
         /*@
             maintaining 0 <= i && i < secuencia.length;
-            maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
-            maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
+            maintaining suma == (\sum int j; 0 <= j && j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
+            maintaining pares == (\sum int j; 0 <= j && j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
             decreasing secuencia.length - i;
         @*/
         for (int i = 0; i < secuencia.length; i++){

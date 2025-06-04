@@ -1,43 +1,53 @@
-Tarea_2/EsPermutacion.java:11: error: ')' expected
-                (\sum int i; 0 <= i && i < S1.length; S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length; S2[i] == z; 1));
-                                                                ^
-Tarea_2/EsPermutacion.java:11: error: ')' expected
-                (\sum int i; 0 <= i && i < S1.length; S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length; S2[i] == z; 1));
-                                                                                                                        ^
-Tarea_2/EsPermutacion.java:11: error: illegal start of type
-                (\sum int i; 0 <= i && i < S1.length; S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length; S2[i] == z; 1));
-                                                                                                                          ^
-Tarea_2/EsPermutacion.java:11: error: <identifier> expected
-                (\sum int i; 0 <= i && i < S1.length; S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length; S2[i] == z; 1));
-                                                                                                                           ^
-Tarea_2/EsPermutacion.java:11: error: <identifier> expected
-                (\sum int i; 0 <= i && i < S1.length; S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length; S2[i] == z; 1));
-                                                                                                                            ^
-Tarea_2/EsPermutacion.java:11: error: <identifier> expected
-                (\sum int i; 0 <= i && i < S1.length; S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length; S2[i] == z; 1));
-                                                                                                                             ^
-Tarea_2/EsPermutacion.java:35: error: ')' expected
-          @ ensures \result == (\sum int i; 0 <= i && i < S.length; S[i] == E; 1);
-                                                                             ^
-Tarea_2/EsPermutacion.java:35: error: illegal start of type
-          @ ensures \result == (\sum int i; 0 <= i && i < S.length; S[i] == E; 1);
-                                                                               ^
-Tarea_2/EsPermutacion.java:35: error: <identifier> expected
-          @ ensures \result == (\sum int i; 0 <= i && i < S.length; S[i] == E; 1);
-                                                                                ^
-Tarea_2/EsPermutacion.java:35: error: <identifier> expected
-          @ ensures \result == (\sum int i; 0 <= i && i < S.length; S[i] == E; 1);
-                                                                                 ^
-Tarea_2/EsPermutacion.java:43: error: ')' expected
-          @ maintaining r == (\sum int j; 0 <= j && j < i; S[j] == E; 1);
-                                                                    ^
-Tarea_2/EsPermutacion.java:43: error: not a statement
-          @ maintaining r == (\sum int j; 0 <= j && j < i; S[j] == E; 1);
-                                                                      ^
-Tarea_2/EsPermutacion.java:43: error: ';' expected
-          @ maintaining r == (\sum int j; 0 <= j && j < i; S[j] == E; 1);
-                                                                       ^
-Tarea_2/EsPermutacion.java:42: error: Loop specifications must immediately precede a loop statement
-          @ maintaining 0 <= i && i <= S.length;
+Tarea_2/EsPermutacion.java:43: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
+                              ^
+Tarea_2/EsPermutacion.java:43: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
+                              ^
+Tarea_2/EsPermutacion.java:43: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
+                              ^
+Tarea_2/EsPermutacion.java:43: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
+                              ^
+Tarea_2/EsPermutacion.java:35: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+          @ ensures \result == (\sum int i; 0 <= i && i < S.length && S[i] == E; 1);
+                                ^
+Tarea_2/EsPermutacion.java:43: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method cuentaElementoPosicion
+          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
             ^
-14 errors
+Tarea_2/EsPermutacion.java:52: verify: The prover cannot establish an assertion (Postcondition: Tarea_2/EsPermutacion.java:35:) in method cuentaElementoPosicion
+        return r;
+        ^
+Tarea_2/EsPermutacion.java:35: verify: Associated declaration: Tarea_2/EsPermutacion.java:52:
+          @ ensures \result == (\sum int i; 0 <= i && i < S.length && S[i] == E; 1);
+            ^
+Tarea_2/EsPermutacion.java:48: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method cuentaElementoPosicion: overflow in int sum
+                r++;
+                 ^
+Tarea_2/EsPermutacion.java:43: verify: The prover cannot establish an assertion (LoopInvariant) in method cuentaElementoPosicion
+          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
+            ^
+Tarea_2/EsPermutacion.java:35: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+          @ ensures \result == (\sum int i; 0 <= i && i < S.length && S[i] == E; 1);
+                                ^
+Tarea_2/EsPermutacion.java:35: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+          @ ensures \result == (\sum int i; 0 <= i && i < S.length && S[i] == E; 1);
+                                ^
+Tarea_2/EsPermutacion.java:11: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+                (\sum int i; 0 <= i && i < S1.length && S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length && S2[i] == z ;1));
+                 ^
+Tarea_2/EsPermutacion.java:11: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+                (\sum int i; 0 <= i && i < S1.length && S1[i] == z; 1) == (\sum int i; 0 <= i && i < S2.length && S2[i] == z ;1));
+                                                                           ^
+Tarea_2/EsPermutacion.java:23: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method esPermutacion
+            if( !revisado.contains(S1[i]) && cuentaElementoPosicion(S1, S1[i]) == cuentaElementoPosicion(S2, S1[i])){
+                                     ^
+Tarea_2/EsPermutacion.java:27: verify: The prover cannot establish an assertion (Postcondition: Tarea_2/EsPermutacion.java:10:) in method esPermutacion
+                return false;
+                ^
+Tarea_2/EsPermutacion.java:10: verify: Associated declaration: Tarea_2/EsPermutacion.java:27:
+      @ ensures \result == (\forall int z;
+        ^
+9 warnings
+8 verification failures
