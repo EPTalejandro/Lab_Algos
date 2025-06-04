@@ -8,8 +8,8 @@ public class CuentaElementoPosicion {
 
         int E = 0;
 
-        //@maintaining 0 <= i < secuencia.lenght;
-        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
+        //@ maintaining 0 <= i < secuencia.lenght;
+        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1) && E < Integer.MAX_VALUE;
         //@ decreasing secuencia.length - i;
         for(int i = 0; i < secuencia.length; i++){
             if(secuencia[i] == secuencia[K]){

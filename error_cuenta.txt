@@ -14,15 +14,15 @@ Tarea_2/CuentaElementoPosicion.java:5: error: cannot find symbol
   symbol:   variable k
   location: class CuentaElementoPosicion
 Tarea_2/CuentaElementoPosicion.java:11: error: cannot find symbol
-        //@maintaining 0 <= i < secuencia.lenght;
-                                         ^
+        //@ maintaining 0 <= i < secuencia.lenght;
+                                          ^
   symbol:   variable lenght
   location: variable secuencia of type int[]
 Tarea_2/CuentaElementoPosicion.java:12: error: variable i is already defined in method cuentaElementoPosicion(int[],int)
-        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
+        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1) && E < Integer.MAX_VALUE;
                                        ^
 Tarea_2/CuentaElementoPosicion.java:12: error: cannot find symbol
-        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
+        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1) && E < Integer.MAX_VALUE;
                                                                                                  ^
   symbol:   variable k
   location: class CuentaElementoPosicion
