@@ -11,8 +11,8 @@ public class PromedioPares {
         int pares = 0;
         int promedio;
         //@ maintaining 0 <= i < secuencia.length;
-        //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
-        //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+        //@ maintaining suma == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j];
+        //@ maintaining pares == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1;
         for (int i = 0; i < secuencia.length; i++){
             if (secuencia[i] % 2 == 0){
                 suma = suma + secuencia[i];
