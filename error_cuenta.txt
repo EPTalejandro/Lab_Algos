@@ -1,73 +1,29 @@
-Tarea_2/CuentaElementoPosicion.java:5: error: A \count expression does not take an argument list
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                           ^
-Tarea_2/CuentaElementoPosicion.java:5: error: Incorrectly formed or terminated ensures statement near here
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                 ^
-Tarea_2/CuentaElementoPosicion.java:5: error: illegal start of type
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                         ^
-Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                          ^
-Tarea_2/CuentaElementoPosicion.java:5: error: Method specs may not precede a variable declaration
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                           ^
-Tarea_2/CuentaElementoPosicion.java:5: error: ';' expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                               ^
-Tarea_2/CuentaElementoPosicion.java:5: error: > expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                           ^
-Tarea_2/CuentaElementoPosicion.java:5: error: '(' expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                   ^
-Tarea_2/CuentaElementoPosicion.java:5: error: ']' expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                               ^
-Tarea_2/CuentaElementoPosicion.java:5: error: ';' expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                ^
-Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                 ^
-Tarea_2/CuentaElementoPosicion.java:5: error: illegal start of type
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                  ^
-Tarea_2/CuentaElementoPosicion.java:5: error: ']' expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                               ^
-Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                                ^
-Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                                 ^
-Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                                  ^
-Tarea_2/CuentaElementoPosicion.java:12: error: A \count expression does not take an argument list
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
-                             ^
-Tarea_2/CuentaElementoPosicion.java:12: error: Incorrectly formed or terminated loop_invariant statement near here
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
-                                   ^
-Tarea_2/CuentaElementoPosicion.java:12: error: not a statement
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
+Tarea_2/CuentaElementoPosicion.java:4: error: cannot find symbol
+    //@ requires k < secuencia.length && secuencia.lenght > 0;
+                 ^
+  symbol:   variable k
+  location: class CuentaElementoPosicion
+Tarea_2/CuentaElementoPosicion.java:4: error: cannot find symbol
+    //@ requires k < secuencia.length && secuencia.lenght > 0;
                                                   ^
-Tarea_2/CuentaElementoPosicion.java:12: error: Expected a declaration or a JML construct inside the JML annotation here
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
-                                           ^
-Tarea_2/CuentaElementoPosicion.java:11: error: Loop specifications must immediately precede a loop statement
+  symbol:   variable lenght
+  location: variable secuencia of type int[]
+Tarea_2/CuentaElementoPosicion.java:5: error: cannot find symbol
+    //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
+                                                                                               ^
+  symbol:   variable k
+  location: class CuentaElementoPosicion
+Tarea_2/CuentaElementoPosicion.java:11: error: cannot find symbol
         //@maintaining 0 <= i < secuencia.lenght;
-           ^
-Tarea_2/CuentaElementoPosicion.java:12: error: not a statement
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
-                                                                                   ^
-Tarea_2/CuentaElementoPosicion.java:12: error: ';' expected
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
-                                                                                                  ^
-Tarea_2/CuentaElementoPosicion.java:12: error: Expected a declaration or a JML construct inside the JML annotation here
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
-                                                                      ^
-24 errors
+                                         ^
+  symbol:   variable lenght
+  location: variable secuencia of type int[]
+Tarea_2/CuentaElementoPosicion.java:12: error: variable i is already defined in method cuentaElementoPosicion(int[],int)
+        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
+                                       ^
+Tarea_2/CuentaElementoPosicion.java:12: error: cannot find symbol
+        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
+                                                                                                 ^
+  symbol:   variable k
+  location: class CuentaElementoPosicion
+6 errors

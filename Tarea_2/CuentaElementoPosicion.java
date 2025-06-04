@@ -2,14 +2,14 @@ public class CuentaElementoPosicion {
 
     //@ requires secuencia != null;
     //@ requires k < secuencia.length && secuencia.lenght > 0;
-    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+    //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
 
     public static int cuentaElementoPosicion(int[] secuencia, int K){
 
         int E = 0;
 
         //@maintaining 0 <= i < secuencia.lenght;
-        //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
+        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
         //@ decreasing secuencia.length - i;
         for(int i = 0; i < secuencia.length; i++){
             if(secuencia[i] == secuencia[K]){
