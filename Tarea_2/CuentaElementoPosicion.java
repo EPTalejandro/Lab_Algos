@@ -10,6 +10,7 @@ public class CuentaElementoPosicion {
 
         //@maintaining 0 <= i < secuencia.lenght;
         //@ maintaining E == \count(int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k]);
+        //@ decreasing secuencia.length - i;
         for(int i = 0; i < secuencia.length; i++){
             if(secuencia[i] == secuencia[K]){
                 E = E + 1;

@@ -1,56 +1,181 @@
-Tarea_2/PromedioPares.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j];
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                               ^
+Tarea_2/PromedioPares.java:6: error: Incorrectly formed or terminated ensures statement near here
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
                                 ^
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1;
-                                 ^
-Tarea_2/PromedioPares.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j];
-                                ^
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1;
-                                 ^
-Tarea_2/PromedioPares.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j];
-                                ^
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1;
-                                 ^
-Tarea_2/PromedioPares.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j];
-                                ^
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1;
-                                 ^
-Tarea_2/PromedioPares.java:6: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-    //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
-                            ^
-Tarea_2/PromedioPares.java:6: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-    //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
-                                                                                                             ^
-Tarea_2/PromedioPares.java:15: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
-        //@ maintaining pares == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1;
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                       ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                        ^
+Tarea_2/PromedioPares.java:6: error: Method specs may not precede a variable declaration
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                         ^
+Tarea_2/PromedioPares.java:6: error: ';' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                             ^
+Tarea_2/PromedioPares.java:6: error: > expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                         ^
+Tarea_2/PromedioPares.java:6: error: '(' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                 ^
+Tarea_2/PromedioPares.java:6: error: ']' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                              ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                               ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                 ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                  ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                   ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                    ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                     ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                       ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                        ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                         ^
+Tarea_2/PromedioPares.java:6: error: ']' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                     ^
+Tarea_2/PromedioPares.java:6: error: ';' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                      ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                       ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                        ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                         ^
+Tarea_2/PromedioPares.java:6: error: ',', ')', or '[' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                     ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                       ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                        ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                         ^
+Tarea_2/PromedioPares.java:6: error: ';' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                             ^
+Tarea_2/PromedioPares.java:6: error: > expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                         ^
+Tarea_2/PromedioPares.java:6: error: '(' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                 ^
+Tarea_2/PromedioPares.java:6: error: ']' expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                              ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                               ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                 ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                  ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                   ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                    ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                     ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                       ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                        ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                         ^
+Tarea_2/PromedioPares.java:6: error: illegal start of type
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                            ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                             ^
+Tarea_2/PromedioPares.java:6: error: <identifier> expected
+    //@ ensures \result == \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / \sum(int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+                                                                                                                                                                              ^
+Tarea_2/PromedioPares.java:15: error: illegal start of type
+        //@ maintaining suma == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+                                    ^
+Tarea_2/PromedioPares.java:15: error: Incorrectly formed or terminated loop_invariant statement near here
+        //@ maintaining suma == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+                                     ^
+Tarea_2/PromedioPares.java:15: error: not a statement
+        //@ maintaining suma == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+                                                       ^
+Tarea_2/PromedioPares.java:15: error: Expected a declaration or a JML construct inside the JML annotation here
+        //@ maintaining suma == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+                                            ^
+Tarea_2/PromedioPares.java:14: error: Loop specifications must immediately precede a loop statement
+        //@ maintaining 0 <= i && i < secuencia.length;
             ^
-Tarea_2/PromedioPares.java:15: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
-        //@ maintaining pares == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1;
+Tarea_2/PromedioPares.java:15: error: not a statement
+        //@ maintaining suma == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+                                                                                          ^
+Tarea_2/PromedioPares.java:15: error: ';' expected
+        //@ maintaining suma == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+                                                                                             ^
+Tarea_2/PromedioPares.java:15: error: Expected a declaration or a JML construct inside the JML annotation here
+        //@ maintaining suma == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+                                                                                 ^
+Tarea_2/PromedioPares.java:16: error: illegal start of type
+        //@ maintaining pares == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+                                     ^
+Tarea_2/PromedioPares.java:16: error: Incorrectly formed or terminated loop_invariant statement near here
+        //@ maintaining pares == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+                                      ^
+Tarea_2/PromedioPares.java:16: error: not a statement
+        //@ maintaining pares == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+                                                        ^
+Tarea_2/PromedioPares.java:16: error: Expected a declaration or a JML construct inside the JML annotation here
+        //@ maintaining pares == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+                                             ^
+Tarea_2/PromedioPares.java:16: error: Loop specifications must immediately precede a loop statement
+        //@ maintaining pares == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
             ^
-Tarea_2/PromedioPares.java:14: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
-        //@ maintaining suma == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j];
-            ^
-Tarea_2/PromedioPares.java:13: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
-        //@ maintaining 0 <= i < secuencia.length;
-            ^
-Tarea_2/PromedioPares.java:18: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
-                suma = suma + secuencia[i];
-                            ^
-Tarea_2/PromedioPares.java:19: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
-                pares = pares + 1;
-                              ^
-Tarea_2/PromedioPares.java:14: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
-        //@ maintaining suma == \sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j];
-            ^
-Tarea_2/PromedioPares.java:13: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
-        //@ maintaining 0 <= i < secuencia.length;
-            ^
-10 warnings
-8 verification failures
+Tarea_2/PromedioPares.java:16: error: not a statement
+        //@ maintaining pares == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+                                                                                  ^
+Tarea_2/PromedioPares.java:16: error: ';' expected
+        //@ maintaining pares == \sum(int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+                                                                                   ^
+60 errors
