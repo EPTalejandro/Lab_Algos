@@ -1,56 +1,53 @@
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+Tarea_2/PromedioPares.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
                                  ^
-Tarea_2/PromedioPares.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+Tarea_2/PromedioPares.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
                                   ^
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+Tarea_2/PromedioPares.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
                                  ^
-Tarea_2/PromedioPares.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+Tarea_2/PromedioPares.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
                                   ^
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+Tarea_2/PromedioPares.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
                                  ^
-Tarea_2/PromedioPares.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+Tarea_2/PromedioPares.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
                                   ^
-Tarea_2/PromedioPares.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+Tarea_2/PromedioPares.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
                                  ^
-Tarea_2/PromedioPares.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-        //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+Tarea_2/PromedioPares.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
                                   ^
-Tarea_2/PromedioPares.java:6: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-    //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+Tarea_2/PromedioPares.java:7: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+        ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
                             ^
-Tarea_2/PromedioPares.java:6: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
-    //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
+Tarea_2/PromedioPares.java:7: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+        ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
                                                                                                              ^
+Tarea_2/PromedioPares.java:18: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
+            maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
+            ^
 Tarea_2/PromedioPares.java:16: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
-        //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+            maintaining 0 <= i && i < secuencia.length;
             ^
-Tarea_2/PromedioPares.java:15: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
-        //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
+Tarea_2/PromedioPares.java:17: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
+            maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
             ^
-Tarea_2/PromedioPares.java:14: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method promedioPares
-        //@ maintaining 0 <= i && i < secuencia.length;
-            ^
-Tarea_2/PromedioPares.java:14: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
-        //@ maintaining 0 <= i && i < secuencia.length;
-            ^
-Tarea_2/PromedioPares.java:20: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
+Tarea_2/PromedioPares.java:23: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
                 suma = suma + secuencia[i];
                             ^
-Tarea_2/PromedioPares.java:21: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
-                pares = pares + 1;
-                              ^
-Tarea_2/PromedioPares.java:15: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
-        //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
-            ^
 Tarea_2/PromedioPares.java:16: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
-        //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
+            maintaining 0 <= i && i < secuencia.length;
+            ^
+Tarea_2/PromedioPares.java:17: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
+            maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]) && suma < Integer.MAX_VALUE;
+            ^
+Tarea_2/PromedioPares.java:18: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
+            maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1) && pares < Integer.MAX_VALUE;
             ^
 10 warnings
-8 verification failures
+7 verification failures
