@@ -5,7 +5,7 @@ public class PromedioPares {
     //@ ensures \result == 0 <==> (\forall int i; 0 <= i < secuencia.length; secuencia[i] % 2 !=0); 
     //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0; secuencia[i]) / (\sum int i; 0 <= i < secuencia.length && secuencia[i] % 2 == 0 ; 1);
 
-    public static int promedioPares (int[] secuencia){
+    public static /*@ pure @*/ int promedioPares (int[] secuencia){
 
         int suma = 0;
         int pares = 0;
