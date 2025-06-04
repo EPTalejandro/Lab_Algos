@@ -43,14 +43,14 @@ Tarea_2/PromedioPares.java:14: verify: The prover cannot establish an assertion 
 Tarea_2/PromedioPares.java:20: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
                 suma = suma + secuencia[i];
                             ^
+Tarea_2/PromedioPares.java:21: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
+                pares = pares + 1;
+                              ^
 Tarea_2/PromedioPares.java:15: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
         //@ maintaining suma == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; secuencia[j]);
             ^
 Tarea_2/PromedioPares.java:16: verify: The prover cannot establish an assertion (LoopInvariant) in method promedioPares
         //@ maintaining pares == (\sum int j; 0 <= j < i && secuencia[j] % 2 == 0; 1);
             ^
-Tarea_2/PromedioPares.java:21: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method promedioPares: overflow in int sum
-                pares = pares + 1;
-                              ^
 10 warnings
 8 verification failures
