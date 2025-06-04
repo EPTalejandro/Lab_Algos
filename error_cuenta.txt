@@ -1,67 +1,67 @@
-Tarea_2/CuentaElementoPosicion.java:5: error: ')' expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                  ^
+Tarea_2/CuentaElementoPosicion.java:5: error: A \count expression does not take an argument list
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                           ^
 Tarea_2/CuentaElementoPosicion.java:5: error: Incorrectly formed or terminated ensures statement near here
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                   ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                 ^
 Tarea_2/CuentaElementoPosicion.java:5: error: illegal start of type
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                         ^
+Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
                                           ^
-Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                           ^
 Tarea_2/CuentaElementoPosicion.java:5: error: Method specs may not precede a variable declaration
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                            ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                           ^
 Tarea_2/CuentaElementoPosicion.java:5: error: ';' expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                               ^
 Tarea_2/CuentaElementoPosicion.java:5: error: > expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                            ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                                           ^
 Tarea_2/CuentaElementoPosicion.java:5: error: '(' expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                    ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                                                   ^
 Tarea_2/CuentaElementoPosicion.java:5: error: ']' expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                                                               ^
 Tarea_2/CuentaElementoPosicion.java:5: error: ';' expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                 ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                                                                ^
 Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                  ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                                                                 ^
 Tarea_2/CuentaElementoPosicion.java:5: error: illegal start of type
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                   ^
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                                                                  ^
 Tarea_2/CuentaElementoPosicion.java:5: error: ']' expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+                                                                                               ^
+Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
                                                                                                 ^
 Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
                                                                                                  ^
 Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
+    //@ ensures \result == \count(int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
                                                                                                   ^
-Tarea_2/CuentaElementoPosicion.java:5: error: <identifier> expected
-    //@ ensures \result == (\count int i; 0 <= i < secuencia.length ; secuencia[i] == secuencia[k]);
-                                                                                                   ^
-Tarea_2/CuentaElementoPosicion.java:11: error: Incorrectly formed or terminated loop_invariant statement near here
+Tarea_2/CuentaElementoPosicion.java:12: error: Incorrectly formed or terminated loop_invariant statement near here
         //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
                                     ^
-Tarea_2/CuentaElementoPosicion.java:11: error: not a statement
+Tarea_2/CuentaElementoPosicion.java:12: error: not a statement
         //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
                                                   ^
-Tarea_2/CuentaElementoPosicion.java:11: error: Expected a declaration or a JML construct inside the JML annotation here
+Tarea_2/CuentaElementoPosicion.java:12: error: Expected a declaration or a JML construct inside the JML annotation here
         //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
                                            ^
-Tarea_2/CuentaElementoPosicion.java:10: error: Loop specifications must immediately precede a loop statement
+Tarea_2/CuentaElementoPosicion.java:11: error: Loop specifications must immediately precede a loop statement
         //@maintaining 0 <= i < secuencia.lenght;
            ^
-Tarea_2/CuentaElementoPosicion.java:11: error: not a statement
+Tarea_2/CuentaElementoPosicion.java:12: error: not a statement
         //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
                                                                                    ^
-Tarea_2/CuentaElementoPosicion.java:11: error: Expected a declaration or a JML construct inside the JML annotation here
+Tarea_2/CuentaElementoPosicion.java:12: error: Expected a declaration or a JML construct inside the JML annotation here
         //@ maintaining E == \count int i; 0 <= i < secuencia.length; secuencia[i] == secuencia[k];
                                                                       ^
 22 errors
