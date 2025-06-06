@@ -2,7 +2,7 @@ public class CuentaElementoPosicion {
 
     /*@
         requires secuencia != null && secuencia.length > 0;
-        requires K < secuencia.length;
+        requires K < secuencia.length && K >= 0;
         ensures \result == (\sum int i; 0 <= i && i < secuencia.length && secuencia[i] == secuencia[K]; 1);
     @*/
     public static int cuentaElementoPosicion(int[] secuencia, int K){
