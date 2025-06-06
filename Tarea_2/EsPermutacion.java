@@ -43,7 +43,7 @@ public class EsPermutacion{
         /*@
             maintaining 0 <= i && i <= S.length;
             maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
-            maintaining 0 <= r %% r <= i;
+            maintaining 0 <= r && r <= i;
             decreasing S.length - i;
         @*/
         for(int i = 0; i < S.length; i++){
