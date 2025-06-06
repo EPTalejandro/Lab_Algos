@@ -1,29 +1,35 @@
-Tarea_2/CuentaElementoPosicion.java:4: error: cannot find symbol
-    //@ requires k < secuencia.length && secuencia.lenght > 0;
-                 ^
-  symbol:   variable k
-  location: class CuentaElementoPosicion
-Tarea_2/CuentaElementoPosicion.java:4: error: cannot find symbol
-    //@ requires k < secuencia.length && secuencia.lenght > 0;
-                                                  ^
-  symbol:   variable lenght
-  location: variable secuencia of type int[]
-Tarea_2/CuentaElementoPosicion.java:5: error: cannot find symbol
-    //@ ensures \result == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1);
-                                                                                               ^
-  symbol:   variable k
-  location: class CuentaElementoPosicion
-Tarea_2/CuentaElementoPosicion.java:11: error: cannot find symbol
-        //@ maintaining 0 <= i < secuencia.lenght;
-                                          ^
-  symbol:   variable lenght
-  location: variable secuencia of type int[]
-Tarea_2/CuentaElementoPosicion.java:12: error: variable i is already defined in method cuentaElementoPosicion(int[],int)
-        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1) && E < Integer.MAX_VALUE;
-                                       ^
-Tarea_2/CuentaElementoPosicion.java:12: error: cannot find symbol
-        //@ maintaining E == (\sum int i; 0 <= i < secuencia.length && secuencia[i] == secuencia[k]; 1) && E < Integer.MAX_VALUE;
-                                                                                                 ^
-  symbol:   variable k
-  location: class CuentaElementoPosicion
-6 errors
+Tarea_2/CuentaElementoPosicion.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining E == (\sum int j; 0 <= j && j < i && secuencia[i] == secuencia[K]; 1);
+                              ^
+Tarea_2/CuentaElementoPosicion.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining E == (\sum int j; 0 <= j && j < i && secuencia[i] == secuencia[K]; 1);
+                              ^
+Tarea_2/CuentaElementoPosicion.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining E == (\sum int j; 0 <= j && j < i && secuencia[i] == secuencia[K]; 1);
+                              ^
+Tarea_2/CuentaElementoPosicion.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+            maintaining E == (\sum int j; 0 <= j && j < i && secuencia[i] == secuencia[K]; 1);
+                              ^
+Tarea_2/CuentaElementoPosicion.java:6: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+        ensures \result == (\sum int i; 0 <= i && i < secuencia.length && secuencia[i] == secuencia[K]; 1);
+                            ^
+Tarea_2/CuentaElementoPosicion.java:14: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method cuentaElementoPosicion
+            maintaining E == (\sum int j; 0 <= j && j < i && secuencia[i] == secuencia[K]; 1);
+            ^
+Tarea_2/CuentaElementoPosicion.java:24: verify: The prover cannot establish an assertion (Postcondition: Tarea_2/CuentaElementoPosicion.java:6:) in method cuentaElementoPosicion
+        return E;
+        ^
+Tarea_2/CuentaElementoPosicion.java:6: verify: Associated declaration: Tarea_2/CuentaElementoPosicion.java:24:
+        ensures \result == (\sum int i; 0 <= i && i < secuencia.length && secuencia[i] == secuencia[K]; 1);
+        ^
+Tarea_2/CuentaElementoPosicion.java:19: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method cuentaElementoPosicion
+            if(secuencia[i] == secuencia[K]){
+                                        ^
+Tarea_2/CuentaElementoPosicion.java:14: verify: The prover cannot establish an assertion (LoopInvariant) in method cuentaElementoPosicion
+            maintaining E == (\sum int j; 0 <= j && j < i && secuencia[i] == secuencia[K]; 1);
+            ^
+Tarea_2/CuentaElementoPosicion.java:15: verify: The prover cannot establish an assertion (LoopInvariant) in method cuentaElementoPosicion
+            maintaining E < Integer.MAX_VALUE;
+            ^
+5 warnings
+6 verification failures

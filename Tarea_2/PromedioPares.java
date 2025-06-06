@@ -17,7 +17,7 @@ public class PromedioPares {
             maintaining suma == (\sum int j; 0 <= j && j < i && secuencia[j] % 2 == 0; secuencia[j]);
             maintaining suma < Integer.MAX_VALUE;
             maintaining pares == (\sum int j; 0 <= j && j < i && secuencia[j] % 2 == 0; 1);
-            mainttaining pares < Integer.MAX_VALUE;
+            maintaining pares < Integer.MAX_VALUE;
             decreasing secuencia.length - i;
         @*/
         for (int i = 0; i < secuencia.length; i++){

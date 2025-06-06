@@ -40,12 +40,12 @@ public class EsPermutacion{
         
         /*@
           @ maintaining 0 <= i && i <= S.length;
-          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1);
+          @ maintaining r == (\sum int j; 0 <= j && j < i && S[j] == E; 1) && r < Integer.MAX_VALUE;
           @ decreasing S.length - i;
           @*/
         for(int i = 0; i < S.length; i++){
             if(S[i] == E){
-                r++;
+                r = r + 1;
             }
         }
 
