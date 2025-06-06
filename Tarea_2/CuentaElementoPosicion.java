@@ -11,7 +11,7 @@ public class CuentaElementoPosicion {
 
         /*@
             maintaining 0 <= i && i <= secuencia.length;
-            maintaining E == (\sum int j; 0 <= j && j <= i && secuencia[j] == secuencia[K]; 1);
+            maintaining E == (\sum int j; 0 <= j && j < i && secuencia[j] == secuencia[K]; 1);
             maintaining 0 <= E && E <= i;
             decreasing secuencia.length - i;
         @*/
