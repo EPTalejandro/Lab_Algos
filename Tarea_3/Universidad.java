@@ -1,12 +1,18 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Universidad{
 
+    //Crea un nuevo objeto Estudiante que representa un estudiante
+    public static void añadirEstudiante(String nombre,int carnet,String[] cursos){
+        new Estudiantes(nombre,carnet,cursos);
+    }
+
     //Dado un curso y un estudiante se inscribe ese estudiante al curso
-    public static void añadirACurso(String curso,Estudiantes estudiante){
+    public static void añadirACurso(String curso,int carnet){
         //@ requires curso != null;
         //@requires estudiante != null;
-        estudiante.cursos.add(curso);
+        Estudiantes.estudiantesCarnets.get(carnet).cursos.add(curso);
     }
 
     // Dado el carnet de un estudiante lista todos sus cursos
@@ -25,25 +31,33 @@ public class Universidad{
         //@ requires curso != null;
         //@ requires carnet != null;
         if(Universidad.cursosEstudiante(carnet).contains(curso)){
-            System.out.println("El estudiante " + Estudiantes.estudiantesCarnets.get(carnet) + " sí está inscrito en " + curso);
+            System.out.println("El estudiante " + Estudiantes.estudiantesCarnets.get(carnet).nombre + " sí está inscrito en " + curso);
         }
         else{
-            throw new IllegalArgumentException("El estudiante " + Estudiantes.estudiantesCarnets.get(carnet) + " no esta inscrito en " + curso);
+            throw new IllegalArgumentException("El estudiante " + Estudiantes.estudiantesCarnets.get(carnet).nombre + " no esta inscrito en " + curso);
         }
     }
     
     // Muestras los alumnos inscritos en un curso dado
     public static void inscritosEnCurso(String curso){
         //@ requires curso != null;
-        HashSet<String> estudiantesInscritos = new HashSet<>();
+        ArrayList<String> estudiantesInscritos = new ArrayList<>();
 
         for(Estudiantes estudiante: Estudiantes.estudiantesCarnets.values()){
             if(estudiante.cursos.contains(curso)){
                 estudiantesInscritos.add(estudiante.nombre);
             }
         }
-
-        System.out.println("Los alumnos inscritos en el "+ curso + " son " + estudiantesInscritos);
+        if(estudiantesInscritos.isEmpty()){
+            System.out.println("No hay alumnos inscritos en "+ curso);
+        }
+        else if (estudiantesInscritos.size() == 1) {
+            System.out.println("El alumno inscrito en el curso de "+ curso + " es " + estudiantesInscritos);
+        }
+        else{
+            System.out.println("Los alumnos inscritos en el curso de "+ curso + " son " + estudiantesInscritos);
+        }
+        
     }
 
     // cuenta el numero de estudiantes inscritos en un curso
@@ -52,10 +66,19 @@ public class Universidad{
         int total = 0;
         for(Estudiantes estudiante: Estudiantes.estudiantesCarnets.values()){
             if(estudiante.cursos.contains(curso)){
-                total++;
+                total = total + 1;
             }
         }
-        System.out.println("En: " + curso + " hay " + total + " inscritos");
-    }
+        if(total > 1){
+            System.out.println("En " + curso + " hay " + total + " inscritos");
+            }
+        else if(total == 1){
+            System.out.println("En " + curso + " hay 1 inscrito");
+        }
+        else{
+            System.out.println("En " + curso + " no hay inscritos");
+        }
 
+        }
 }
+
