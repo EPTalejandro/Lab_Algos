@@ -9,11 +9,14 @@ public class Estudiantes {
     HashSet<String> cursos = new HashSet<>();
     static HashMap<Integer, Estudiantes> estudiantesCarnets = new HashMap<>();
 
+    // constructor
+    // Al ser cursos un HashSet no puede tener cursos repetidos
+    // Con el HashMap de estudiantesCarnets se comprueba que los carnets sean unicos
     public Estudiantes(String nombre,int carnet, String[] cursos){
         
-        //@ requires nombre != null && carnet >= 0 && cursos != null;
+        //@ requires nombre.length > 2 && carnet >= 0 && cursos != null;
         if(estudiantesCarnets.containsKey(carnet) || carnet < 0 || nombre.length() < 2 || cursos == null){
-            throw new IllegalArgumentException("El carnet " +carnet + " ya esta en uso");
+            throw new IllegalArgumentException("Los parametros para registrar un estudiante son invalidos");
         }
         this.nombre = nombre;
         this.carnet = carnet;
@@ -21,56 +24,18 @@ public class Estudiantes {
         estudiantesCarnets.put(carnet, this);
     }
 
-    public void añadirACurso(String curso){
-        //@ requires curso != null;
-        this.cursos.add(curso);
+    // Metodos de retribucion
+
+    public String nombre(){
+        return this.nombre;
     }
 
-    public static HashSet<String> cursosEstudiante(int carnet){
-
-        if(estudiantesCarnets.containsKey(carnet)==false){
-            throw new IllegalArgumentException("El carnet " + carnet + " no existe");
-        }
-        else{
-            return estudiantesCarnets.get(carnet).cursos;
-        }
+    public HashSet cursos(){
+        return this.cursos;
     }
 
-    public void inscritoCurso(String curso){
-        //@ requires curso != null;
-        if(this.cursos.contains(curso)){
-            System.out.println("El estudiante " + this.nombre +" sí está inscrito en " +curso);
-        }
-        else{
-            throw new IllegalArgumentException("El estudiante "+ this.nombre +" no esta inscrito en "+ curso);
-        }
-    }
-
-    public static HashSet inscritosEnCurso(String curso){
-
-        HashSet<String> estudiantesInscritos = new HashSet<>();
-
-        for(Estudiantes estudiante: estudiantesCarnets.values()){
-            if(estudiante.cursos.contains(curso)){
-                estudiantesInscritos.add(estudiante.nombre);
-            }
-        }
-        return estudiantesInscritos; 
-    }
-
-    public static int estudiantesPorCurso(String curso){
-        //@ requires curso != null;
-        int total = 0;
-        for(Estudiantes estudiante: estudiantesCarnets.values()){
-            if(estudiante.cursos.contains(curso)){
-                total++;
-            }
-        }
-        return total;
-    }
-
-    public void  carnet(){
-        System.out.println("El estudiante "+this.nombre+" tiene el carnet: "+this.carnet); 
+    public int carnet(){
+        return this.carnet;
     }
 }
 
