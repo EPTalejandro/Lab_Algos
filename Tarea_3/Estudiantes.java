@@ -23,19 +23,5 @@ public class Estudiantes {
         this.cursos.addAll(Arrays.asList(cursos));
         estudiantesCarnets.put(carnet, this);
     }
-
-    // Metodos de retribucion
-
-    public String nombre(){
-        return this.nombre;
-    }
-
-    public HashSet cursos(){
-        return this.cursos;
-    }
-
-    public int carnet(){
-        return this.carnet;
-    }
 }
 
