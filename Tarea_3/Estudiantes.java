@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Estudiantes {  
-    String nombre;
-    int carnet;
-    HashSet<String> cursos = new HashSet<>();
-    static HashMap<Integer, Estudiantes> estudiantesCarnets = new HashMap<>();
+    private String nombre;
+    private int carnet;
+    private final HashSet<String> cursos = new HashSet<>();
+    private static final HashMap<Integer, Estudiantes> estudiantesCarnets = new HashMap<>();
 
     // constructor
     // Al ser cursos un HashSet no puede tener cursos repetidos
@@ -21,7 +21,27 @@ public class Estudiantes {
         this.nombre = nombre;
         this.carnet = carnet;
         this.cursos.addAll(Arrays.asList(cursos));
-        estudiantesCarnets.put(carnet, this);
     }
+
+    public static HashMap<Integer, Estudiantes> getEstudiantesCarnets(){
+        return estudiantesCarnets;
+    }
+
+    public HashSet<String> getCursos(){
+        return this.cursos;
+    }
+
+    public String getNombre(){
+        return this.nombre;
+    }
+
+    public void addCurso(String curso){
+        this.cursos.add(curso);
+    }
+
+    public int getCarnet() {
+        return this.carnet;
+    }
+
 }
 

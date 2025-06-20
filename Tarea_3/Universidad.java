@@ -1,28 +1,28 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class Universidad{
 
     //Crea un nuevo objeto Estudiante que representa un estudiante
-    public static void añadirEstudiante(String nombre,int carnet,String[] cursos){
-        new Estudiantes(nombre,carnet,cursos);
+    public static void añadirEstudiante(String nombre,Integer carnet,String[] cursos){
+        Estudiantes estudiante = new Estudiantes(nombre,carnet,cursos);
+        Estudiantes.getEstudiantesCarnets().put(carnet, estudiante);
     }
 
     //Dado un curso y un estudiante se inscribe ese estudiante al curso
     public static void añadirACurso(String curso,int carnet){
         //@ requires curso != null;
         //@requires estudiante != null;
-        Estudiantes.estudiantesCarnets.get(carnet).cursos.add(curso);
+        Estudiantes.getEstudiantesCarnets().get(carnet).addCurso(curso);
     }
 
     // Dado el carnet de un estudiante lista todos sus cursos
-    public static HashSet<String> cursosEstudiante(int carnet){
+    public static void cursosEstudiante(int carnet){
         //@requieres carnet != null;
-        if(Estudiantes.estudiantesCarnets.containsKey(carnet)==false){
+        if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
             throw new IllegalArgumentException("El carnet " + carnet + " no existe");
         }
         else{
-            return Estudiantes.estudiantesCarnets.get(carnet).cursos;
+            System.out.println("El estudiante "+ Estudiantes.getEstudiantesCarnets().get(carnet).getNombre() + " esta inscrito en los siguientes cursos: " + Estudiantes.getEstudiantesCarnets().get(carnet).getCursos());
         }
     }
 
@@ -30,11 +30,11 @@ public class Universidad{
     public static void alumnoInscritoCurso(String curso,int carnet){
         //@ requires curso != null;
         //@ requires carnet != null;
-        if(Universidad.cursosEstudiante(carnet).contains(curso)){
-            System.out.println("El estudiante " + Estudiantes.estudiantesCarnets.get(carnet).nombre + " sí está inscrito en " + curso);
+        if(Estudiantes.getEstudiantesCarnets().get(carnet).getCursos().contains(curso)){
+            System.out.println("El estudiante " + Estudiantes.getEstudiantesCarnets().get(carnet).getNombre() + " sí está inscrito en " + curso);
         }
         else{
-            throw new IllegalArgumentException("El estudiante " + Estudiantes.estudiantesCarnets.get(carnet).nombre + " no esta inscrito en " + curso);
+            throw new IllegalArgumentException("El estudiante " + Estudiantes.getEstudiantesCarnets().get(carnet).getNombre() + " no esta inscrito en " + curso);
         }
     }
     
@@ -43,9 +43,9 @@ public class Universidad{
         //@ requires curso != null;
         ArrayList<String> estudiantesInscritos = new ArrayList<>();
 
-        for(Estudiantes estudiante: Estudiantes.estudiantesCarnets.values()){
-            if(estudiante.cursos.contains(curso)){
-                estudiantesInscritos.add(estudiante.nombre);
+        for(Estudiantes estudiante: Estudiantes.getEstudiantesCarnets().values()){
+            if(estudiante.getCursos().contains(curso)){
+                estudiantesInscritos.add(estudiante.getNombre());
             }
         }
         if(estudiantesInscritos.isEmpty()){
@@ -64,8 +64,8 @@ public class Universidad{
     public static void estudiantesPorCurso(String curso){
         //@ requires curso != null;
         int total = 0;
-        for(Estudiantes estudiante: Estudiantes.estudiantesCarnets.values()){
-            if(estudiante.cursos.contains(curso)){
+        for(Estudiantes estudiante: Estudiantes.getEstudiantesCarnets().values()){
+            if(estudiante.getCursos().contains(curso)){
                 total = total + 1;
             }
         }

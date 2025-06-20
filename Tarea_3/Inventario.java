@@ -6,25 +6,26 @@ public class Inventario{
     
     // Crea un nuevo producto 
     public static void añadirProducto(String nombre,int cantidad,double precio){
-        new Productos(nombre,cantidad,precio);
+        Productos producto = new Productos(nombre,cantidad,precio);
+        Productos.getLista().add(producto);
     }
 
     // actualiza la cantidad registrada de dicho producto, el numero actualziacion puede ser negativo o positivo dependiendo si es venta o reposicion
     public static void actulizarCantidad(int actualizacion,Productos producto){
         //@ensures producto.cantidad + actualizacion >= 0 ;
-        if(producto.cantidad + actualizacion >= 0){
-            producto.cantidad = producto.cantidad - actualizacion;
+        if(producto.getCantidad() + actualizacion >= 0){
+            producto.setCantidad(producto.getCantidad() - actualizacion);
         }
         else{
-            System.err.println("no hay sufientes "+producto.nombre+" en stock para restar: " + actualizacion);
+            System.err.println("no hay sufientes "+producto.getNombre()+" en stock para restar: " + actualizacion);
         }
     }
 
     // Lista todos los productos registrados
     public static void listarProductos(){
         HashSet<String> lista = new HashSet<>();
-        for(Productos producto: Productos.listaProductos){
-            lista.add(producto.nombre);
+        for(Productos producto: Productos.getLista()){
+            lista.add(producto.getNombre());
         }
         System.out.println("Los productos en inventario son: " + lista);
     }
@@ -33,8 +34,8 @@ public class Inventario{
     public static void valorInventario(){
         //@ ensures valor == (\sum Productos producto;Productos.listaProductos;producto.precio * producto.cantidad)
         double valor = 0;
-        for(Productos producto: Productos.listaProductos){
-            valor = valor + (producto.precio * producto.cantidad);
+        for(Productos producto: Productos.getLista()){
+            valor = valor + (producto.getPrecio() * producto.getCantidad());
         }
         System.out.println("El valor total de el inventario es: " + valor + "Bolívares");
     }
@@ -42,9 +43,9 @@ public class Inventario{
     // lista todos los productos agotados(aquellos con cantidad = 0)
     public static void productosAgotados(){
         HashSet<String> agotados = new HashSet<>();
-        for(Productos producto: Productos.listaProductos){
-            if(producto.cantidad == 0){
-                agotados.add(producto.nombre);
+        for(Productos producto: Productos.getLista()){
+            if(producto.getCantidad() == 0){
+                agotados.add(producto.getNombre());
             }
         }
         System.out.println("Los productos agotados son: " + agotados);
@@ -54,10 +55,10 @@ public class Inventario{
     public static void mayorValorTotal(){
         double valor_max = 0;
         String mas_caro = new String();
-        for(Productos producto: Productos.listaProductos){
-            if((producto.precio*producto.cantidad) > valor_max){
-                valor_max = producto.precio*producto.cantidad;
-                mas_caro = producto.nombre;
+        for(Productos producto: Productos.getLista()){
+            if( (producto.getPrecio() * producto.getCantidad()) > valor_max){
+                valor_max = producto.getPrecio() * producto.getCantidad();
+                mas_caro = producto.getNombre();
             }    
         }
         System.out.println("El producto con mayor valor total es: "+ mas_caro + " costando :" + valor_max + "Bolívares");
@@ -68,10 +69,10 @@ public class Inventario{
     public static void productoMasCaro(){
         String mas_caro = new String();
         double valor_max = 0;
-        for(Productos producto: Productos.listaProductos){
-            if(producto.precio > valor_max){
-                valor_max = producto.precio;
-                mas_caro = producto.nombre;
+        for(Productos producto: Productos.getLista()){
+            if(producto.getPrecio() > valor_max){
+                valor_max = producto.getPrecio();
+                mas_caro = producto.getNombre();
             }
         }
         System.out.println("El producto mas caro del inventario es: "+ mas_caro + " costando :" + valor_max + "Bolívares");

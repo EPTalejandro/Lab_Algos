@@ -3,10 +3,11 @@ import java.util.HashSet;
 
 
 public class Productos{
-    String nombre;
-    int cantidad;
-    double precio;
-    static HashSet<Productos> listaProductos = new HashSet<>();
+    private String nombre;
+    private int cantidad;
+    private double precio;
+    private static final HashSet<Productos> listaProductos = new HashSet<>();
+    
     public Productos(String nombre,int cantidad, double precio){
 
         //@requires nombre.length > 2 && precio >= 0 && cantidad >= 0;
@@ -16,6 +17,25 @@ public class Productos{
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
-        listaProductos.add(this);
+    }
+
+    public static HashSet<Productos> getLista(){
+        return Productos.listaProductos;
+    }
+
+    public double getPrecio(){
+        return this.precio;
+    }
+
+    public int getCantidad(){
+        return this.cantidad;
+    }
+
+    public void setCantidad(int actualizacion){
+        this.cantidad = actualizacion;
+    }
+
+    public String getNombre(){
+        return this.nombre;
     }
 }
