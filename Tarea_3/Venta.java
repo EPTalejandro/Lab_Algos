@@ -6,8 +6,8 @@ public class Venta{
 
     // constructor
     //@ requires producto != null;
-    //@ requires precio != null && precio > 0;
-    //@ requires cantidad != null && cantidad > 0;
+    //@ requires precio > 0;
+    //@ requires cantidad > 0;
     public Venta(String producto, double precio, int cantidad){
         this.producto = producto;
         this.precio = precio;
