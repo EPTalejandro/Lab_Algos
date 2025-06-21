@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class AnalisisVentas{
 
@@ -130,7 +129,7 @@ public class AnalisisVentas{
     //Función main para crear ventas y probar las funciones
     public static void main(String[] args){
 
-        AnalizadorVentas analizador = new AnalizadorVentas();
+        AnalisisVentas analizador = new AnalisisVentas();
         analizador.nuevaVenta("Pendrive", 60, 2);
         analizador.nuevaVenta("Cargador", 45, 1);
         analizador.nuevaVenta("Baterías", 30, 3);
