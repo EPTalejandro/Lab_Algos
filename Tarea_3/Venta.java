@@ -5,6 +5,9 @@ public class Venta{
     private final int cantidad;
 
     // constructor
+    //@ requires producto != null;
+    //@ requires precio > 0;
+    //@ requires cantidad > 0;
     public Venta(String producto, double precio, int cantidad){
         //@ requires producto != null;
         //@ requires precio > 0;
