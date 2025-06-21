@@ -13,9 +13,6 @@
 ./Tarea_3/Universidad.java:83: warning: A refining statement is required for statement specifications
         //@ requires curso != null;
             ^
-./Tarea_3/Universidad.java:84: warning: Inserting missing semicolon at the end of a ensures statement
-        //@ ensures curso == (\sum Estudiantes estudiante; Estudiantes.getEstudiantesCarnets().values() ; 1)
-                                                                                                            ^
 ./Tarea_3/Universidad.java:7: error: cannot find symbol
         Estudiantes estudiante = new Estudiantes(nombre,carnet,cursos);
         ^
@@ -77,12 +74,12 @@
   symbol:   class Estudiantes
   location: class Universidad
 ./Tarea_3/Universidad.java:84: error: cannot find symbol
-        //@ ensures curso == (\sum Estudiantes estudiante; Estudiantes.getEstudiantesCarnets().values() ; 1)
+        //@ ensures curso == (\sum Estudiantes estudiante; Estudiantes.getEstudiantesCarnets().values() ; 1);
                                    ^
   symbol:   class Estudiantes
   location: class Universidad
 ./Tarea_3/Universidad.java:84: error: cannot find symbol
-        //@ ensures curso == (\sum Estudiantes estudiante; Estudiantes.getEstudiantesCarnets().values() ; 1)
+        //@ ensures curso == (\sum Estudiantes estudiante; Estudiantes.getEstudiantesCarnets().values() ; 1);
                                                            ^
   symbol:   variable Estudiantes
   location: class Universidad
@@ -97,4 +94,4 @@
   symbol:   class Estudiantes
   location: class Universidad
 16 errors
-6 warnings
+5 warnings
