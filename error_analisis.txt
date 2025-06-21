@@ -1,56 +1,60 @@
+./Tarea_3/AnalisisVentas.java:2: error: package Venta does not exist
+import Venta.java;
+            ^
 ./Tarea_3/AnalisisVentas.java:7: error: cannot find symbol
     ArrayList<Venta> ventas = new ArrayList<>();
               ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:3: warning: There is no point to a declaration being both public and spec_public
-//@ spec_public
-    ^
+./Tarea_3/AnalisisVentas.java:27: error: cannot find symbol
+    public boolean mismoProducto(Venta v, String producto) {
+                                 ^
+  symbol:   class Venta
+  location: class AnalisisVentas
 ./Tarea_3/AnalisisVentas.java:22: error: cannot find symbol
         ventas.add(new Venta(nombre, precio, cantidad));
                        ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:28: error: The value expression of a sum or product expression must be a numeric type, not <any>
-                            ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getprecio() * ventas.get(i).getcantidad() : 0);
-                                                                         ^
-./Tarea_3/AnalisisVentas.java:34: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:35: error: The value expression of a sum or product expression must be a numeric type, not <any>
+                      mismoProducto(ventas.get(i), producto) ? 
+                                                             ^
+./Tarea_3/AnalisisVentas.java:42: error: cannot find symbol
         for(Venta v : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:48: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:57: error: cannot find symbol
         for(Venta v : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:56: error: The value expression of a sum or product expression must be a numeric type, not Venta.getcantidad
+./Tarea_3/AnalisisVentas.java:65: error: The value expression of a sum or product expression must be a numeric type, not Venta.getcantidad
     //@ ensures \result == (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0);
                                                                                                                   ^
-./Tarea_3/AnalisisVentas.java:61: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:70: error: cannot find symbol
         for(Venta a : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:76: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:85: error: cannot find symbol
         for(Venta producto : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:96: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:105: error: cannot find symbol
         for(Venta producto : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:116: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:125: error: cannot find symbol
         for(Venta v : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:151: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:160: error: cannot find symbol
         for(Venta producto : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-11 errors
-1 warning
+13 errors
