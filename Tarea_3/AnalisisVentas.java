@@ -1,6 +1,6 @@
 import java.util.ArrayList;
+import Venta.java;
 
-//@ spec_public
 public class AnalisisVentas{
 
     //@ spec_public
@@ -22,10 +22,18 @@ public class AnalisisVentas{
         ventas.add(new Venta(nombre, precio, cantidad));
     }
 
+    // Codigo necesario para JML
+    //@ pure
+    public boolean mismoProducto(Venta v, String producto) {
+        return v.getproducto().equals(producto);
+    }
+
+
     //Calcula el ingreso total de un producto
     /*@ requires producto != null;
       @ ensures \result == (\sum int i; 0 <= i && i < ventas.size();
-                            ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getprecio() * ventas.get(i).getcantidad() : 0);
+                      mismoProducto(ventas.get(i), producto) ? 
+                      ventas.get(i).getprecio() * ventas.get(i).getcantidad() : 0);
       @*/
     public double ingresoProducto(String producto){
         double ingreso = 0;
@@ -45,6 +53,7 @@ public class AnalisisVentas{
     public void ingresoTotal(){
         double ingreso = 0;
 
+        //@ maintaining 0 <= ingreso + (v.getprecio() * v.getcantidad()) < Double.MAX_VALUE;
         for(Venta v : ventas){
             ingreso += v.getprecio() * v.getcantidad();
         }
