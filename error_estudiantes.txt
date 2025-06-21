@@ -1,0 +1,10 @@
+./Tarea_3/Estudiantes.java:17: warning: A refining statement is required for statement specifications
+        //@ requires nombre.length > 2 && carnet >= 0 && cursos != null;
+            ^
+./Tarea_3/Estudiantes.java:17: error: cannot find symbol
+        //@ requires nombre.length > 2 && carnet >= 0 && cursos != null;
+                           ^
+  symbol:   variable length
+  location: variable nombre of type java.lang.String
+1 error
+1 warning

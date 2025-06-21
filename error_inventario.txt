@@ -1,0 +1,94 @@
+./Tarea_3/Inventario.java:15: warning: A refining statement is required for statement specifications
+        //@ensures producto.cantidad + actualizacion >= 0 ;
+           ^
+./Tarea_3/Inventario.java:35: warning: A refining statement is required for statement specifications
+        //@ ensures valor == (\sum Productos producto;Productos.listaProductos;producto.precio * producto.cantidad)
+            ^
+./Tarea_3/Inventario.java:35: warning: Inserting missing semicolon at the end of a ensures statement
+        //@ ensures valor == (\sum Productos producto;Productos.listaProductos;producto.precio * producto.cantidad)
+                                                                                                                   ^
+./Tarea_3/Inventario.java:14: error: cannot find symbol
+    public static void actulizarCantidad(int actualizacion,Productos producto){
+                                                           ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:9: error: cannot find symbol
+        Productos producto = new Productos(nombre,cantidad,precio);
+        ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:9: error: cannot find symbol
+        Productos producto = new Productos(nombre,cantidad,precio);
+                                 ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:10: error: cannot find symbol
+        Productos.getLista().add(producto);
+        ^
+  symbol:   variable Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:27: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+                                ^
+  symbol:   variable Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:27: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+            ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:35: error: cannot find symbol
+        //@ ensures valor == (\sum Productos producto;Productos.listaProductos;producto.precio * producto.cantidad)
+                                   ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:35: error: cannot find symbol
+        //@ ensures valor == (\sum Productos producto;Productos.listaProductos;producto.precio * producto.cantidad)
+                                                      ^
+  symbol:   variable Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:35: error: The value expression of a sum or product expression must be a numeric type, not <any>
+        //@ ensures valor == (\sum Productos producto;Productos.listaProductos;producto.precio * producto.cantidad)
+                                                                                               ^
+./Tarea_3/Inventario.java:37: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+                                ^
+  symbol:   variable Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:37: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+            ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:46: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+                                ^
+  symbol:   variable Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:46: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+            ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:58: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+                                ^
+  symbol:   variable Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:58: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+            ^
+  symbol:   class Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:72: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+                                ^
+  symbol:   variable Productos
+  location: class Inventario
+./Tarea_3/Inventario.java:72: error: cannot find symbol
+        for(Productos producto: Productos.getLista()){
+            ^
+  symbol:   class Productos
+  location: class Inventario
+17 errors
+3 warnings

@@ -1,0 +1,71 @@
+./Tarea_3/AnalisisCalificacion.java:6: error: cannot find symbol
+    private final List<Calificacion> calificaciones = new ArrayList<>();
+                       ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:8: error: cannot find symbol
+    public void agregar(Calificacion c){
+                        ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:21: error: cannot find symbol
+        for (Calificacion c : calificaciones){
+             ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:31: error: cannot find symbol
+        Calificacion mejor = calificaciones.get(0);
+        ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:32: error: cannot find symbol
+        for (Calificacion c : calificaciones) {
+             ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:43: error: cannot find symbol
+        for (Calificacion c : calificaciones){
+             ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:54: error: cannot find symbol
+        for (Calificacion c : calificaciones){
+             ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:67: error: cannot find symbol
+        for (Calificacion c : calificaciones) {
+             ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:76: error: cannot find symbol
+        for (Calificacion c : calificaciones){
+             ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:89: error: cannot find symbol
+        ac.agregar(new Calificacion("María", 50));
+                       ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:90: error: cannot find symbol
+        ac.agregar(new Calificacion("Luis", 75));
+                       ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:91: error: cannot find symbol
+        ac.agregar(new Calificacion("Ana", 20));
+                       ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:92: error: cannot find symbol
+        ac.agregar(new Calificacion("Andrés", 95));
+                       ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+./Tarea_3/AnalisisCalificacion.java:93: error: cannot find symbol
+        ac.agregar(new Calificacion("Gabriel", 45));
+                       ^
+  symbol:   class Calificacion
+  location: class AnalisisCalificacion
+14 errors

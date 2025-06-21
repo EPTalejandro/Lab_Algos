@@ -1,0 +1,7 @@
+./Tarea_3/Calificacion.java:24: verify: The prover cannot establish an assertion (Postcondition: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Object.jml:212:) in method toString
+        return nombre + "("+ nota +")";
+        ^
+/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Object.jml:212: verify: Associated declaration: ./Tarea_3/Calificacion.java:24:
+    @     ensures \result == ptoString();
+          ^
+2 verification failures

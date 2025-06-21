@@ -1,0 +1,4 @@
+./Tarea_3/AnalisisVentas.java:25: error: Incorrectly formed or terminated ensures statement near here
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad));
+                                                                                                                                                                                        ^
+1 error
