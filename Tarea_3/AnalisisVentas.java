@@ -4,7 +4,7 @@ public class AnalisisVentas{
 
     ArrayList<Venta> ventas = new ArrayList<>();
 
-    //@ public invariant ventas != null && ventas.size() > 0;
+    //@ public invariant ventas != null;
 
     //Crear una nueva venta
     /*@
@@ -21,14 +21,16 @@ public class AnalisisVentas{
     }
 
     //Calcula el ingreso total de un producto
-    //@ requires producto != null;
-    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
-    public double ingresoProducto(Venta producto){
+    /*@ requires producto != null;
+      @ ensures \result == (\sum int i; 0 <= i && i < ventas.size();
+                            ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getprecio() * ventas.get(i).getcantidad() : 0);
+      @*/
+    public double ingresoProducto(String producto){
         double ingreso = 0;
 
         //@ maintaining 0 <= ingreso + (v.getprecio() * v.getcantidad()) < Double.MAX_VALUE;
         for(Venta v : ventas){
-            if(v.getproducto().equals(producto.getproducto())){
+            if(v.getproducto().equals(producto)){
                 ingreso += v.getprecio() * v.getcantidad();
             }
         }
@@ -36,9 +38,10 @@ public class AnalisisVentas{
     }
 
     //Calcula el ingreso total
+    //@ assignable \nothing;
+    //@ ensures true;
     public void ingresoTotal(){
         double ingreso = 0;
-
 
         for(Venta v : ventas){
             ingreso += v.getprecio() * v.getcantidad();
@@ -48,7 +51,7 @@ public class AnalisisVentas{
 
     // Calcula la cantidad total de un producto
     //@ requires producto != null;
-    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0);
     public int cantidadProducto(String producto){
         int cantidad = 0;
         
@@ -62,6 +65,8 @@ public class AnalisisVentas{
     }
 
     //Determina el producto más vendido
+    //@ assignable \nothing;
+    //@ ensures true;
     public void productoMasVendido(){
         String masVendido = "";
         int cantidadMasVendido = 0;
@@ -78,6 +83,8 @@ public class AnalisisVentas{
     }
 
     //Genera un informe por producto (cantidad total, ingreso)
+    //@ assignable \nothing;
+    //@ ensures true;
     public void informeProductos(){
         ArrayList<String> informe = new ArrayList<>();
 
@@ -89,7 +96,7 @@ public class AnalisisVentas{
             if(!informe.contains(producto.getproducto())){
 
                 int vendido = cantidadProducto(producto.getproducto());
-                double ingreso = ingresoProducto(producto);
+                double ingreso = ingresoProducto(producto.getproducto());
 
                 System.out.println("-----------------------------------------------");
                 System.out.printf("| %-15s | %-10d | %-9.2f bs |\n", producto.getproducto(), vendido, ingreso);
@@ -112,6 +119,8 @@ public class AnalisisVentas{
 
     //Cantidad vendida de un producto
     //@ requires producto != null;
+    //@ assignable \nothing;
+    //@ ensures true;
     public void cantidadVendida(String producto){
 
         if(verificarProducto(producto)){
@@ -121,6 +130,8 @@ public class AnalisisVentas{
 
     //Verificar si un producto fue vendido
     //@ requires producto != null;
+    //@ assignable \nothing;
+    //@ ensures true;
     public void productoVendido(String producto){
         if(verificarProducto(producto)){
             System.out.println("- Sí se ha vendido "+ producto);
@@ -132,19 +143,22 @@ public class AnalisisVentas{
     public void ingresoProductoMayorQue(double monto){
         ArrayList<String> mayor = new ArrayList<>();
         int i = 0;
-
-        System.out.println("- Producto(s) con ingresos mayores a "+ monto);
+        
+        System.out.println("- Producto(s) con ingresos mayores a "+ monto +":");
 
         for(Venta producto : ventas){
 
-            if(!mayor.contains(producto.getproducto()) && monto < ingresoProducto(producto)){
-                int vendido = cantidadProducto(producto.getproducto());
+            if(!mayor.contains(producto.getproducto()) && monto < ingresoProducto(producto.getproducto())){
                 mayor.add(new String(producto.getproducto()));
                 int n = i + 1;
 
                 System.out.println(n +". "+ producto.getproducto());
                 i++;
             }
+        }
+
+        if(mayor.isEmpty()){
+            System.out.println("  No hay productos cuyo ingreso supere el monto dado");
         }
     }
 
