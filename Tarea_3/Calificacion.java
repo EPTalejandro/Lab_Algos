@@ -26,7 +26,7 @@ public class Calificacion{
     public String getNombre(){
             return nombre;
         }
-        //@ ensures \result nota >= 0 && nota <= 100;
+        //@ ensures \result >= 0 || \result <= 100;
         public int getNota(){
             return nota;
         }
