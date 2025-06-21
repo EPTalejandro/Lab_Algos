@@ -80,35 +80,4 @@ public class AnalisisCalificacion {
         }
         return false;
     }
-    
-    public static void main(String[] args){
-
-        AnalisisCalificacion ac = new AnalisisCalificacion();
-
-        //Datos de prueba
-        ac.agregar(new Calificacion("María", 50));
-        ac.agregar(new Calificacion("Luis", 75));
-        ac.agregar(new Calificacion("Ana", 20));
-        ac.agregar(new Calificacion("Andrés", 95));
-        ac.agregar(new Calificacion("Gabriel", 45));
-
-        System.out.println("Promedio de calificaciones:" + ac.notaPromedio());
-        System.out.println("Mejor estudiante:" + ac.obtenerMejorEstudiante());
-        System.out.println("estudiantes reprobados (menos de 70):" + ac.estudiantesReprobados());
-        System.out.println("Cantidad de estudiantes reprobados:" + ac.contarReprobados());
-        System.out.println("Existen reprobados:" + ac.hayReprobados());
-
-        //introducir el valor entre el rango
-        Scanner sc = new Scanner(System.in);
-        System.err.print("Introduce el valor (0-100) :");
-        int valor = sc.nextInt();
-        if (valor < 0 || valor > 100){
-            System.out.println("Error: el valor está fuera del rango");
-        }
-            else {
-                System.out.println("Estudiantes con notas sobre " + valor + ":" + ac.superioresA(valor));
-            }
-        sc.close();
-    }
-    
 }
