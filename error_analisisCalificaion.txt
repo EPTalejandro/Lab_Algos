@@ -43,29 +43,4 @@
              ^
   symbol:   class Calificacion
   location: class AnalisisCalificacion
-./Tarea_3/AnalisisCalificacion.java:89: error: cannot find symbol
-        ac.agregar(new Calificacion("María", 50));
-                       ^
-  symbol:   class Calificacion
-  location: class AnalisisCalificacion
-./Tarea_3/AnalisisCalificacion.java:90: error: cannot find symbol
-        ac.agregar(new Calificacion("Luis", 75));
-                       ^
-  symbol:   class Calificacion
-  location: class AnalisisCalificacion
-./Tarea_3/AnalisisCalificacion.java:91: error: cannot find symbol
-        ac.agregar(new Calificacion("Ana", 20));
-                       ^
-  symbol:   class Calificacion
-  location: class AnalisisCalificacion
-./Tarea_3/AnalisisCalificacion.java:92: error: cannot find symbol
-        ac.agregar(new Calificacion("Andrés", 95));
-                       ^
-  symbol:   class Calificacion
-  location: class AnalisisCalificacion
-./Tarea_3/AnalisisCalificacion.java:93: error: cannot find symbol
-        ac.agregar(new Calificacion("Gabriel", 45));
-                       ^
-  symbol:   class Calificacion
-  location: class AnalisisCalificacion
-14 errors
+9 errors

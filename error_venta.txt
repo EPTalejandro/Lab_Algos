@@ -1,4 +1,0 @@
-./Tarea_3/Venta.java:9: warning: A refining statement is required for statement specifications
-        //@ requires producto != null;
-            ^
-1 warning
