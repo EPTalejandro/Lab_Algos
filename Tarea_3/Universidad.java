@@ -11,14 +11,23 @@ public class Universidad{
     //Dado un curso y un estudiante se inscribe ese estudiante al curso
     public static void añadirACurso(String curso,int carnet){
         //@ requires curso != null;
-        //@requires estudiante != null;
+        //@requires carnet > 0;
+        if( curso == null){
+            throw new IllegalArgumentException("El curso a registrar no puede ser nulo");
+        }
+        else if(carnet < 0){
+            throw new IllegalArgumentException("El carnet no puede ser menor a cero");
+        }
         Estudiantes.getEstudiantesCarnets().get(carnet).addCurso(curso);
     }
 
     // Dado el carnet de un estudiante lista todos sus cursos
     public static void cursosEstudiante(int carnet){
-        //@requieres carnet != null;
-        if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+        //@requieres carnet > 0 ;
+        if(carnet < 0){
+            throw new IllegalArgumentException("El carnet no puede ser menor a cero");
+        }
+        else if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
             throw new IllegalArgumentException("El carnet " + carnet + " no existe");
         }
         else{
@@ -29,8 +38,14 @@ public class Universidad{
     // Dado un carnel de un alumno y un curso verifica si el alumno esta inscrito en ese curso
     public static void alumnoInscritoCurso(String curso,int carnet){
         //@ requires curso != null;
-        //@ requires carnet != null;
-        if(Estudiantes.getEstudiantesCarnets().get(carnet).getCursos().contains(curso)){
+        //@ requires carnet > 0;
+        if( curso == null){
+            throw new IllegalArgumentException("El curso a revisar inscripcion no puede ser nulo");
+        }
+        else if(carnet < 0){
+            throw new IllegalArgumentException("El carnet no puede ser menor a cero");
+        }
+        else if(Estudiantes.getEstudiantesCarnets().get(carnet).getCursos().contains(curso)){
             System.out.println("El estudiante " + Estudiantes.getEstudiantesCarnets().get(carnet).getNombre() + " sí está inscrito en " + curso);
         }
         else{
@@ -41,6 +56,9 @@ public class Universidad{
     // Muestras los alumnos inscritos en un curso dado
     public static void inscritosEnCurso(String curso){
         //@ requires curso != null;
+        if( curso == null){
+            throw new IllegalArgumentException("El curso a revisar inscripcion no puede ser nulo");
+        }
         ArrayList<String> estudiantesInscritos = new ArrayList<>();
 
         for(Estudiantes estudiante: Estudiantes.getEstudiantesCarnets().values()){
@@ -63,6 +81,9 @@ public class Universidad{
     // cuenta el numero de estudiantes inscritos en un curso
     public static void estudiantesPorCurso(String curso){
         //@ requires curso != null;
+        if( curso == null){
+            throw new IllegalArgumentException("El curso a contar no puede ser nulo");
+        }
         int total = 0;
         for(Estudiantes estudiante: Estudiantes.getEstudiantesCarnets().values()){
             if(estudiante.getCursos().contains(curso)){

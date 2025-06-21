@@ -9,8 +9,8 @@ public class AnalisisVentas{
     //Crear una nueva venta
     /*@
       @ requires nombre != null;
-      @ requires precio != null && precio > 0;
-      @ requires cantidad != null && cantidad > 0;
+      @ requires precio > 0;
+      @ requires cantidad > 0;
       @ ensures ventas.size() == \old(ventas.size()) + 1;
       @ ensures ventas.get(ventas.size() - 1).getproducto().equals(nombre);
       @ ensures ventas.get(ventas.size() - 1).getprecio() == precio;
@@ -22,7 +22,7 @@ public class AnalisisVentas{
 
     //Calcula el ingreso total de un producto
     //@ requires producto != null;
-    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad));
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
     public double ingresoProducto(Venta producto){
         double ingreso = 0;
 
@@ -128,7 +128,7 @@ public class AnalisisVentas{
     }
 
     //Lista productos con ingresos mayores a un monto
-    //@ requires monto != null && monto >= 0;
+    //@ requires monto >= 0;
     public void ingresoProductoMayorQue(double monto){
         ArrayList<String> mayor = new ArrayList<>();
         int i = 0;
@@ -151,7 +151,7 @@ public class AnalisisVentas{
     //Función main para crear ventas y probar las funciones
     public static void main(String[] args){
 
-        AnalizadorVentas analizador = new AnalizadorVentas();
+        AnalisisVentas analizador = new AnalisisVentas();
         analizador.nuevaVenta("Pendrive", 60, 2);
         analizador.nuevaVenta("Cargador", 45, 1);
         analizador.nuevaVenta("Baterías", 30, 3);

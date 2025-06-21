@@ -1,4 +1,135 @@
-./Tarea_3/AnalisisVentas.java:25: error: Incorrectly formed or terminated ensures statement near here
-    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad));
-                                                                                                                                                                                        ^
-1 error
+./Tarea_3/AnalisisVentas.java:5: error: cannot find symbol
+    ArrayList<Venta> ventas = new ArrayList<>();
+              ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:26: error: cannot find symbol
+    public double ingresoProducto(Venta producto){
+                                  ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:7: error: An identifier with package visibility may not be used in a invariant clause with public visibility
+    //@ public invariant ventas != null && ventas.size() > 0;
+                         ^
+./Tarea_3/AnalisisVentas.java:7: error: An identifier with package visibility may not be used in a invariant clause with public visibility
+    //@ public invariant ventas != null && ventas.size() > 0;
+                                           ^
+./Tarea_3/AnalisisVentas.java:14: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.size() == \old(ventas.size()) + 1;
+                ^
+./Tarea_3/AnalisisVentas.java:14: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.size() == \old(ventas.size()) + 1;
+                                      ^
+./Tarea_3/AnalisisVentas.java:15: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.get(ventas.size() - 1).getproducto().equals(nombre);
+                           ^
+./Tarea_3/AnalisisVentas.java:15: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.get(ventas.size() - 1).getproducto().equals(nombre);
+                ^
+./Tarea_3/AnalisisVentas.java:16: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.get(ventas.size() - 1).getprecio() == precio;
+                           ^
+./Tarea_3/AnalisisVentas.java:16: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.get(ventas.size() - 1).getprecio() == precio;
+                ^
+./Tarea_3/AnalisisVentas.java:17: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.get(ventas.size() - 1).getcantidad() == cantidad;
+                           ^
+./Tarea_3/AnalisisVentas.java:17: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+      @ ensures ventas.get(ventas.size() - 1).getcantidad() == cantidad;
+                ^
+./Tarea_3/AnalisisVentas.java:20: error: cannot find symbol
+        ventas.add(new Venta(nombre, precio, cantidad));
+                       ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:25: error: unexpected type
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
+                ^
+  required: variable
+  found:    value
+./Tarea_3/AnalisisVentas.java:25: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
+                                                     ^
+./Tarea_3/AnalisisVentas.java:25: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
+                                                                      ^
+./Tarea_3/AnalisisVentas.java:25: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
+                                                                                                                                  ^
+./Tarea_3/AnalisisVentas.java:25: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
+                                                                                                                                                              ^
+./Tarea_3/AnalisisVentas.java:25: error: The value expression of a sum or product expression must be a numeric type, not <any>
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
+                                                                                                                                                            ^
+./Tarea_3/AnalisisVentas.java:25: error: Assignments are not allowed where pure expressions are expected
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getprecio() * ventas.get(i).getcantidad());
+                        ^
+./Tarea_3/AnalisisVentas.java:30: error: cannot find symbol
+        for(Venta v : ventas){
+            ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:43: error: cannot find symbol
+        for(Venta v : ventas){
+            ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:51: error: unexpected type
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+                ^
+  required: variable
+  found:    value
+./Tarea_3/AnalisisVentas.java:51: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+                                                     ^
+./Tarea_3/AnalisisVentas.java:51: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+                                                                      ^
+./Tarea_3/AnalisisVentas.java:51: error: cannot find symbol
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+                                                                                                                 ^
+  symbol:   method getproducto()
+  location: variable producto of type java.lang.String
+./Tarea_3/AnalisisVentas.java:51: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+                                                                                                                                  ^
+./Tarea_3/AnalisisVentas.java:51: error: The value expression of a sum or product expression must be a numeric type, not Venta.getcantidad
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+                                                                                                                                                           ^
+./Tarea_3/AnalisisVentas.java:51: error: Assignments are not allowed where pure expressions are expected
+    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size() && ventas.get(i).getproducto().equals(producto.getproducto()); ventas.get(i).getcantidad());
+                        ^
+./Tarea_3/AnalisisVentas.java:56: error: cannot find symbol
+        for(Venta a : ventas){
+            ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:69: error: cannot find symbol
+        for(Venta producto : ventas){
+            ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:87: error: cannot find symbol
+        for(Venta producto : ventas){
+            ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:105: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result <==> (\exists int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto));
+                                                           ^
+./Tarea_3/AnalisisVentas.java:105: error: An identifier with package visibility may not be used in a ensures clause with public visibility
+    //@ ensures \result <==> (\exists int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto));
+                                                                          ^
+./Tarea_3/AnalisisVentas.java:107: error: cannot find symbol
+        for(Venta v : ventas){
+            ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+./Tarea_3/AnalisisVentas.java:138: error: cannot find symbol
+        for(Venta producto : ventas){
+            ^
+  symbol:   class Venta
+  location: class AnalisisVentas
+36 errors

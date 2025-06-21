@@ -1,11 +1,4 @@
-./Tarea_3/Venta.java:9: error: bad operand types for binary operator '!='
-    //@ requires precio != null && precio > 0;
-                        ^
-  first type:  double
-  second type: <nulltype>
-./Tarea_3/Venta.java:10: error: bad operand types for binary operator '!='
-    //@ requires cantidad != null && cantidad > 0;
-                          ^
-  first type:  int
-  second type: <nulltype>
-2 errors
+./Tarea_3/Venta.java:9: warning: A refining statement is required for statement specifications
+        //@ requires producto != null;
+            ^
+1 warning

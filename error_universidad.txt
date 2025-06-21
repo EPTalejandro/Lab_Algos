@@ -1,45 +1,63 @@
 ./Tarea_3/Universidad.java:13: warning: A refining statement is required for statement specifications
         //@ requires curso != null;
             ^
-./Tarea_3/Universidad.java:20: error: ';' expected
-        //@requieres carnet != null;
+./Tarea_3/Universidad.java:26: error: ';' expected
+        //@requieres carnet > 0 ;
                            ^
-./Tarea_3/Universidad.java:20: error: Token @*/ does not introduce an expression
-        //@requieres carnet != null;
-                                    ^
-./Tarea_3/Universidad.java:21: error: illegal start of type
-        if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+./Tarea_3/Universidad.java:26: error: Token @*/ does not introduce an expression
+        //@requieres carnet > 0 ;
+                                 ^
+./Tarea_3/Universidad.java:27: error: illegal start of type
+        if(carnet < 0){
         ^
-./Tarea_3/Universidad.java:21: error: <identifier> expected
-        if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+./Tarea_3/Universidad.java:27: error: <identifier> expected
+        if(carnet < 0){
           ^
-./Tarea_3/Universidad.java:21: error: <identifier> expected
-        if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
-                                            ^
-./Tarea_3/Universidad.java:21: error: ';' expected
-        if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
-                                              ^
-./Tarea_3/Universidad.java:24: error: illegal start of type
+./Tarea_3/Universidad.java:27: error: illegal start of type
+        if(carnet < 0){
+                    ^
+./Tarea_3/Universidad.java:27: error: > or ',' expected
+        if(carnet < 0){
+                     ^
+./Tarea_3/Universidad.java:30: error: illegal start of type
+        else if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+        ^
+./Tarea_3/Universidad.java:30: error: <identifier> expected
+        else if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+            ^
+./Tarea_3/Universidad.java:30: error: illegal start of type
+        else if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+             ^
+./Tarea_3/Universidad.java:30: error: <identifier> expected
+        else if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+               ^
+./Tarea_3/Universidad.java:30: error: <identifier> expected
+        else if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+                                                 ^
+./Tarea_3/Universidad.java:30: error: ';' expected
+        else if(Estudiantes.getEstudiantesCarnets().containsKey(carnet)==false){
+                                                   ^
+./Tarea_3/Universidad.java:33: error: illegal start of type
         else{
         ^
-./Tarea_3/Universidad.java:24: error: <identifier> expected
+./Tarea_3/Universidad.java:33: error: <identifier> expected
         else{
             ^
-./Tarea_3/Universidad.java:30: error: unnamed classes are a preview feature and are disabled by default.
+./Tarea_3/Universidad.java:39: error: unnamed classes are a preview feature and are disabled by default.
     public static void alumnoInscritoCurso(String curso,int carnet){
                   ^
   (use --enable-preview to enable unnamed classes)
-./Tarea_3/Universidad.java:31: warning: A refining statement is required for statement specifications
+./Tarea_3/Universidad.java:40: warning: A refining statement is required for statement specifications
         //@ requires curso != null;
             ^
-./Tarea_3/Universidad.java:43: warning: A refining statement is required for statement specifications
+./Tarea_3/Universidad.java:58: warning: A refining statement is required for statement specifications
         //@ requires curso != null;
             ^
-./Tarea_3/Universidad.java:65: warning: A refining statement is required for statement specifications
+./Tarea_3/Universidad.java:83: warning: A refining statement is required for statement specifications
         //@ requires curso != null;
             ^
-./Tarea_3/Universidad.java:83: error: class, interface, enum, or record expected
+./Tarea_3/Universidad.java:104: error: class, interface, enum, or record expected
 }
 ^
-10 errors
+16 errors
 4 warnings

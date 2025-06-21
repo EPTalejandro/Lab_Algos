@@ -14,7 +14,9 @@ public class Estudiantes {
     // Con el HashMap de estudiantesCarnets se comprueba que los carnets sean unicos
     public Estudiantes(String nombre,int carnet, String[] cursos){
         
-        //@ requires nombre.length > 2 && carnet >= 0 && cursos != null;
+        //@requires nombre.length() > 2;
+        //@requires carnet >= 0;
+        //@requires cursos != null;
         if(estudiantesCarnets.containsKey(carnet) || carnet < 0 || nombre.length() < 2 || cursos == null){
             throw new IllegalArgumentException("Los parametros para registrar un estudiante son invalidos");
         }
