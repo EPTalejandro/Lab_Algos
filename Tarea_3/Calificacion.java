@@ -3,6 +3,10 @@ public class Calificacion{
     private final String nombre;
     private final int nota;
 
+    //@ requires nombre != null;
+    //@ requires nota >= 0 && nota <= 100;
+    //@ ensures this.nombre.equals(nombre);
+    //@ ensures this.nota == nota;
     public Calificacion(String nombre, int nota){
         //@requires nota >= 0 && nota <= 100;
         //requires nombre != null;
@@ -18,11 +22,12 @@ public class Calificacion{
 
     
 
+        //@ ensures \result != null;
     public String getNombre(){
             return nombre;
         }
-
-    public int getNota(){
+        //@ ensures \result nota >= 0 && nota <= 100;
+        public int getNota(){
             return nota;
         }
 
