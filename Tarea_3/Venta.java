@@ -9,9 +9,6 @@ public class Venta{
     //@ requires precio > 0;
     //@ requires cantidad > 0;
     public Venta(String producto, double precio, int cantidad){
-        //@ requires producto != null;
-        //@ requires precio > 0;
-        //@ requires cantidad > 0;
         if( producto == null){
             throw new IllegalArgumentException("El producto a registrar no puede ser nulo");
         }
