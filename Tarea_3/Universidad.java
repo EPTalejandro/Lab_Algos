@@ -11,7 +11,7 @@ public class Universidad{
     //Dado un curso y un estudiante se inscribe ese estudiante al curso
     public static void añadirACurso(String curso,int carnet){
         //@ requires curso != null;
-        //@requires carnet > 0;
+        //@ requires carnet > 0;
         if( curso == null){
             throw new IllegalArgumentException("El curso a registrar no puede ser nulo");
         }
