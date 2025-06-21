@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import Venta;
 
 //@ spec_public
 public class AnalisisVentas{

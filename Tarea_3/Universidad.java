@@ -81,6 +81,7 @@ public class Universidad{
     // cuenta el numero de estudiantes inscritos en un curso
     public static void estudiantesPorCurso(String curso){
         //@ requires curso != null;
+        //@ ensures curso == (\sum Estudiantes estudiante; Estudiantes.getEstudiantesCarnets().values() ; 1)
         if( curso == null){
             throw new IllegalArgumentException("El curso a contar no puede ser nulo");
         }

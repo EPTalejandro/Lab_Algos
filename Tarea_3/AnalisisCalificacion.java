@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class AnalisisCalificacion {
     private final List<Calificacion> calificaciones = new ArrayList<>();
 
-    public void agregar(Calificacion c){
-        if (c == null) {
-            throw new IllegalArgumentException("La calificacion no puede ser nula");
+    public void agregar(int nota, String nombre){
+        //@requires nota >= 0 && nota <= 100;
+        //@requires nombre != null;
+        if (nota > 100 && nota < 0) {
+            throw new IllegalArgumentException("La calificacion no puede ser mayor a 100 ni menor a 0");
         }
-        calificaciones.add(c);
+        Calificacion calificacion = new Calificacion(nombre, nota);
+        calificaciones.add(calificacion);
     }
 
     public double notaPromedio(){
@@ -49,17 +51,19 @@ public class AnalisisCalificacion {
     }
 
     public int contarReprobados(){
+        //@ensures \result == (\sum Calificacion calicacion; calificaciones; 1);
         int conteo = 0;
 
         for (Calificacion c : calificaciones){
             if (c.getNota() < 70){
-                conteo++;
+                conteo = conteo + 1;
             }
         }
         return conteo;
     }
 
     public List<String> superioresA(int valor){
+        //@ requires valor >= 0 && valor <= 100;
         if (valor < 0 || valor > 100){
             throw new IllegalArgumentException("Valor fuera de rango");
         }
@@ -73,6 +77,7 @@ public class AnalisisCalificacion {
     }
 
     public boolean hayReprobados(){
+        //@ensures \result == (\forall Calificacion calificacion; calificaciones ; calificacion.getNota() < 70);
         for (Calificacion c : calificaciones){
             if (c.getNota() < 70){
                 return true;

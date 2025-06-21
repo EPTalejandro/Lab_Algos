@@ -4,6 +4,8 @@ public class Calificacion{
     private final int nota;
 
     public Calificacion(String nombre, int nota){
+        //@requires nota >= 0 && nota <= 100;
+        //requires nombre != null;
         if (nombre == null){
             throw new IllegalArgumentException("Debe indicar un nombre válido");
             }
@@ -13,12 +15,17 @@ public class Calificacion{
         this.nombre = nombre; 
         this.nota = nota;
     }
-        public String getNombre(){
+
+    
+
+    public String getNombre(){
             return nombre;
         }
-        public int getNota(){
+
+    public int getNota(){
             return nota;
         }
+
     @Override
     public String toString(){
         return nombre + "("+ nota +")";

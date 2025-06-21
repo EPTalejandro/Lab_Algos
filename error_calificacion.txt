@@ -1,7 +1,11 @@
-./Tarea_3/Calificacion.java:24: verify: The prover cannot establish an assertion (Postcondition: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Object.jml:212:) in method toString
+./Tarea_3/Calificacion.java:7: warning: A refining statement is required for statement specifications
+        //@requires nota >= 0 && nota <= 100;
+           ^
+./Tarea_3/Calificacion.java:31: verify: The prover cannot establish an assertion (Postcondition: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Object.jml:212:) in method toString
         return nombre + "("+ nota +")";
         ^
-/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Object.jml:212: verify: Associated declaration: ./Tarea_3/Calificacion.java:24:
+/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Object.jml:212: verify: Associated declaration: ./Tarea_3/Calificacion.java:31:
     @     ensures \result == ptoString();
           ^
+1 warning
 2 verification failures
