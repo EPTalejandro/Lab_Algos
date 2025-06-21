@@ -1,7 +1,10 @@
 import java.util.ArrayList;
+import Venta;
 
+//@ spec_public
 public class AnalisisVentas{
 
+    //@ spec_public
     ArrayList<Venta> ventas = new ArrayList<>();
 
     //@ public invariant ventas != null;
@@ -51,7 +54,7 @@ public class AnalisisVentas{
 
     // Calcula la cantidad total de un producto
     //@ requires producto != null;
-    //@ ensures \result = (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0);
+    //@ ensures \result == (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0);
     public int cantidadProducto(String producto){
         int cantidad = 0;
         
