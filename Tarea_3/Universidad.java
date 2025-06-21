@@ -23,7 +23,7 @@ public class Universidad{
 
     // Dado el carnet de un estudiante lista todos sus cursos
     public static void cursosEstudiante(int carnet){
-        //@requires carnet > 0 ;
+        //@ requires carnet > 0 ;
         if(carnet < 0){
             throw new IllegalArgumentException("El carnet no puede ser menor a cero");
         }
