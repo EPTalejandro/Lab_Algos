@@ -25,15 +25,15 @@ public class Venta{
 
     // Métodos getter para obtener los atributos
 
-    public String getproducto(){
+    /*@ pure @*/ public String getproducto(){
         return producto;
     }
 
-    public double getprecio(){
+    /*@ pure @*/ public double getprecio(){
         return precio;
     }
 
-    public int getcantidad(){
+    /*@ pure @*/ public int getcantidad(){
         return cantidad;
     }
 
