@@ -38,7 +38,8 @@ Calificacion y AnalisisCalificacion:
     -getNombre y getNota: cada uno devuelve su correspondiente nombre o nota.
     Además, para facilitar la depuración se sobreescribe toString() que imprime el formato “Nombre (nota)” en lugar del hash por defecto.
 
-    -Acompañada a esta se encuentra la clase AnalisisCalificacion la cual mantiene una lista privada que se encarga de almacenar todas las calificaciones añadidas. No es necesario almacenar objetos Calificacion en variables externas, solo basta con llamar a sus métodos. Estos métodos son:
+    -Acompañada a esta se encuentra la clase AnalisisCalificacion la cual mantiene una lista privada que se encarga de almacenar todas las calificaciones
+    añadidas. No es necesario almacenar objetos Calificacion en variables externas, solo basta con llamar a sus métodos. Estos métodos son:
     *agregar(int nota, String nombre): crea una nueva calificación con la validación correspondiente y lo añade a la lista.
     *notaPromedio(): calcula y devuelve el promedio de todas las nota. Lanza excepción si la lista está vacia.
     *obtenerMejorEstudiante(): recorre la lista y devuelve el nombre y la nota del estudiante con la mayor calificación en el formato “Nombre (nota)”.
@@ -46,38 +47,19 @@ Calificacion y AnalisisCalificacion:
     *contarReprobados(): cuenta cuantas notas están por debajo de 70 y devuelve el número.
     *superioresA(int valor): devuelve los nombres de los estudiantes con notas mayores al valor asignado en el rango de 0 a 100.
     *hayReprobados(): comprueba si hay notas por debajo de 70, si existen retorna true, si no hay notas por debajo de 70 entonces retorna false.
-    
-    Prueba rápida:
-    Para compilar ambas clases utilice: javac Calificacion.java AnalisisCalificacion.java
-    
-    Crea un main o utiliza un programa de prueba para llamar a los métodos de AnalisisCalificacion.java:
 
-    public static void main(String[] args){
-
-        AnalisisCalificacion ac = new AnalisisCalificacion();
-
-        ac.agregar(new Calificacion("María", 50));
-        ac.agregar(new Calificacion("Luis", 75));
-        ac.agregar(new Calificacion("Ana", 20));
-        ac.agregar(new Calificacion("Andrés", 95));
-        ac.agregar(new Calificacion("Gabriel", 45));
-
-        System.out.println("Promedio de calificaciones:" + ac.notaPromedio());
-        System.out.println("Mejor estudiante:" + ac.obtenerMejorEstudiante());
-        System.out.println("estudiantes reprobados (menos de 70):" + ac.estudiantesReprobados());
-        System.out.println("Cantidad de estudiantes reprobados:" + ac.contarReprobados());
-        System.out.println("Existen reprobados:" + ac.hayReprobados());
-
-        //introducir el valor entre el rango
-        Scanner sc = new Scanner(System.in);
-        System.err.print("Introduce el valor (0-100) :");
-        int valor = sc.nextInt();
-        if (valor < 0 || valor > 100){
-            System.out.println("Error: el valor está fuera del rango");
-        }
-            else {
-                System.out.println("Estudiantes con notas sobre " + valor + ":" + ac.superioresA(valor));
-            }
-        sc.close();
-    }
-
+Ventas y Analisis ventas:
+    -Comenzamos con la clase Ventas cuyos objetos tendran tres atributos(producto, precio, cantidad) siendo atributos unicos para cada objeto y la clase 
+    Ventas cuenta con diferentes metodos para retribuir dichos elementos
+    - Despues esta la clase analisisVentas la cual a pricipio maneja una lista de todas las ventas realizas, luego tiene diferentes metodos que interactuan
+    con la clase Ventas con simplemente introducir los nombres de los productos, no es necesario guardar los objetos Ventas en variables para manipularlos
+    los metodos de AnalisisVentas son:
+    *nuevaVenta: Registra la nueva venta como objeto Venta y lo guarda en la lista de todas las ventas 
+    *ingresoProducto: Dado el nombre de un producto Retorna el ingreso total que ha dejado un prodacto tomando en cuenta unidades vendidas y precio unitario
+    *ingresoTotal: Devuelme el monto total absoluto de todas las ventas, tomando en cuenta unidades y precio unitario
+    *cantidadProducto: Dado un producto retorna la cantidad de este mismo 
+    *productoMasVendido: Retorna el producto mas vendido de todos
+    *informeProductos: Da un informe detallado de todos los productos su nombre,precio y cantidad
+    *productoVendido: Dado un producto indica si este ya a sido vendido o no 
+    *cantidadVendida: Retorna el total de unidades vendidas
+    *ingresoProductoMayorQue: Retorna todos los productos que hayan dejado un ingreso mayor a una suma dada 
