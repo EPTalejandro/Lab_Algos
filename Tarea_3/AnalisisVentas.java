@@ -54,6 +54,7 @@ public class AnalisisVentas{
     // Calcula la cantidad total de un producto
     //@ requires producto != null;
     //@ ensures \result == (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0);
+    //@ pure
     public int cantidadProducto(String producto){
         int cantidad = 0;
         
@@ -89,7 +90,7 @@ public class AnalisisVentas{
     //@ requires true;
     //@ ensures true;
     public ArrayList<ArrayList<String>> informeProductos(){
-        ArrayList<String> informe = new ArrayList<>();
+        ArrayList<ArrayList<String>> informe = new ArrayList<>();
 
         for(Venta producto : ventas){
 
@@ -111,6 +112,7 @@ public class AnalisisVentas{
     // Verifica si un producto fue vendido
     //@ requires producto != null;
     //@ ensures \result <==> (\exists int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto));
+    //@ pure
     public boolean productoVendido(String producto){
         for(Venta v : ventas){
             if(v.getproducto().equals(producto)) return true;
