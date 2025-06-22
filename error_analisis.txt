@@ -27,46 +27,32 @@
 ./Tarea_3/AnalisisVentas.java:56: error: The value expression of a sum or product expression must be a numeric type, not Venta.getcantidad
     //@ ensures \result == (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0);
                                                                                                                   ^
-./Tarea_3/AnalisisVentas.java:61: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:62: error: cannot find symbol
         for(Venta a : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:72: warning: A non-pure method is being called where it is not permitted: AnalisisVentas.cantidadProducto(java.lang.String)
-      @          cantidadProducto(\result) >= cantidadProducto(ventas.get(i).getproducto()));
-                                 ^
-./Tarea_3/AnalisisVentas.java:78: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:79: error: cannot find symbol
         for(Venta producto : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:94: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:95: error: cannot find symbol
         for(Venta producto : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:105: error: incompatible types: java.util.ArrayList<@org.jmlspecs.annotation.NonNull java.lang.String> cannot be converted to @org.jmlspecs.annotation.NonNull java.lang.String
-                informe.add(infProducto);
-                            ^
-./Tarea_3/AnalisisVentas.java:108: error: incompatible types: java.util.ArrayList<@org.jmlspecs.annotation.NonNull java.lang.String> cannot be converted to java.util.ArrayList<java.util.ArrayList<java.lang.String>>
-        return informe;
-               ^
-./Tarea_3/AnalisisVentas.java:115: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:117: error: cannot find symbol
         for(Venta v : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-./Tarea_3/AnalisisVentas.java:123: warning: A non-pure method is being called where it is not permitted: AnalisisVentas.productoVendido(java.lang.String)
-    //@ ensures \result == (productoVendido(producto) ? (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0) : 0);
-                                           ^
-./Tarea_3/AnalisisVentas.java:123: error: The value expression of a sum or product expression must be a numeric type, not Venta.getcantidad
+./Tarea_3/AnalisisVentas.java:125: error: The value expression of a sum or product expression must be a numeric type, not Venta.getcantidad
     //@ ensures \result == (productoVendido(producto) ? (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0) : 0);
                                                                                                                                                ^
-./Tarea_3/AnalisisVentas.java:134: error: cannot find symbol
+./Tarea_3/AnalisisVentas.java:136: error: cannot find symbol
         for(Venta producto : ventas){
             ^
   symbol:   class Venta
   location: class AnalisisVentas
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-15 errors
-2 warnings
+13 errors
