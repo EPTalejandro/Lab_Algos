@@ -39,16 +39,16 @@ public class AnalisisVentas{
     }
 
     //Calcula el ingreso total
-    //@ assignable \nothing;
-    //@ ensures true;
-    public void ingresoTotal(){
+    //@ requires true;
+    //@ ensures \result == (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getprecio() * ventas.get(i).getcantidad);
+    public double ingresoTotal(){
         double ingreso = 0;
 
         //@ maintaining 0 <= ingreso + (v.getprecio() * v.getcantidad()) < Double.MAX_VALUE;
         for(Venta v : ventas){
             ingreso += v.getprecio() * v.getcantidad();
         }
-        System.out.println("- El ingreso total es de: " + ingreso + " bs");
+        return ingreso;
     }
 
     // Calcula la cantidad total de un producto
@@ -67,9 +67,11 @@ public class AnalisisVentas{
     }
 
     //Determina el producto más vendido
-    //@ assignable \nothing;
-    //@ ensures true;
-    public void productoMasVendido(){
+    /*@ requires true;
+      @ ensures (\forall int i; 0 <= i && i < ventas.size();
+      @          cantidadProducto(\result) >= cantidadProducto(ventas.get(i).getproducto()));
+      @*/
+    public String productoMasVendido(){
         String masVendido = "";
         int cantidadMasVendido = 0;
 
@@ -80,39 +82,36 @@ public class AnalisisVentas{
                 cantidadMasVendido = vendido;
             }
         }
-        System.out.println("- Producto más vendido): " + masVendido);
-        System.out.println("  Cantidad vendida: "+ cantidadMasVendido);
+        return masVendido;
     }
 
     //Genera un informe por producto (cantidad total, ingreso)
-    //@ assignable \nothing;
+    //@ requires true;
     //@ ensures true;
-    public void informeProductos(){
+    public ArrayList<ArrayList<String>> informeProductos(){
         ArrayList<String> informe = new ArrayList<>();
-
-        System.out.println("-----------------------------------------------");
-        System.out.printf("| %-15s | %-10s | %-12s |\n", "Producto", "Cantidad", "Ingresos");
 
         for(Venta producto : ventas){
 
             if(!informe.contains(producto.getproducto())){
+                ArrayList<String> infProducto = new ArrayList<>();
 
                 int vendido = cantidadProducto(producto.getproducto());
                 double ingreso = ingresoProducto(producto.getproducto());
 
-                System.out.println("-----------------------------------------------");
-                System.out.printf("| %-15s | %-10d | %-9.2f bs |\n", producto.getproducto(), vendido, ingreso);
-
-                informe.add(new String(producto.getproducto()));
+                infProducto.add(producto.getproducto());
+                infProducto.add(String.valueOf(vendido));
+                infProducto.add(String.valueOf(ingreso));
+                informe.add(infProducto);
             }
         }
-        System.out.println("-----------------------------------------------");
+        return informe;
     }
 
     // Verifica si un producto fue vendido
     //@ requires producto != null;
     //@ ensures \result <==> (\exists int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto));
-    public boolean verificarProducto(String producto){
+    public boolean productoVendido(String producto){
         for(Venta v : ventas){
             if(v.getproducto().equals(producto)) return true;
         }
@@ -121,65 +120,22 @@ public class AnalisisVentas{
 
     //Cantidad vendida de un producto
     //@ requires producto != null;
-    //@ assignable \nothing;
-    //@ ensures true;
-    public void cantidadVendida(String producto){
-
-        if(verificarProducto(producto)){
-            System.out.println("- Unidades vendidas de "+ producto +" : "+ cantidadProducto(producto));
-        }else System.out.println("- No se ha vendido " + producto);       
-    }
-
-    //Verificar si un producto fue vendido
-    //@ requires producto != null;
-    //@ assignable \nothing;
-    //@ ensures true;
-    public void productoVendido(String producto){
-        if(verificarProducto(producto)){
-            System.out.println("- Sí se ha vendido "+ producto);
-        }else System.out.println("- No se ha vendido "+ producto);
+    //@ ensures \result == (productoVendido(producto) ? (\sum int i; 0 <= i && i < ventas.size(); ventas.get(i).getproducto().equals(producto) ? ventas.get(i).getcantidad() : 0) : 0);
+    public int cantidadVendida(String producto){
+        if(productoVendido(producto)){
+            return cantidadProducto(producto);
+        }else return 0;       
     }
 
     //Lista productos con ingresos mayores a un monto
     //@ requires monto >= 0;
-    public void ingresoProductoMayorQue(double monto){
+    public ArrayList<String> ingresoProductoMayorQue(double monto){
         ArrayList<String> mayor = new ArrayList<>();
-        int i = 0;
-        
-        System.out.println("- Producto(s) con ingresos mayores a "+ monto +":");
-
         for(Venta producto : ventas){
-
             if(!mayor.contains(producto.getproducto()) && monto < ingresoProducto(producto.getproducto())){
                 mayor.add(new String(producto.getproducto()));
-                int n = i + 1;
-
-                System.out.println(n +". "+ producto.getproducto());
-                i++;
             }
         }
-
-        if(mayor.isEmpty()){
-            System.out.println("  No hay productos cuyo ingreso supere el monto dado");
-        }
-    }
-
-    //Función main para crear ventas y probar las funciones
-    public static void main(String[] args){
-
-        AnalisisVentas analizador = new AnalisisVentas();
-        analizador.nuevaVenta("Pendrive", 60, 2);
-        analizador.nuevaVenta("Cargador", 45, 1);
-        analizador.nuevaVenta("Baterías", 30, 3);
-        analizador.nuevaVenta("Pendrive", 60, 5);
-        analizador.nuevaVenta("Computadora", 300, 1);
-        analizador.nuevaVenta("Cargador", 45, 3);
-        analizador.nuevaVenta("Cables USB", 20, 6);
-        analizador.ingresoTotal();
-        analizador.productoMasVendido();
-        analizador.informeProductos();
-        analizador.cantidadVendida("Cargador");
-        analizador.productoVendido("Teclado");
-        analizador.ingresoProductoMayorQue(150.23);
+        return mayor;
     }
 }
