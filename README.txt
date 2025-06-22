@@ -50,7 +50,8 @@ Calificacion y AnalisisCalificacion:
     Prueba rápida:
     Para compilar ambas clases utilice: javac Calificacion.java AnalisisCalificacion.java
     
-    Crea un main o utiliza un programa de prueba para llamar a los métodos de AnalisisCalificacion.java
+    Crea un main o utiliza un programa de prueba para llamar a los métodos de AnalisisCalificacion.java:
+
     public static void main(String[] args){
 
         AnalisisCalificacion ac = new AnalisisCalificacion();
