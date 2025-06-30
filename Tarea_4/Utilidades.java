@@ -20,11 +20,24 @@ public class Utilidades {
         return false;
     }
 
-/*    public static double[][] traspuestaMatriz(){
-
+    /*@ requieres matriz.length > 0 && matriz[0]length > 0;
+      @ ensures \result.length == matriz[0].length && 
+      @         \result[0].length == matriz.length && 
+      @         (\forall int i,j; 0 <= i && i < \result.lengt && 0 <= j && j < \result[0].length;
+      @            \result[i][j] == matriz[j][i]);
+      @*/
+    public static double[][] traspuestaMatriz(double[][] matriz){
+        double[][] traspuesta = new double[matriz[0].length][matriz.length];
+        
+        for (int i = 0; i < matriz.length; i++){
+            for (int j = 0; j < matriz[0].length; j++){
+                traspuesta[j][i] = matriz [i][j];
+            }
+        }
+        return traspuesta;
     }
 
-    public static boolean esSubconjunto(){
+    /*public static boolean esSubconjunto(){
 
     }*/
 
