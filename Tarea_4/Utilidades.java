@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Utilidades {
 
     /*public static int[] diferenciaSimetricaConjuntos(int[] a, int[] b){
@@ -11,6 +13,8 @@ public class Utilidades {
         return c;
     }*/
 
+    //@ requires b != null && b.length > 0;
+    //@ ensures \result <==> (\exist int i; 0 <= i && i < b.length; k == b[i]);
     public static boolean isIn(int k, int[] b){
         //@ maintaining 0 <= i <= b.length;
         //@ decreases b.length - i;
@@ -57,7 +61,6 @@ public class Utilidades {
       @*/
     public static boolean esSubconjunto(int[] a, int[] b){
         if(a.length > b.length) return false;
-
         //@ maintaining 0 <= i <= a.length;
         //@ decreases a.length - i;
         for(int i = 0; i < a.length; i++){
@@ -76,6 +79,10 @@ public class Utilidades {
     public static void rotarArreglo(){
         if (a.length == 0) return;
         int ultimo = a[a.length - 1];
+        /*@ maintaining 0 < i < a.length;
+          @ maintaining (\forall int j; i < j < a.length; a[j] == \old(a[j - 1]));
+          @ decreases i;
+          @*/
         for (int i = a.length - 1; i > 0; i--) {
             a[i] = a[i-1];
         }
