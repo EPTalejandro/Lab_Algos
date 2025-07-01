@@ -44,8 +44,7 @@ public class Utilidades {
   /∗@ requires a. length > 0;
     @ assignable a[∗];
     @ ensures (\ forall int i ; 1 <= i < a. length; a[i] == \old(a[i − 1])) &&
-    @
-    a [0] == \old(a[a. length − 1]);
+    @         a [0] == \old(a[a. length − 1]);
     @∗/
     public static void rotarArreglo(){
         if (a.length == 0) return;
