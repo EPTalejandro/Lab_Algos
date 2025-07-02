@@ -6,8 +6,8 @@ public class Utilidades {
       @ requires (\forall int i, j; 0 <= i && i < a.length && 0 <= j && j < a.length; a[i] != a[j]);
       @ requires b != null && b.length > 0;
       @ ensures (\forall int i; 0 <= i && i < \result.length; 
-      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
-      @             (\exist int j; 0 <= j && j < b.length; \result[i] == b[j] && (\forall int k; 0 <= k && k < a.length; \result[i] != a[k])));
+      @             (\exists int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+      @             (\exists int j; 0 <= j && j < b.length; \result[i] == b[j] && (\forall int k; 0 <= k && k < a.length; \result[i] != a[k])));
       @*/
     public static int[] diferenciaSimetricaConjuntos(int[] a, int[] b){
         ArrayList<Integer> numerosDifSim = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Utilidades {
     }
 
     //@ requires b != null && b.length > 0;
-    //@ ensures \result <==> (\exist int i; 0 <= i && i < b.length; k == b[i]);
+    //@ ensures \result <==> (\exists int i; 0 <= i && i < b.length; k == b[i]);
     public static boolean isIn(int k, int[] b){
         //@ maintaining 0 <= i <= b.length;
         //@ decreases b.length - i;
@@ -53,10 +53,10 @@ public class Utilidades {
         return false;
     }
 
-    /*@ requires matriz.length > 0 && matriz[0]length > 0;
+    /*@ requires matriz.length > 0 && matriz[0].length > 0;
       @ ensures \result.length == matriz[0].length && 
       @         \result[0].length == matriz.length && 
-      @         (\forall int i,j; 0 <= i && i < \result.lengt && 0 <= j && j < \result[0].length;
+      @         (\forall int i,j; 0 <= i && i < \result.length && 0 <= j && j < \result[0].length;
       @            \result[i][j] == matriz[j][i]);
       @*/
     public static double[][] traspuestaMatriz(double[][] matriz){
@@ -73,7 +73,7 @@ public class Utilidades {
               @ maintaining (\forall int k; 
               @                 0 <= k && k < j;
               @              traspuesta[k][i] == matriz[i][k]);
-              @ decreases matriz.[0].length - j;
+              @ decreases matriz[0].length - j;
               @*/
             for (int j = 0; j < matriz[0].length; j++){
                 traspuesta[j][i] = matriz [i][j];
@@ -84,7 +84,7 @@ public class Utilidades {
 
     /*@ requires (\forall int i,j; 0 <= i && i < a.length && 0 <= j && j < a.length; i != j <==> a[i] != a[j]);
       @ requires (\forall int i,j; 0 <= i && i < b.length && 0 <= j && j < b.length; i != j <==> b[i] != b[j]);
-      @ ensures (\forall int i; 0 <= i && i < a.length; (\exist int j; 0 <= j && j < b.length; a[i] == b[j]));
+      @ ensures (\forall int i; 0 <= i && i < a.length; (\exists int j; 0 <= j && j < b.length; a[i] == b[j]));
       @*/
     public static boolean esSubconjunto(int[] a, int[] b){
         if(a.length > b.length) return false;
@@ -99,11 +99,11 @@ public class Utilidades {
     }
 
       /*@ requires a.length > 0;
-        @ assignable a[∗];
-        @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == \old(a[i − 1])) &&
-        @         a[0] == \old(a[a.length − 1]);
+        @ assignable a[*];
+        @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == \old(a[i - 1])) &&
+        @         a[0] == \old(a[a.length - 1]);
         @*/
-    public static void rotarArreglo(){
+    public static void rotarArreglo(int[] a){
         int ultimo = a[a.length - 1];
         /*@ maintaining 0 < i < a.length;
           @ maintaining (\forall int j; i < j < a.length; a[j] == \old(a[j - 1]));
@@ -130,6 +130,6 @@ public class Utilidades {
 
         int[] tata = {1,2,4};
         int[] titi = {1,2,3};
-        System.out.println(esSubconjunto(tato, tito));
+        System.out.println(" " + esSubconjunto(tata, titi));
     }
 }
