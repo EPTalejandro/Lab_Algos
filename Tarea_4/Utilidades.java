@@ -2,16 +2,43 @@ import java.util.ArrayList;
 
 public class Utilidades {
 
-    /*public static int[] diferenciaSimetricaConjuntos(int[] a, int[] b){
-        int[] c = new int[a.length + b.length];
+    /*@ requires a != null && a.length > 0;
+      @ requires (\forall int i, j; 0 <= i && i < a.length && 0 <= j && j < a.length; a[i] != a[j]);
+      @ requires b != null && b.length > 0;
+      @ ensures (\forall int i; 0 <= i && i < \result.length; 
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+      @             (\exist int j; 0 <= j && j < b.length; \result[i] == b[j] && (\forall int k; 0 <= k && k < a.length; \result[i] != a[k])));
+      @*/
+    public static int[] diferenciaSimetricaConjuntos(int[] a, int[] b){
+        ArrayList<Integer> numerosDifSim = new ArrayList<>();
         
+        /*@ maintaining 0 <= i <= a.length;
+          @ decreases a.length - i;
+          @*/
         for (int i = 0; i < a.length; i++){
-            if (c[i] != a[i] && !isIn(a[i], b)){
-                c[i] = a[i];
+            if (!isIn(a[i], b)){
+                numerosDifSim.add(a[i]);
             }
         }
+        /*@ maintaining 0 <= i <= b.length;
+          @ decreases b.length - i;
+          @*/
+        for (int i = 0; i < b.length; i++){
+            if (!isIn(b[i], a)){
+                numerosDifSim.add(b[i]);
+            }
+        }
+
+        int[] c = new int[numerosDifSim.size()];
+        /*@ maintaining 0 <= i <= numerosDifSim.size();
+          @ maintaining (\forall int j; 0 <= j && j < i; c[j] == numerosDifSim.get(j));
+          @ decreases numerosDifSim.size() - i;
+          @*/
+        for(int i = 0; i < numerosDifSim.size(); i++){
+            c[i] = numerosDifSim.get(i);
+        }
         return c;
-    }*/
+    }
 
     //@ requires b != null && b.length > 0;
     //@ ensures \result <==> (\exist int i; 0 <= i && i < b.length; k == b[i]);
@@ -77,7 +104,6 @@ public class Utilidades {
         @         a[0] == \old(a[a.length − 1]);
         @*/
     public static void rotarArreglo(){
-        if (a.length == 0) return;
         int ultimo = a[a.length - 1];
         /*@ maintaining 0 < i < a.length;
           @ maintaining (\forall int j; i < j < a.length; a[j] == \old(a[j - 1]));
@@ -95,9 +121,9 @@ public class Utilidades {
 
     public static void main(String[] args){
 
-        /*int[] a = {1,2,3};
+        int[] a = {1,2,3};
         int[] b = {3,4,5};
-        diferenciaSimetricaConjuntos(a,b);*/
+        System.out.println(diferenciaSimetricaConjuntos(a,b).length);
 
         double[][] matriz = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         traspuestaMatriz(matriz);
