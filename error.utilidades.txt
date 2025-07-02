@@ -1,0 +1,64 @@
+Tarea_4/Utilidades.java:9: error: This backslash token is unknown: \exist
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                     ^
+Tarea_4/Utilidades.java:9: error: ')' expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                           ^
+Tarea_4/Utilidades.java:9: error: Incorrectly formed or terminated ensures statement near here
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                            ^
+Tarea_4/Utilidades.java:9: error: illegal start of type
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                   ^
+Tarea_4/Utilidades.java:9: error: <identifier> expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                    ^
+Tarea_4/Utilidades.java:9: error: Method specs may not precede a variable declaration
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                     ^
+Tarea_4/Utilidades.java:9: error: ';' expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                         ^
+Tarea_4/Utilidades.java:9: error: illegal start of type
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                          ^
+Tarea_4/Utilidades.java:9: error: ';' expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                              ^
+Tarea_4/Utilidades.java:9: error: > expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                  ^
+Tarea_4/Utilidades.java:9: error: '(' expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                         ^
+Tarea_4/Utilidades.java:9: error: ']' expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                   ^
+Tarea_4/Utilidades.java:9: error: ';' expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                    ^
+Tarea_4/Utilidades.java:9: error: <identifier> expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                     ^
+Tarea_4/Utilidades.java:9: error: illegal start of type
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                      ^
+Tarea_4/Utilidades.java:9: error: ']' expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                           ^
+Tarea_4/Utilidades.java:9: error: <identifier> expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                            ^
+Tarea_4/Utilidades.java:9: error: <identifier> expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                             ^
+Tarea_4/Utilidades.java:9: error: illegal start of type
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                              ^
+Tarea_4/Utilidades.java:9: error: <identifier> expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                                ^
+Tarea_4/Utilidades.java:9: error: <identifier> expected
+      @             (\exist int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
+                                                                                                                                           ^
+21 errors
