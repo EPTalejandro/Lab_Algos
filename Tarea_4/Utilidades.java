@@ -45,7 +45,7 @@ public class Utilidades {
     //@ ensures \result <==> (\exists int i; 0 <= i && i < b.length; k == b[i]);
     public /*@ pure @*/ static boolean isIn(int k, int[] b){
         //@ maintaining 0 <= i <= b.length;
-        //@ maintaining (\forall int j; 0 <= j && j < i; k != m[j]);
+        //@ maintaining (\forall int j; 0 <= j && j < i; k != b[j]);
         //@ decreases b.length - i;
         for (int i = 0; i < b.length; i++){
             if (k == b[i]){
@@ -119,19 +119,5 @@ public class Utilidades {
 
     public static void particionMenoresMayores(){
 
-    }
-
-    public static void main(String[] args){
-
-        int[] a = {1,2,3};
-        int[] b = {3,4,5};
-        System.out.println(diferenciaSimetricaConjuntos(a,b).length);
-
-        double[][] matriz = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-        traspuestaMatriz(matriz);
-
-        int[] tata = {1,2,4};
-        int[] titi = {1,2,3};
-        System.out.println(" " + esSubconjunto(tata, titi));
     }
 }
