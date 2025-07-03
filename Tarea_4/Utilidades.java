@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Utilidades {
 
@@ -116,8 +117,25 @@ public class Utilidades {
         }
         a[0] = ultimo;
     }
-
-    public static void particionMenoresMayores(){
-
+    /*@ requires a.length > 0;
+      @ assignable a[*];
+      @ ensures (\exist int k; 0<= k && k <a.length; 
+      @             (\forall int i; 0<=i && i<k; a[i]<=x) %% 
+      @             (\forall int i; k<=i && i <a.length; a[i]>x)
+      @             )
+      @*/
+    public static void particionMenoresMayores(int[] a, int x){
+      int[] new_a = new int[a.length];
+      int k = 0;
+      for(int i =0 ;i<a.length;i++){
+        if(a[i]<=x){
+          new_a[i-k]=a[i];
+        }
+        else{
+          new_a[(a.length-1)-k]=a[i];
+          k = k+1;
+        }
+      }
+      System.out.println(Arrays.toString(new_a));
     }
 }
