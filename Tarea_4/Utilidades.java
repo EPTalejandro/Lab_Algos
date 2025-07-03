@@ -119,10 +119,10 @@ public class Utilidades {
     }
     /*@ requires a.length > 0;
       @ assignable a[*];
-      @ ensures (\exist int k; 0<= k && k <a.length; 
-      @             (\forall int i; 0<=i && i<k; a[i]<=x) %% 
+      @ ensures (\exists int k; 0<= k && k <a.length; 
+      @             (\forall int i; 0<=i && i<k; a[i]<=x) && 
       @             (\forall int i; k<=i && i <a.length; a[i]>x)
-      @             )
+      @             );
       @*/
     public static void particionMenoresMayores(int[] a, int x){
       int[] new_a = new int[a.length];

@@ -1,79 +1,75 @@
-Tarea_4/Utilidades.java:43: warning: Method isIn(int,int[]) has 'assignable \everything', making its caller likely impossible to verify
-    //@ requires b != null && b.length > 0;
+Tarea_4/Utilidades.java:15: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method diferenciaSimetricaConjuntos: overflow in int sum
+        ArrayList<Integer> numerosDifSim = new ArrayList<>(a.length + b.length);
+                                                                    ^
+Tarea_4/Utilidades.java:93: verify: The prover cannot establish an assertion (Postcondition: Tarea_4/Utilidades.java:90:) in method esSubconjunto
+        if(a.length > b.length) return false;
+                                ^
+Tarea_4/Utilidades.java:90: verify: Associated declaration: Tarea_4/Utilidades.java:93:
+      @ ensures \result <==> (\forall int i; 0 <= i && i < a.length; (\exists int j; 0 <= j && j < b.length; a[i] == b[j]));
         ^
-Tarea_4/Utilidades.java:19: warning: Associated declaration: Tarea_4/Utilidades.java:43:
-            if (!isIn(a[i], b)){
-                     ^
-Tarea_4/Utilidades.java:43: warning: Method isIn(int,int[]) has 'assignable \everything', making its caller likely impossible to verify
-    //@ requires b != null && b.length > 0;
-        ^
-Tarea_4/Utilidades.java:27: warning: Associated declaration: Tarea_4/Utilidades.java:43:
-            if (!isIn(b[i], a)){
-                     ^
-Tarea_4/Utilidades.java:43: warning: Method isIn(int,int[]) has 'assignable \everything', making its caller likely impossible to verify
-    //@ requires b != null && b.length > 0;
-        ^
-Tarea_4/Utilidades.java:94: warning: Associated declaration: Tarea_4/Utilidades.java:43:
-            if(!isIn(a[i], b)){
-                    ^
-Tarea_4/Utilidades.java:5: warning: Method diferenciaSimetricaConjuntos(int[],int[]) has 'assignable \everything', making its caller likely impossible to verify
-    /*@ requires a != null && a.length > 0;
-        ^
-Tarea_4/Utilidades.java:126: warning: Associated declaration: Tarea_4/Utilidades.java:5:
-        System.out.println(diferenciaSimetricaConjuntos(a,b).length);
-                                                       ^
-Tarea_4/Utilidades.java:56: warning: Method traspuestaMatriz(double[][]) has 'assignable \everything', making its caller likely impossible to verify
-    /*@ requires matriz.length > 0 && matriz[0].length > 0;
-        ^
-Tarea_4/Utilidades.java:129: warning: Associated declaration: Tarea_4/Utilidades.java:56:
-        traspuestaMatriz(matriz);
-                        ^
-Tarea_4/Utilidades.java:85: warning: Method esSubconjunto(int[],int[]) has 'assignable \everything', making its caller likely impossible to verify
-    /*@ requires (\forall int i,j; 0 <= i && i < a.length && 0 <= j && j < a.length; i != j <==> a[i] != a[j]);
-        ^
-Tarea_4/Utilidades.java:133: warning: Associated declaration: Tarea_4/Utilidades.java:85:
-        System.out.println(" " + esSubconjunto(tata, titi));
-                                              ^
-Tarea_4/Utilidades.java:28: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Iterable.jml:10:) in method diferenciaSimetricaConjuntos: (Caller: Utilidades.diferenciaSimetricaConjuntos(int[],int[]), Callee: java.util.ArrayList.add(E))
-                numerosDifSim.add(b[i]);
-                                 ^
-/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/lang/Iterable.jml:10: verify: Associated declaration: Tarea_4/Utilidades.java:28:
-    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
-                   ^
-Tarea_4/Utilidades.java:98: verify: The prover cannot establish an assertion (Postcondition: Tarea_4/Utilidades.java:87:) in method esSubconjunto
-        return true;
-        ^
-Tarea_4/Utilidades.java:87: verify: Associated declaration: Tarea_4/Utilidades.java:98:
-      @ ensures (\forall int i; 0 <= i && i < a.length; (\exists int j; 0 <= j && j < b.length; a[i] == b[j]));
-        ^
-Tarea_4/Utilidades.java:53: verify: The prover cannot establish an assertion (Postcondition: Tarea_4/Utilidades.java:44:) in method isIn
-        return false;
-        ^
-Tarea_4/Utilidades.java:44: verify: Associated declaration: Tarea_4/Utilidades.java:53:
-    //@ ensures \result <==> (\exists int i; 0 <= i && i < b.length; k == b[i]);
-        ^
-Tarea_4/Utilidades.java:126: verify: The prover cannot establish an assertion (Precondition: Tarea_4/Utilidades.java:12:) in method main
-        System.out.println(diferenciaSimetricaConjuntos(a,b).length);
-                                                       ^
-Tarea_4/Utilidades.java:12: verify: Associated declaration: Tarea_4/Utilidades.java:126:
-    public static int[] diferenciaSimetricaConjuntos(int[] a, int[] b){
-                        ^
-Tarea_4/Utilidades.java:6: verify: Precondition conjunct is false: (\forall int i, int j; 0 <= i && i < a.length && 0 <= j && j < a.length; a[i] != a[j])
-      @ requires (\forall int i, j; 0 <= i && i < a.length && 0 <= j && j < a.length; a[i] != a[j]);
+Tarea_4/Utilidades.java:131: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method particionMenoresMayores
+        if(a[i]<=x){
+            ^
+Tarea_4/Utilidades.java:132: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method particionMenoresMayores: overflow in int difference
+          new_a[i-k]=a[i];
                  ^
-Tarea_4/Utilidades.java:108: verify: The prover cannot establish an assertion (LoopInvariant) in method rotarArreglo
-        /*@ maintaining 0 < i < a.length;
+Tarea_4/Utilidades.java:132: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method particionMenoresMayores
+          new_a[i-k]=a[i];
+               ^
+Tarea_4/Utilidades.java:132: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method particionMenoresMayores
+          new_a[i-k]=a[i];
+               ^
+Tarea_4/Utilidades.java:135: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method particionMenoresMayores
+          new_a[(a.length-1)-k]=a[i];
+               ^
+Tarea_4/Utilidades.java:135: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method particionMenoresMayores
+          new_a[(a.length-1)-k]=a[i];
+               ^
+Tarea_4/Utilidades.java:135: verify: The prover cannot establish an assertion (ArithmeticOperationRange) in method particionMenoresMayores: overflow in int difference
+          new_a[(a.length-1)-k]=a[i];
+                            ^
+Tarea_4/Utilidades.java:139: verify: The prover cannot establish an assertion (Assignable: Tarea_4/Utilidades.java:121:) in method particionMenoresMayores: \everything
+      System.out.println(Arrays.toString(new_a));
+                                        ^
+Tarea_4/Utilidades.java:121: verify: Associated declaration: Tarea_4/Utilidades.java:139:
+      @ assignable a[*];
+        ^
+Tarea_4/Utilidades.java:139: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/io/PrintStream.jml:35:) in method particionMenoresMayores: (Caller: Utilidades.particionMenoresMayores(int[],int), Callee: java.io.PrintStream.println(String))
+      System.out.println(Arrays.toString(new_a));
+                        ^
+/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/io/PrintStream.jml:35: verify: Associated declaration: Tarea_4/Utilidades.java:139:
+    //-RAC@ public static invariant \invariant_for(eol) && eol.length() > 0;
+                          ^
+Tarea_4/Utilidades.java:139: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/io/PrintStream.jml:42:) in method particionMenoresMayores: (Caller: Utilidades.particionMenoresMayores(int[],int), Callee: java.io.PrintStream.println(String))
+      System.out.println(Arrays.toString(new_a));
+                        ^
+/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/io/PrintStream.jml:42: verify: Associated declaration: Tarea_4/Utilidades.java:139:
+    //-RAC@ public invariant outputText != null && \invariant_for(outputText);
+                   ^
+/home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/io/PrintStream.jml:163: verify: The prover cannot establish an assertion (Assignable: Tarea_4/Utilidades.java:121:) in method particionMenoresMayores: outputText
+    /*-RAC@ public normal_behavior
+                                ^
+Tarea_4/Utilidades.java:121: verify: Associated declaration: /home/alejandro/Descargas/Materias/Lab_Algos/OJ/specs/java/io/PrintStream.jml:163:
+      @ assignable a[*];
+        ^
+Tarea_4/Utilidades.java:127: verify: The prover cannot establish an assertion (Postcondition: Tarea_4/Utilidades.java:122:) in method particionMenoresMayores
+    public static void particionMenoresMayores(int[] a, int x){
+                       ^
+Tarea_4/Utilidades.java:122: verify: Associated declaration: Tarea_4/Utilidades.java:127:
+      @ ensures (\exists int k; 0<= k && k <a.length; 
+        ^
+Tarea_4/Utilidades.java:112: verify: The prover cannot establish an assertion (LoopInvariant) in method rotarArreglo
+          @ maintaining (\forall int j; i + 1 < j && j < a.length; a[j] == \old(a[j - 1]));
             ^
-Tarea_4/Utilidades.java:108: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method rotarArreglo
-        /*@ maintaining 0 < i < a.length;
-            ^
-Tarea_4/Utilidades.java:109: verify: The prover cannot establish an assertion (LoopInvariant) in method rotarArreglo
-          @ maintaining (\forall int j; i < j < a.length; a[j] == \old(a[j - 1]));
-            ^
-Tarea_4/Utilidades.java:79: error: A catastrophic JML internal error occurred.  Please report the bug with as much information as you can.
+Tarea_4/Utilidades.java:109: verify: The prover cannot establish an assertion (Postcondition: Tarea_4/Utilidades.java:106:) in method rotarArreglo
+    public static void rotarArreglo(int[] a){
+                       ^
+Tarea_4/Utilidades.java:106: verify: Associated declaration: Tarea_4/Utilidades.java:109:
+        @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == \old(a[i - 1])) &&
+          ^
+Tarea_4/Utilidades.java:82: error: A catastrophic JML internal error occurred.  Please report the bug with as much information as you can.
                 traspuesta[j][i] = matriz [i][j];
                            ^
-  Reason: Double rewriting of ident: j j_3137_3137___14 j_3137_3166___29
+  Reason: Double rewriting of ident: j j_3410_3410___14 j_3410_3439___29
 1 error
-12 warnings
-12 verification failures
+23 verification failures
