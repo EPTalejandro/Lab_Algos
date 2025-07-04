@@ -126,20 +126,21 @@ public class Utilidades {
       @             );
       @*/
     public static void particionMenoresMayores(int[] a, int x){
-      int[] new_a = new int[a.length];
-      int k = 0;
-      for(int i =0 ;i<a.length;i++){
-        if(a[i]<=x){
-          new_a[i-k]=a[i];
+      int izquierda = 0;
+      int derecha = a.length - 1;
+
+      while(izquierda<=derecha){
+        if(a[izquierda]<=x){
+          izquierda = izquierda + 1;
         }
         else{
-          new_a[(a.length-1)-k]=a[i];
-          k = k+1;
+          int temporal = a[izquierda];
+          a[izquierda] = a[derecha];
+          a[derecha] = temporal;
+          derecha = derecha -1;
         }
       }
-      for(int i = 0; i<a.length;i++){
-        a[i] = new_a[i];
-      }
-      System.out.println(Arrays.toString(new_a));
+
+      System.out.println(Arrays.toString(a));
     }
 }
