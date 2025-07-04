@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Utilidades {
 
@@ -13,7 +12,6 @@ public class Utilidades {
       @*/
     public /*@ pure @*/ static int[] diferenciaSimetricaConjuntos(int[] a, int[] b){
         ArrayList<Integer> numerosDifSim = new ArrayList<>(a.length + b.length);
-        
         /*@ maintaining 0 <= i <= a.length;
           @ decreases a.length - i;
           @*/
@@ -30,7 +28,6 @@ public class Utilidades {
                 numerosDifSim.add(b[i]);
             }
         }
-
         int[] c = new int[numerosDifSim.size()];
         /*@ maintaining 0 <= i <= numerosDifSim.size();
           @ maintaining (\forall int j; 0 <= j && j < i; c[j] == numerosDifSim.get(j));
@@ -101,11 +98,11 @@ public class Utilidades {
         return true;
     }
 
-      /*@ requires a.length > 0;
-        @ assignable a[*];
-        @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == \old(a[i - 1])) &&
-        @         a[0] == \old(a[a.length - 1]);
-        @*/
+    /*@ requires a.length > 0;
+      @ assignable a[*];
+      @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == \old(a[i - 1])) &&
+      @         a[0] == \old(a[a.length - 1]);
+      @*/
     public static void rotarArreglo(int[] a){
         if (a.length == 0) return;
         int ultimo = a[a.length - 1];
@@ -118,28 +115,30 @@ public class Utilidades {
         }
         a[0] = ultimo;
     }
+    
     /*@ requires a.length > 0;
       @ assignable a[*];
-      @ ensures (\exists int k; 0<= k && k <a.length; 
-      @             (\forall int i; 0<=i && i<k; a[i]<=x) && 
-      @             (\forall int i; k<=i && i <a.length; a[i]>x)
-      @             );
+      @ ensures (\exists int k; 0 <= k && k < a.length; 
+      @             (\forall int i; 0 <= i && i < k; a[i] <= x) && 
+      @             (\forall int i; k <= i && i < a.length; a[i] > x)) &&
+      @         (\forall int z; 0 <= z && z < a.length;
+      @             (\num_of int i; 0 <= i && i < a.length; a[i] == a[z]) ==
+      @             (\num_of int i; 0 <= i && i < \old(a.length); \old(a[i]) == a[z]));
       @*/
     public static void particionMenoresMayores(int[] a, int x){
-      int[] new_a = new int[a.length];
-      int k = 0;
-      for(int i =0 ;i<a.length;i++){
-        if(a[i]<=x){
-          new_a[i-k]=a[i];
+        int[] copy = Arrays.copyOf(a, a.length);
+        int k = 0;
+        /*@ maintaining 0 <= i <= a.length;
+          @ decreases a.length - i;
+          @*/
+        for(int i = 0; i < a.length; i++){
+            if(copy[i] <= x){
+                a[i-k] = copy[i];
         }
-        else{
-          new_a[(a.length-1)-k]=a[i];
-          k = k+1;
+            else{
+                a[(a.length-1)-k] = copy[i];
+                k = k+1;
+            }
         }
-      }
-      for(int i = 0; i<a.length;i++){
-        a[i] = new_a[i];
-      }
-      System.out.println(Arrays.toString(new_a));
     }
 }
