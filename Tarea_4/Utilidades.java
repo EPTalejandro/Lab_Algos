@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Utilidades {
 
@@ -127,21 +126,21 @@ public class Utilidades {
       @             (\num_of int i; 0 <= i && i < \old(a.length); \old(a[i]) == a[z]));
       @*/
     public static void particionMenoresMayores(int[] a, int x){
-      int izquierda = 0;
-      int derecha = a.length - 1;
-
-      while(izquierda<=derecha){
-        if(a[izquierda]<=x){
-          izquierda = izquierda + 1;
+        int izquierda = 0;
+        int derecha = a.length - 1;
+        //@ maintaining 0 <= izquierda <= derecha + 1;
+        //@ maintaining izquierda - 1 <= derecha < a.length;
+        //@ decreases derecha - izquierda + 1;
+        while(izquierda <= derecha){
+            if(a[izquierda] <= x){
+                izquierda = izquierda + 1;
+            }
+            else{
+                int temporal = a[izquierda];
+                a[izquierda] = a[derecha];
+                a[derecha] = temporal;
+                derecha = derecha -1;
+            }
         }
-        else{
-          int temporal = a[izquierda];
-          a[izquierda] = a[derecha];
-          a[derecha] = temporal;
-          derecha = derecha -1;
-        }
-      }
-
-      System.out.println(Arrays.toString(a));
     }
 }
