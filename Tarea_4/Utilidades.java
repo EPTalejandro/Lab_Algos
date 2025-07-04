@@ -137,6 +137,9 @@ public class Utilidades {
           k = k+1;
         }
       }
+      for(int i = 0; i<a.length;i++){
+        a[i] = new_a[i];
+      }
       System.out.println(Arrays.toString(new_a));
     }
 }
