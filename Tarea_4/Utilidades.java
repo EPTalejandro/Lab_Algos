@@ -107,6 +107,7 @@ public class Utilidades {
         @         a[0] == \old(a[a.length - 1]);
         @*/
     public static void rotarArreglo(int[] a){
+        if (a.length == 0) return;
         int ultimo = a[a.length - 1];
         /*@ maintaining 0 <= i < a.length;
           @ maintaining (\forall int j; i + 1 < j && j < a.length; a[j] == \old(a[j - 1]));
