@@ -69,14 +69,14 @@ public class Utilidades {
           @              traspuesta[k][j] == matriz[j][k]);
           @ decreases matriz.length - p;
           @*/
-        for (int i = 0; p < matriz.length; i++){
+        for (int p = 0; p < matriz.length; p++){
             /*@ maintaining 0 <= q <= matriz[0].length;
               @ maintaining (\forall int k; 
               @                 0 <= k && k < q;
               @              traspuesta[k][p] == matriz[p][k]);
               @ decreases matriz[0].length - q;
               @*/
-            for (int j = 0; q < matriz[0].length; j++){
+            for (int q = 0; q < matriz[0].length; q++){
                 traspuesta[q][p] = matriz [p][q];
             }
         }
@@ -104,7 +104,7 @@ public class Utilidades {
 
     /*@ requires a.length > 0;
       @ assignable a[*];
-      @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == old[i - 1]) &&
+      @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == \old(a[i - 1])) &&
       @         a[0] == \old(a[a.length - 1]);
       @*/
     public static void rotarArreglo(int[] a){
