@@ -93,6 +93,7 @@ public class Utilidades {
             return false;
         }
         //@ maintaining 0 <= i <= a.length;
+        //@ maintaining (\forall int j; 0 <= j && j < i; (\exists int k; 0 <= k && k < b.length; a[j] == b[k]));
         //@ decreases a.length - i;
         for(int i = 0; i < a.length; i++){
             if(!isIn(a[i], b)){
@@ -126,16 +127,17 @@ public class Utilidades {
       @ ensures (\exists int k; 0 <= k && k <= a.length; 
       @             (\forall int i; 0 <= i && i < k; a[i] <= x) && 
       @             (\forall int i; k <= i && i < a.length; a[i] > x)) &&
-      @         (\forall int z; 0 <= z && z < a.length;
-      @             (\num_of int i; 0 <= i && i < a.length; a[i] == a[z]) ==
-      @             (\num_of int i; 0 <= i && i < \old(a.length); \old(a[i]) == a[z]));
+      @         (\permutes a, \old(a));
       @*/
     public static void particionMenoresMayores(int[] a, int x){
         int izquierda = 0;
         int derecha = a.length - 1;
-        //@ maintaining 0 <= izquierda <= derecha + 1;
-        //@ maintaining izquierda - 1 <= derecha < a.length;
-        //@ decreases derecha - izquierda + 1;
+        /*@ maintaining 0 <= izquierda && izquierda <= derecha + 1 && derecha < a.length;
+          @ maintaining (\forall int j; 0 <= j && j < izquierda; a[j] <= x);
+          @ maintaining (\forall int k; derecha <= k && k < a.length; a[k] > x);
+          @ maintaining (\permutes a, \old(a));
+          @ decreases derecha - izquierda + 1;
+          @*/
         while(izquierda <= derecha){
             if(a[izquierda] <= x){
                 izquierda = izquierda + 1;
