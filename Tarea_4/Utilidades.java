@@ -6,6 +6,7 @@ public class Utilidades {
       @ requires (\forall int i, j; 0 <= i && i < a.length && 0 <= j && j < a.length && i != j; a[i] != a[j]);
       @ requires b != null && b.length > 0;
       @ requires (\forall int i, j; 0 <= i && i < b.length && 0 <= j && j < b.length && i != j; b[i] != b[j]);
+      @ requires a.length + b.length < Integer.MAX_VALUE;
       @ ensures (\forall int i; 0 <= i && i < \result.length; 
       @             (\exists int j; 0 <= j && j < a.length; \result[i] == a[j] && (\forall int k; 0 <= k && k < b.length; \result[i] != b[k])) ||
       @             (\exists int j; 0 <= j && j < b.length; \result[i] == b[j] && (\forall int k; 0 <= k && k < a.length; \result[i] != a[k])));
@@ -62,21 +63,21 @@ public class Utilidades {
     public /*@ pure @*/ static double[][] traspuestaMatriz(double[][] matriz){
         double[][] traspuesta = new double[matriz[0].length][matriz.length];
         
-        /*@ maintaining 0 <= i <= matriz.length;
+        /*@ maintaining 0 <= p <= matriz.length;
           @ maintaining (\forall int j, k; 
-          @                 0 <= j && j < i && 0 <= k && k < matriz[0].length;
+          @                 0 <= j && j < p && 0 <= k && k < matriz[0].length;
           @              traspuesta[k][j] == matriz[j][k]);
-          @ decreases matriz.length - i;
+          @ decreases matriz.length - p;
           @*/
-        for (int i = 0; i < matriz.length; i++){
-            /*@ maintaining 0 <= j <= matriz[0].length;
+        for (int i = 0; p < matriz.length; i++){
+            /*@ maintaining 0 <= q <= matriz[0].length;
               @ maintaining (\forall int k; 
-              @                 0 <= k && k < j;
-              @              traspuesta[k][i] == matriz[i][k]);
-              @ decreases matriz[0].length - j;
+              @                 0 <= k && k < q;
+              @              traspuesta[k][p] == matriz[p][k]);
+              @ decreases matriz[0].length - q;
               @*/
-            for (int j = 0; j < matriz[0].length; j++){
-                traspuesta[j][i] = matriz [i][j];
+            for (int j = 0; q < matriz[0].length; j++){
+                traspuesta[q][p] = matriz [p][q];
             }
         }
         return traspuesta;
@@ -87,7 +88,10 @@ public class Utilidades {
       @ ensures \result <==> (\forall int i; 0 <= i && i < a.length; (\exists int j; 0 <= j && j < b.length; a[i] == b[j]));
       @*/
     public /*@ pure @*/ static boolean esSubconjunto(int[] a, int[] b){
-        if(a.length > b.length) return false;
+        if(a.length > b.length) {
+            //@ assert (\exists int i; 0 <= i && i < a.length; (\forall int j; 0 <= j && j < b.length; a[i] != b[j]));
+            return false;
+        }
         //@ maintaining 0 <= i <= a.length;
         //@ decreases a.length - i;
         for(int i = 0; i < a.length; i++){
@@ -100,14 +104,15 @@ public class Utilidades {
 
     /*@ requires a.length > 0;
       @ assignable a[*];
-      @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == \old(a[i - 1])) &&
+      @ ensures (\forall int i ; 1 <= i && i < a.length; a[i] == old[i - 1]) &&
       @         a[0] == \old(a[a.length - 1]);
       @*/
     public static void rotarArreglo(int[] a){
         if (a.length == 0) return;
+        //@ ghost int[] old = a.clone();
         int ultimo = a[a.length - 1];
         /*@ maintaining 0 <= i < a.length;
-          @ maintaining (\forall int j; i + 1 < j && j < a.length; a[j] == \old(a[j - 1]));
+          @ maintaining (\forall int j; i < j && j < a.length; a[j] == old[j - 1]);
           @ decreases i;
           @*/
         for (int i = a.length - 1; i > 0; i--) {
@@ -118,7 +123,7 @@ public class Utilidades {
     
     /*@ requires a.length > 0;
       @ assignable a[*];
-      @ ensures (\exists int k; 0 <= k && k < a.length; 
+      @ ensures (\exists int k; 0 <= k && k <= a.length; 
       @             (\forall int i; 0 <= i && i < k; a[i] <= x) && 
       @             (\forall int i; k <= i && i < a.length; a[i] > x)) &&
       @         (\forall int z; 0 <= z && z < a.length;
