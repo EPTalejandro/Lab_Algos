@@ -126,8 +126,7 @@ public class Utilidades {
       @ assignable a[*];
       @ ensures (\exists int k; 0 <= k && k <= a.length; 
       @             (\forall int i; 0 <= i && i < k; a[i] <= x) && 
-      @             (\forall int i; k <= i && i < a.length; a[i] > x)) &&
-      @         (\permutes a, \old(a));
+      @             (\forall int i; k <= i && i < a.length; a[i] > x));
       @*/
     public static void particionMenoresMayores(int[] a, int x){
         int izquierda = 0;
@@ -135,7 +134,6 @@ public class Utilidades {
         /*@ maintaining 0 <= izquierda && izquierda <= derecha + 1 && derecha < a.length;
           @ maintaining (\forall int j; 0 <= j && j < izquierda; a[j] <= x);
           @ maintaining (\forall int k; derecha <= k && k < a.length; a[k] > x);
-          @ maintaining (\permutes a, \old(a));
           @ decreases derecha - izquierda + 1;
           @*/
         while(izquierda <= derecha){

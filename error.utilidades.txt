@@ -1,19 +1,33 @@
-Tarea_4/Utilidades.java:130: error: This backslash token is unknown: \permutes
-      @         (\permutes a, \old(a));
-                 ^
-Tarea_4/Utilidades.java:130: error: ')' expected
-      @         (\permutes a, \old(a));
-                          ^
-Tarea_4/Utilidades.java:130: error: Incorrectly formed or terminated ensures statement near here
-      @         (\permutes a, \old(a));
+Tarea_4/Utilidades.java:96: verify: The prover cannot establish an assertion (LoopInvariantAfterLoop) in method esSubconjunto
+        //@ maintaining (\forall int j; 0 <= j && j < i; (\exists int k; 0 <= k && k < b.length; a[j] == b[k]));
+            ^
+Tarea_4/Utilidades.java:103: verify: The prover cannot establish an assertion (Postcondition: Tarea_4/Utilidades.java:88:) in method esSubconjunto
+        return true;
+        ^
+Tarea_4/Utilidades.java:88: verify: Associated declaration: Tarea_4/Utilidades.java:103:
+      @ ensures \result <==> (\forall int i; 0 <= i && i < a.length; (\exists int j; 0 <= j && j < b.length; a[i] == b[j]));
+        ^
+Tarea_4/Utilidades.java:92: verify: The prover cannot establish an assertion (Assert) in method esSubconjunto
+            //@ assert (\exists int i; 0 <= i && i < a.length; (\forall int j; 0 <= j && j < b.length; a[i] != b[j]));
+                ^
+Tarea_4/Utilidades.java:136: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method particionMenoresMayores
+          @ maintaining (\forall int k; derecha <= k && k < a.length; a[k] > x);
+            ^
+Tarea_4/Utilidades.java:131: verify: The prover cannot establish an assertion (Postcondition: Tarea_4/Utilidades.java:127:) in method particionMenoresMayores
+    public static void particionMenoresMayores(int[] a, int x){
+                       ^
+Tarea_4/Utilidades.java:127: verify: Associated declaration: Tarea_4/Utilidades.java:131:
+      @ ensures (\exists int k; 0 <= k && k <= a.length; 
+        ^
+Tarea_4/Utilidades.java:136: verify: The prover cannot establish an assertion (LoopInvariant) in method particionMenoresMayores
+          @ maintaining (\forall int k; derecha <= k && k < a.length; a[k] > x);
+            ^
+Tarea_4/Utilidades.java:116: verify: The prover cannot establish an assertion (LoopInvariant) in method rotarArreglo
+          @ maintaining (\forall int j; i < j && j < a.length; a[j] == old[j - 1]);
+            ^
+Tarea_4/Utilidades.java:80: error: A catastrophic JML internal error occurred.  Please report the bug with as much information as you can.
+                traspuesta[q][p] = matriz [p][q];
                            ^
-Tarea_4/Utilidades.java:138: error: This backslash token is unknown: \permutes
-          @ maintaining (\permutes a, \old(a));
-                         ^
-Tarea_4/Utilidades.java:138: error: ')' expected
-          @ maintaining (\permutes a, \old(a));
-                                  ^
-Tarea_4/Utilidades.java:138: error: Incorrectly formed or terminated loop_invariant statement near here
-          @ maintaining (\permutes a, \old(a));
-                                   ^
-6 errors
+  Reason: Double rewriting of ident: q q_3433_3433___14 q_3433_3462___29
+1 error
+9 verification failures
