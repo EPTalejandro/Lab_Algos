@@ -127,6 +127,9 @@ public class Utilidades {
       @ ensures (\exists int k; 0 <= k && k <= a.length; 
       @             (\forall int i; 0 <= i && i < k; a[i] <= x) && 
       @             (\forall int i; k <= i && i < a.length; a[i] > x));
+      @         (\forall int z; 0 <= z && z < a.length;
+      @             (\num_of int i; 0 <= i && i < a.length; a[i] == a[z]) ==
+      @             (\num_of int i; 0 <= i && i < \old(a.length); \old(a[i]) == a[z]));
       @*/
     public static void particionMenoresMayores(int[] a, int x){
         int izquierda = 0;
