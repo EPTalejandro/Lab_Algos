@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Logica{
@@ -113,14 +113,16 @@ public class Logica{
 
     public static void main(String[] args) {
         boolean juego = true;
+        iniciarTablero(obtenerSiguientesElementos());
         while (juego) { 
-            int[] proxima = obtenerSiguientesElementos();
-            iniciarTablero(proxima);
-            imprimirTablero(tablero);
-            siguienteJugada();
             if(terminoElJuego()==true){
                 juego = false;
             }
+            int[] proxima = obtenerSiguientesElementos();
+            imprimirTablero(tablero);
+            System.out.println("los siguientes elementos son "+ Arrays.toString(proxima));
+            siguienteJugada();
+            iniciarTablero(proxima);
         }
     }
 }
