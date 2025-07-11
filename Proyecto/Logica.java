@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Logica{
 
     static int[][] tablero = new int[9][9];
-
+    // el 0 representa cuadros vacios
     // 1 cuadrado verde 2 bola roja 3 bola azul 4 bola amarilla 5 bola blanca 6 bola naranja 7 bola morada
     static int[] elementos = new int[]{1,2,3,4,5,6,7};
 
@@ -24,6 +24,10 @@ public class Logica{
         }
     }
 
+    // para verificar si la jugada es valida al menos uno de los 8 elementos circundantes que rodean el elemento a mover por ello se revisan los que estan abajo (i=-1) los que estan
+    // y todos sus variantes abajo izquierada,derecha y debajo(-1<=j<2) luego verifica los que estan a la misma altura(i=0) se ignora el caso de i y j iguales a 0 ya que es el mismo
+    // elemento que estamos verificando finalmente se verifican los de arriba(i=1) y para que no haya errores con la primera y ultima fila y columna siempre se verifica que 
+    // las posiciones a verificar esten dentro de los confines de el tablero
     public static boolean jugadaEsValida(int f,int c, int[][] posiciones){
         for(int i=-1;i<2;i++){
             for( int j=-1;j<2;j++){
@@ -74,15 +78,15 @@ public class Logica{
     }
 
     // imprime el estado actual del tablero con una ligera estilizacion grafica
-    public static void imprimirTablero(int[][] matriz) {
+    public static void imprimirTablero(int[][] posiciones) {
         System.out.print("    1 2 3 4 5 6 7 8 9");
         System.out.println();
         System.out.print("    _ _ _ _ _ _ _ _ _");
         System.out.println();
-        for(int i = 0; i < matriz.length; i++) {
+        for(int i = 0; i < 9; i++) {
             System.out.print((i+1)+" | ");
-            for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+            for (int j = 0; j < 9; j++) {
+                System.out.print(posiciones[i][j] + " ");
             }
             System.out.println();
         }
