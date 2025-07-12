@@ -12,8 +12,8 @@ public class TableroJuego extends JFrame {
     private int selecFila = -1;
     private int selecCol = -1;
 
-    // El constructor del `TableroJuego` configura la ventana (`JFrame`): título, cierre, tamaño, 
-    // posición, y divide la interfaz en dos secciones: la del puntaje (norte) y la del tablero (centro).
+    // El constructor del `TableroJuego` configura la ventana: título, cierre, tamaño, 
+    // posición, y divide la interfaz en dos secciones: la del puntaje y la del tablero.
     public TableroJuego() {
         super("Tablero 9x9 con Fichas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
