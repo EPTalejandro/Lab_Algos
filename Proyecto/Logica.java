@@ -45,24 +45,11 @@ public class Logica{
         }
         return false;
     }
-
-    public static void siguienteJugada(){
-        int[][] posiciones = Logica.tablero;
-        Scanner entrada = new Scanner(System.in);
-        System.out.println("ingrese la fila del objeto que quiere mover");
-        int f = entrada.nextInt() - 1;
-        System.out.println("ingrese la columna del objeto que quiere mover");
-        int c = entrada.nextInt() - 1;
-        // Si quire mover un elemento vacio reinicia la funcion
-        if(posiciones[f][c] == 0){
-            System.out.println("la posicion que desea mover esta vacia");
-            siguienteJugada();
-            return;
-        }
-    private static int calcularPuntos(int c){
-        return puntos[Math.min(c,8)];
+    
+    public static int calcularPuntos(int c){
+            return puntos[Math.min(c,8)];
     }
-
+    
     public static boolean verificarYEliminar(){
         boolean[][] marcar = new boolean[9][9];
         int puntosGanados = 0;
@@ -125,6 +112,20 @@ public class Logica{
         }
         return false;
     }
+
+    public static void siguienteJugada(){
+        int[][] posiciones = Logica.tablero;
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("ingrese la fila del objeto que quiere mover");
+        int f = entrada.nextInt() - 1;
+        System.out.println("ingrese la columna del objeto que quiere mover");
+        int c = entrada.nextInt() - 1;
+        // Si quire mover un elemento vacio reinicia la funcion
+        if(posiciones[f][c] == 0){
+            System.out.println("la posicion que desea mover esta vacia");
+            siguienteJugada();
+            return;
+        }
         //Si el elemento que quiere mover es valido continua con las siguientes comprobaciones
         if (jugadaEsValida(f, c, posiciones)){
             System.out.println("ingrese la fila a donde desea moverlo");
@@ -189,9 +190,6 @@ public class Logica{
         boolean juego = true;
         iniciarTablero(obtenerSiguientesElementos());
         while (juego) { 
-            if(terminoElJuego()==true){
-                juego = false;
-            }
             int[] proxima = obtenerSiguientesElementos();
             imprimirTablero(tablero);
             System.out.println("los siguientes elementos son "+ Arrays.toString(proxima));
