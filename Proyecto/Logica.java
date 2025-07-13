@@ -7,6 +7,10 @@ public class Logica{
     // el 0 representa cuadros vacios
     // 1 cuadrado verde 2 bola roja 3 bola azul 4 bola amarilla 5 bola blanca 6 bola naranja 7 bola morada
     static int[] elementos = new int[]{1,2,3,4,5,6,7};
+    static int[][] direcciones = {{0,1},{1,0},{1,1},{1,-1}}; // horizontal, vertical, diagonal derecha y diagonal izquierda
+    // Tablita de puntos
+    static int[] puntos = {0,0,0,0,5,10,12,18,40}; // 4 objetos valen 5 puntos, 5 objetos 10 puntos, ... , mayor o igual que 8 son 40
+
 
     static int puntaje = 0;
 
@@ -55,6 +59,72 @@ public class Logica{
             siguienteJugada();
             return;
         }
+    private static int calcularPuntos(int c){
+        return puntos[Math.min(c,8)];
+    }
+
+    public static boolean verificarYEliminar(){
+        boolean[][] marcar = new boolean[9][9];
+        int puntosGanados = 0;
+
+        for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                int a = tablero[i][j];
+                if(a < 2 || a > 7) continue;
+
+                for(int[] d:direcciones) {
+                    int ci = i - d[0], cj = j - d[1]; // ci,cj son coordenadas antes de i,j en la misma dirección
+                    if(ci >= 0 && ci < 9 && cj >= 0 && cj < 9 && tablero[ci][cj] == a ) continue;
+
+                    int len = 1, ri = i + d[0], rj =  j + d[1]; // son las coordenadas que van después de i,j en la misma dirección
+                    while(ri >= 0 && ri < 9 && rj >= 0 && rj < 9 && tablero[ri][rj] == a ) {
+                        len++; ri += d[0]; rj += d[1];
+                    }
+                    if(len >= 5) {
+                        int mi = i, mj = j;
+                        for(int k = 0; k < len; k++) { 
+                            marcar[mi][mj] = true;
+                            mi +=d [0]; mj += d[1];
+                        }
+                        puntosGanados += calcularPuntos(len);
+                    }
+                }
+            }
+        }
+
+        for(int size = 9; size >= 2; size--) {  
+            for(int i = 0; i <= 9 - size; i++) {
+                for(int j = 0;j <= 9-size; j++) {
+                    if(marcar[i][j] || tablero[i][j] != 1) continue;
+
+                    boolean lleno=true;
+                    for(int x = i; x < i + size && lleno; x++)
+                        for(int y = j; y < j + size; y++)
+                            if(tablero[x][y] != 1){ lleno = false; break; }
+
+                    if(lleno) {
+                        for(int x = i;x < i + size; x++)
+                            for(int y = j; y < j + size; y++)
+                                marcar[x][y] = true;
+                        puntosGanados += calcularPuntos(size * size);
+                    }
+                }
+            }
+        }
+
+        int eliminados = 0;
+        for(int i = 0; i < 9; i++)
+            for(int j = 0; j < 9; j++)
+                if(marcar[i][j]){ tablero[i][j] = 0; eliminados++; }
+
+        if(eliminados>0) {
+            puntaje += puntosGanados;
+            System.out.println("¡Eliminaste "+eliminados+" objetos! +"+puntosGanados+" pts");
+            System.out.println("Puntaje total: "+puntaje);
+            return true;
+        }
+        return false;
+    }
         //Si el elemento que quiere mover es valido continua con las siguientes comprobaciones
         if (jugadaEsValida(f, c, posiciones)){
             System.out.println("ingrese la fila a donde desea moverlo");
@@ -126,7 +196,13 @@ public class Logica{
             imprimirTablero(tablero);
             System.out.println("los siguientes elementos son "+ Arrays.toString(proxima));
             siguienteJugada();
-            iniciarTablero(proxima);
+            boolean elimino = verificarYEliminar();
+            if (!elimino) {
+                iniciarTablero(proxima);
+            }
+            if (terminoElJuego()) {
+                juego = false;
+            }
         }
     }
 }
