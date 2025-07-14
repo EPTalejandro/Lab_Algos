@@ -18,8 +18,8 @@ public class Logica{
         for(int i=0;i<3;i++){
             int a = (int)(Math.random() * 9);
             int b = (int)(Math.random() * 9);
-            if(Logica.tablero[a][b] == 0){
-                Logica.tablero[a][b] = jugada[i];
+            if(tablero[a][b] == 0){
+                tablero[a][b] = jugada[i];
             }
             else{
                 i = i-1;
@@ -71,7 +71,7 @@ public class Logica{
                         int mi = i, mj = j;
                         for(int k = 0; k < len; k++) { 
                             marcar[mi][mj] = true;
-                            mi +=d [0]; mj += d[1];
+                            mi += d[0]; mj += d[1];
                         }
                         puntosGanados += calcularPuntos(len);
                     }
