@@ -49,55 +49,56 @@ public class Logica{
             return puntos[Math.min(c,8)];
     }
     
-    public static boolean verificarYEliminar(){
+    public static boolean verificarYEliminar(int elemento){
         boolean[][] marcar = new boolean[9][9];
         int puntosGanados = 0;
+        if(elemento > 1){
+            for(int i = 0; i < 9; i++) {
+                for(int j = 0; j < 9; j++) {
+                    int a = tablero[i][j].getValor();
+                    if(a < 2 || a > 7) continue;
 
-        for(int i = 0; i < 9; i++) {
-            for(int j = 0; j < 9; j++) {
-                int a = tablero[i][j].getValor();
-                if(a < 2 || a > 7) continue;
+                    for(int[] d:direcciones) {
+                        int ci = i - d[0], cj = j - d[1]; // ci,cj son coordenadas antes de i,j en la misma dirección
+                        if(ci >= 0 && ci < 9 && cj >= 0 && cj < 9 && tablero[ci][cj].getValor() == a ) continue;
 
-                for(int[] d:direcciones) {
-                    int ci = i - d[0], cj = j - d[1]; // ci,cj son coordenadas antes de i,j en la misma dirección
-                    if(ci >= 0 && ci < 9 && cj >= 0 && cj < 9 && tablero[ci][cj].getValor() == a ) continue;
-
-                    int len = 1, ri = i + d[0], rj =  j + d[1]; // son las coordenadas que van después de i,j en la misma dirección
-                    while(ri >= 0 && ri < 9 && rj >= 0 && rj < 9 && tablero[ri][rj].getValor() == a ) {
-                        len++; ri += d[0]; rj += d[1];
-                    }
-                    if(len >= 5) {
-                        int mi = i, mj = j;
-                        for(int k = 0; k < len; k++) { 
-                            marcar[mi][mj] = true;
-                            mi += d[0]; mj += d[1];
+                        int len = 1, ri = i + d[0], rj =  j + d[1]; // son las coordenadas que van después de i,j en la misma dirección
+                        while(ri >= 0 && ri < 9 && rj >= 0 && rj < 9 && tablero[ri][rj].getValor() == a ) {
+                            len++; ri += d[0]; rj += d[1];
                         }
-                        puntosGanados += calcularPuntos(len);
+                        if(len >= 5) {
+                            int mi = i, mj = j;
+                            for(int k = 0; k < len; k++) { 
+                                marcar[mi][mj] = true;
+                                mi += d[0]; mj += d[1];
+                            }
+                            puntosGanados += calcularPuntos(len);
+                        }
                     }
                 }
             }
         }
-
-        for(int size = 9; size >= 2; size--) {  
-            for(int i = 0; i <= 9 - size; i++) {
-                for(int j = 0;j <= 9-size; j++) {
-                    if(marcar[i][j] || tablero[i][j].getValor() != 1) continue;
-
-                    boolean lleno=true;
-                    for(int x = i; x < i + size && lleno; x++)
-                        for(int y = j; y < j + size; y++)
-                            if(tablero[x][y].getValor() != 1){ lleno = false; break; }
-
-                    if(lleno) {
-                        for(int x = i;x < i + size; x++)
+        else if(elemento == 1){
+            for(int size = 9; size >= 2; size--) {  
+                for(int i = 0; i <= 9 - size; i++) {
+                    for(int j = 0;j <= 9-size; j++) {
+                            if(marcar[i][j] || tablero[i][j].getValor() != 1) continue;
+    
+                        boolean lleno=true;
+                        for(int x = i; x < i + size && lleno; x++)
                             for(int y = j; y < j + size; y++)
-                                marcar[x][y] = true;
-                        puntosGanados += calcularPuntos(size * size);
+                                    if(tablero[x][y].getValor() != 1){ lleno = false; break; }
+    
+                        if(lleno) {
+                            for(int x = i;x < i + size; x++)
+                                for(int y = j; y < j + size; y++)
+                                    marcar[x][y] = true;
+                            puntosGanados += calcularPuntos(size * size);
+                        }
                     }
                 }
             }
         }
-
         int eliminados = 0;
         for(int i = 0; i < 9; i++)
             for(int j = 0; j < 9; j++)
@@ -121,25 +122,14 @@ public class Logica{
         // Si quire mover un elemento vacio reinicia la funcion
         if(tablero[f][c].getValor() == 0){
             System.out.println("la posicion que desea mover esta vacia");
-            siguienteJugada();
             return obtenerJugada();
         }
         return new int[]{f,c};
     }
 
-    public static void siguienteJugada(){
+    public static int[] siguienteJugada(int f, int c){
         // int[][] tablero = Graficos.getTablero();
         Scanner entrada = new Scanner(System.in);
-        System.out.println("ingrese la fila del objeto que quiere mover");
-        int f = entrada.nextInt() - 1;
-        System.out.println("ingrese la columna del objeto que quiere mover");
-        int c = entrada.nextInt() - 1;
-        // Si quire mover un elemento vacio reinicia la funcion
-        if(tablero[f][c].getValor() == 0){
-            System.out.println("la posicion que desea mover esta vacia");
-            siguienteJugada();
-            return;
-        }
         //Si el elemento que quiere mover es valido continua con las siguientes comprobaciones
         if (jugadaEsValida(f, c, tablero)){
             System.out.println("ingrese la fila a donde desea moverlo");
@@ -149,16 +139,17 @@ public class Logica{
             if(tablero[fD][cD].getValor() == 0){
                 tablero[fD][cD].setValor(tablero[f][c].getValor());
                 tablero[f][c].setValor(0);
+                return new int[] {fD,cD};
             }
             else{
                 System.out.println("la posicion a donde desea moverlo ya esta ocupado escoja otra");
-                siguienteJugada();
+                return siguienteJugada(f,c);
             }
         }
         //si el movimiento deseado no es valido solicita otro movimiento 
         else{
             System.out.println("No puedes mover el elemento que seleccionaste");
-            siguienteJugada();
+            return siguienteJugada(f,c);
         }
     }
 
@@ -207,8 +198,9 @@ public class Logica{
             int[] proxima = obtenerSiguientesElementos();
             imprimirTablero(tablero);
             System.out.println("los siguientes elementos son "+ Arrays.toString(proxima));
-            siguienteJugada();
-            boolean elimino = verificarYEliminar();
+            int[] movimiento = obtenerJugada();
+            int[] movido = siguienteJugada(movimiento[0],movimiento[1]);
+            boolean elimino = verificarYEliminar(tablero[movido[0]][movido[1]].getValor());
             if (!elimino) {
                 iniciarTablero(proxima);
             }
