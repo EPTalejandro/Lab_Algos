@@ -5,10 +5,10 @@ import javax.swing.*;
 public class Graficos extends JFrame {
     private static final int FIL = 9;
     private static final int COL = 9;
-    private static final Celd[][] tablero = new Celd[FIL][COL];
+    static final Celd[][] tablero = new Celd[FIL][COL];
     private JLabel puntaje;
     // La lista de colores sera usada para asignarle un color a cada figura a la hora de ser dibujada, dependiendo de su numero(valor)
-    private static final Color[] colores = {Color.WHITE,Color.GREEN,Color.RED,Color.BLUE,Color.YELLOW,Color.PINK,Color.ORANGE,Color.MAGENTA};
+    private static final Color[] colores = {Color.GREEN,Color.RED,Color.BLUE,Color.YELLOW,Color.PINK,Color.ORANGE,Color.MAGENTA};
 
     // crear lista con los colores dependiendo de la posicion 
 
@@ -53,13 +53,11 @@ public class Graficos extends JFrame {
     // Maneja el dibujo de la ficha y la detección de clics del ratón.
     public class Celd extends JPanel implements MouseListener {
         private int fila, col, valor;
-        private boolean hasPiece;
 
         public Celd(int fila, int col) {
             this.fila = fila;
             this.col = col;
-            this.valor = 0;
-            this.hasPiece = false; // Inicialmente vacío
+            this.valor = 0; // 0 representa que está vacía la celda
             setBackground(Color.WHITE);
             setBorder(BorderFactory.createLineBorder(Color.BLACK));
             addMouseListener(this);
@@ -79,10 +77,17 @@ public class Graficos extends JFrame {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            if (hasPiece) {
-                g.setColor(Color.BLUE);
+            if (valor > 1) {
+                g.setColor(colores[valor - 1]);
                 int diam = Math.min(getWidth(), getHeight()) - 10;
+              	// Dibuja un círculo centrado
                 g.fillOval((getWidth() - diam) / 2, (getHeight() - diam) / 2, diam, diam);
+            } else if (valor == 1){
+              	g.setColor(colores[valor - 1]);
+                int size = Math.min(getWidth(), getHeight()) - 10;
+        		// Dibuja un cuadrado centrado
+        		g.fillRect((getWidth() - size) / 2, (getHeight() - size) / 2, size, size);
+              	
             }
             // Resaltar selección
             if (fila == selecFila && col == selecCol) {
@@ -94,15 +99,15 @@ public class Graficos extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             // Caso 1: Seleccionar ficha si no hay selección previa y hay ficha en esta celda
-            if (selecFila == -1 && hasPiece) {
+            if (selecFila == -1 && valor != 0) {
                 selecFila = fila;
                 selecCol = col;
                 repaintAll();
             }
             // Caso 2: Intentar mover ficha seleccionada a celda vacía
-            else if (selecFila != -1 && !hasPiece) {
-                tablero[fila][col].hasPiece = true;
-                tablero[selecFila][selecCol].hasPiece = false;
+            else if (selecFila != -1 && valor == 0) {
+                valor = tablero[selecFila][selecCol].valor;
+                tablero[selecFila][selecCol].valor = 0;
                 selecFila = -1;
                 selecCol = -1;
                 repaintAll();
