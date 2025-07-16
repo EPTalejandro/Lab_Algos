@@ -5,8 +5,10 @@ import javax.swing.*;
 public class Graficos extends JFrame {
     private static final int FIL = 9;
     private static final int COL = 9;
-    private static Celd[][] tablero = new Celd[FIL][COL];
+    private static final Celd[][] tablero = new Celd[FIL][COL];
     private JLabel puntaje;
+    // La lista de colores sera usada para asignarle un color a cada figura a la hora de ser dibujada, dependiendo de su numero(valor)
+    private static final Color[] colores = {Color.WHITE,Color.GREEN,Color.RED,Color.BLUE,Color.YELLOW,Color.PINK,Color.ORANGE,Color.MAGENTA};
 
     // crear lista con los colores dependiendo de la posicion 
 

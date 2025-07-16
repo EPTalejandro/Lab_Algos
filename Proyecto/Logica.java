@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Logica{
     static Graficos.Celd[][] tablero = Graficos.getTablero();
     // el 0 representa cuadros vacios
-    // 1 cuadrado verde 2 bola roja 3 bola azul 4 bola amarilla 5 bola blanca 6 bola naranja 7 bola morada
+    // 1 cuadrado verde 2 bola roja 3 bola azul 4 bola amarilla 5 bola rosada 6 bola naranja 7 bola morada
     static int[] elementos = new int[]{1,2,3,4,5,6,7};
     static int[][] direcciones = {{0,1},{1,0},{1,1},{1,-1}}; // horizontal, vertical, diagonal derecha y diagonal izquierda
     // Tablita de puntos
@@ -45,6 +45,8 @@ public class Logica{
         return false;
     }
     
+    // hay una lista ya hecha de puntos donde los indices significan la cantidad de objetos eliminados se usa min por que eliminando 8 o mas
+    // da el mismo puntaje, que esta en la posicion 8 de la lista y son 40 puntos 
     public static int calcularPuntos(int c){
             return puntos[Math.min(c,8)];
     }
@@ -113,6 +115,8 @@ public class Logica{
         return false;
     }
 
+
+    //obtiene la fila y columna de la siguiente jugada y la envia a la funcion que se encarga de mover y verificar 
     public static int[] obtenerJugada(){
         Scanner entrada = new Scanner(System.in);
         System.out.println("ingrese la fila del objeto que quiere mover");
