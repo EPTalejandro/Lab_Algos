@@ -23,17 +23,49 @@ public class Graficos extends JFrame {
     // El constructor del `TableroJuego` configura la ventana: título, cierre, tamaño, 
     // posición, y divide la interfaz en dos secciones: la del puntaje y la del tablero.
     public Graficos() {
-        super("Tablero 9x9 con Fichas");
+        super("Lineas de colores y rectángulos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 650);
+        setSize(700, 700);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Panel superior para mostrar el puntaje
-        JPanel topPanel = new JPanel();
-        puntaje = new JLabel("Puntaje: "); // Espacio para puntaje
+        // Panel superior
+        JPanel topPanel = new JPanel(new BorderLayout());
+        topPanel.setPreferredSize(new Dimension(700, 60));
+
+        // Panel del puntaje
+        puntaje = new JLabel("Puntaje: ", SwingConstants.CENTER); // Espacio para puntaje
+        puntaje.setFont(new Font("SansSerif", Font.BOLD, 16));
         topPanel.add(puntaje);
+
+        // Panel adicional para contener un espacio en blanco y las etiquetas de las columnas 
+        JPanel colfix = new JPanel(new BorderLayout());
+
+        JPanel blankSpace = new JPanel();
+        blankSpace.setPreferredSize(new Dimension(40, 30));
+        colfix.add(blankSpace, BorderLayout.WEST);
+
+        // Panel superior para la numeración de las columnas
+        JPanel colLabels = new JPanel(new GridLayout(1, COL));
+        colLabels.setPreferredSize(new Dimension(660, 30));
+        for (int c = 0; c < COL; c++) {
+            JLabel label = new JLabel(String.valueOf(c + 1), SwingConstants.CENTER);
+            colLabels.add(label);
+        }
+
+        colfix.add(colLabels, BorderLayout.CENTER);
+        topPanel.add(colfix, BorderLayout.SOUTH);
+
         add(topPanel, BorderLayout.NORTH);
+
+        // Panel izquierdo para etiquetas de fila
+        JPanel filaLabels = new JPanel(new GridLayout(COL, 1));
+        filaLabels.setPreferredSize(new Dimension(40, 700));
+        for (int r = 0; r < COL; r++) {
+            JLabel label = new JLabel(String.valueOf(r + 1), SwingConstants.CENTER);
+            filaLabels.add(label);
+        }
+        add(filaLabels, BorderLayout.WEST);
 
         // Panel del tablero (9x9)
         JPanel tableroPanel = new JPanel(new GridLayout(FIL, COL));
