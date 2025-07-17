@@ -1,14 +1,14 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class Graficos extends JFrame {
     private static final int FIL = 9;
     private static final int COL = 9;
     static final Celd[][] tablero = new Celd[FIL][COL];
-    private JLabel puntos;
+    private final JLabel puntos;
+    private final static Celd[] siguientes_elementos = new Celd[3];
     // La lista de colores sera usada para asignarle un color a cada figura a la hora de ser dibujada, dependiendo de su numero(valor)
-    private static final Color[] colores = {Color.GREEN,Color.RED,Color.BLUE,Color.YELLOW,Color.PINK,Color.ORANGE,Color.MAGENTA};
+    private static final Color[] colores = {Color.GREEN,Color.RED,Color.BLUE,Color.YELLOW,Color.PINK,Color.BLACK,Color.MAGENTA};
 
     // crear lista con los colores dependiendo de la posicion 
 
@@ -27,7 +27,7 @@ public class Graficos extends JFrame {
 
         // Panel superior
         JPanel topPanel = new JPanel(new BorderLayout());
-        topPanel.setPreferredSize(new Dimension(700, 60));
+        topPanel.setPreferredSize(new Dimension(700, 80));
 
         // Panel del puntaje
         puntos = new JLabel("Puntaje: " + Logica.puntaje, SwingConstants.CENTER);
@@ -75,6 +75,27 @@ public class Graficos extends JFrame {
         add(tableroPanel, BorderLayout.CENTER);
 
         setVisible(true);
+
+        JPanel contenedor_siguientes_elemntos = new JPanel(new FlowLayout(FlowLayout.RIGHT,10,0));
+        contenedor_siguientes_elemntos.setPreferredSize(new Dimension(200,60));
+
+        for(int i = 0; i<3;i++){
+            siguientes_elementos[i] = new Celd(-1,-1);
+            siguientes_elementos[i].setBorder(null);
+            siguientes_elementos[i].setBackground(topPanel.getBackground());
+            siguientes_elementos[i].setMinimumSize(new Dimension(50,50));
+            siguientes_elementos[i].setPreferredSize(new Dimension(50,50));
+            contenedor_siguientes_elemntos.add(siguientes_elementos[i]);
+        }
+        topPanel.add(contenedor_siguientes_elemntos,BorderLayout.EAST);
+        add(topPanel,BorderLayout.NORTH);
+    }
+
+    public void actulizarPanelSiguientes(int[] siguientes){
+        for(int i=0;i<3;i++){
+            siguientes_elementos[i].valor = siguientes[i];
+            siguientes_elementos[i].repaint();
+        }
     }
 
     // Método para actualizar el puntaje en la etiqueta

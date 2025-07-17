@@ -136,6 +136,10 @@ public class Logica{
             System.out.println("estas intentando mover un elemento por fuera del tablero");
             return obtenerJugada();
         }
+        else if(!jugadaEsValida(f, c, tablero)){
+            System.out.println("No puedes mover ese elemento, no tiene una casilla libre alrededor");
+            return obtenerJugada();
+        }
         if(tablero[f][c].getValor() == 0){
             System.out.println("la posicion que desea mover esta vacia");
             return obtenerJugada();
@@ -147,46 +151,40 @@ public class Logica{
         // int[][] tablero = Graficos.getTablero();
         Scanner entrada = new Scanner(System.in);
         //Si el elemento que quiere mover es valido continua con las siguientes comprobaciones
-        if (jugadaEsValida(f, c, tablero)){
-            System.out.println("ingrese la fila a donde desea moverlo");
-            int fD = entrada.nextInt() - 1;
-            System.out.println("ingrese la columna a donde desea moverlo");
-            int cD = entrada.nextInt() - 1;
-            if(dentroTablero(fD, cD)){
-                System.out.println("estas intentando mover un elemento por fuera del tablero");
-                return siguienteJugada(f, c);
-            }
-            if(tablero[fD][cD].getValor() == 0){
-                tablero[fD][cD].setValor(tablero[f][c].getValor());
-                tablero[f][c].setValor(0);
-                return new int[] {fD,cD};
-            }
-            else{
-                System.out.println("la posicion a donde desea moverlo ya esta ocupado escoja otra");
-                return siguienteJugada(f,c);
-            }
+        System.out.println("ingrese la fila a donde desea moverlo");
+        int fD = entrada.nextInt() - 1;
+        System.out.println("ingrese la columna a donde desea moverlo");
+        int cD = entrada.nextInt() - 1;
+        if(dentroTablero(fD, cD)){
+            System.out.println("estas intentando mover un elemento por fuera del tablero");
+            return siguienteJugada(f, c);
         }
-        //si el movimiento deseado no es valido solicita otro movimiento 
+        if(tablero[fD][cD].getValor() == 0){
+            tablero[fD][cD].setValor(tablero[f][c].getValor());
+            tablero[f][c].setValor(0);
+            return new int[] {fD,cD};
+        }
         else{
-            System.out.println("No puedes mover el elemento que seleccionaste");
+            System.out.println("la posicion a donde desea moverlo ya esta ocupado escoja otra");
             return siguienteJugada(f,c);
         }
+        
     }
 
     // imprime el estado actual del tablero con una ligera estilizacion grafica
-    public static void imprimirTablero(Graficos.Celd[][] tablero) {
-        System.out.print("    1 2 3 4 5 6 7 8 9");
-        System.out.println();
-        System.out.print("    _ _ _ _ _ _ _ _ _");
-        System.out.println();
-        for(int i = 0; i < 9; i++) {
-            System.out.print((i+1)+" | ");
-            for (int j = 0; j < 9; j++) {
-                System.out.print(tablero[i][j].getValor() + " ");
-            }
-            System.out.println();
-        }
-    }
+    // public static void imprimirTablero(Graficos.Celd[][] tablero) {
+    //     System.out.print("    1 2 3 4 5 6 7 8 9");
+    //     System.out.println();
+    //     System.out.print("    _ _ _ _ _ _ _ _ _");
+    //     System.out.println();
+    //     for(int i = 0; i < 9; i++) {
+    //         System.out.print((i+1)+" | ");
+    //         for (int j = 0; j < 9; j++) {
+    //             System.out.print(tablero[i][j].getValor() + " ");
+    //         }
+    //         System.out.println();
+    //     }
+    // }
 
     // Si hay alguna casilla no vacia significa que el juego no ha terminado 
     public static boolean terminoElJuego(){
@@ -235,8 +233,9 @@ public class Logica{
         iniciarTablero(obtenerSiguientesElementos());
         int[] proxima = obtenerSiguientesElementos();
 
-        while (juego) { 
-            imprimirTablero(tablero);
+        while (juego) {
+            grafico.actulizarPanelSiguientes(proxima); 
+            // imprimirTablero(tablero);
             System.out.println("los siguientes elementos son "+ Arrays.toString(proxima));
             int[] movimiento = obtenerJugada();
             int[] movido = siguienteJugada(movimiento[0],movimiento[1]);
@@ -244,14 +243,17 @@ public class Logica{
             // Actualiza la interfaz gráfica después de cada jugada
             grafico.repintarTablero();
             grafico.actualizarPuntaje(puntaje);
-
             if (!elimino) {
                 iniciarTablero(proxima);
                 proxima = obtenerSiguientesElementos();
-                juego = !terminoElJuego();
                 // Actualiza la interfaz gráfica después de agregar nuevos elementos
                 grafico.repintarTablero();
                 grafico.actualizarPuntaje(puntaje);
+                if(terminoElJuego()){
+                    System.out.println("EL juego termino, se lleno el tablero. Puntuacion final: "+puntaje);
+                    grafico.dispose();
+                    break;
+                }
             }
         }
     }
