@@ -114,7 +114,15 @@ public class Logica{
         }
         return false;
     }
+    
+    public static int getPuntaje(){
+        return puntaje;
+    }
 
+    public static boolean dentroTablero(int f, int c){
+        //verifica que los valores de la posicion a mover esten dentro de los confines del tablero
+        return (f<0|| c<0 || f>8 || c>8);
+    }
 
     //obtiene la fila y columna de la siguiente jugada y la envia a la funcion que se encarga de mover y verificar 
     public static int[] obtenerJugada(){
@@ -124,6 +132,10 @@ public class Logica{
         System.out.println("ingrese la columna del objeto que quiere mover");
         int c = entrada.nextInt() - 1;
         // Si quire mover un elemento vacio reinicia la funcion
+        if(dentroTablero(f, c)){
+            System.out.println("estas intentando mover un elemento por fuera del tablero");
+            return obtenerJugada();
+        }
         if(tablero[f][c].getValor() == 0){
             System.out.println("la posicion que desea mover esta vacia");
             return obtenerJugada();
@@ -140,6 +152,10 @@ public class Logica{
             int fD = entrada.nextInt() - 1;
             System.out.println("ingrese la columna a donde desea moverlo");
             int cD = entrada.nextInt() - 1;
+            if(dentroTablero(fD, cD)){
+                System.out.println("estas intentando mover un elemento por fuera del tablero");
+                return siguienteJugada(f, c);
+            }
             if(tablero[fD][cD].getValor() == 0){
                 tablero[fD][cD].setValor(tablero[f][c].getValor());
                 tablero[f][c].setValor(0);
@@ -187,10 +203,30 @@ public class Logica{
     // Retorna los siguientes elementos a ser puestos en el tablero 
     public static int[] obtenerSiguientesElementos(){
         int[] proxima_jugada = new int[3];
-        for(int i=0; i<3;i++){
+        for(int i=0; i<2;i++){
             int a = (int)(Math.random() * 7);
             proxima_jugada[i] = elementos[a];
         }
+
+        int[] conteo = new int[7];
+        for(int i=0; i < 9;i++){
+            for(int j=0; j<9;j++){
+                int valor = tablero[i][j].getValor();
+                if(valor>=1 && valor<= 7){
+                    // valor vendria figurando entre 1 y 7 esto justifica la siguiente asignacion ya que que los valores de cada numero
+                    // se guardarian en la posicion equivalente a su indice en la lista menos 1 es decir las apariciones de 4 estarian en 
+                    // la posicion 3, asi se recorre todo el tablero una sola ves y cada posicion guarda el total de ese numero 
+                    conteo[valor-1] = conteo[valor-1] + 1;
+                }
+            }
+        }
+        int menos_apariciones = 0;
+        for(int i=1; i < 7;i++){
+            //se compara el primero con el siguiente y asi sucesivamente 
+            if(conteo[i] < conteo[menos_apariciones])
+            menos_apariciones=i;
+        }
+        proxima_jugada[2] = elementos[menos_apariciones];
         return proxima_jugada;
     }
 
