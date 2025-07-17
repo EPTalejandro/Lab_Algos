@@ -234,8 +234,8 @@ public class Logica{
         boolean juego = true;
         Graficos grafico = new Graficos();
         iniciarTablero(obtenerSiguientesElementos());
+        int[] proxima = obtenerSiguientesElementos();
         while (juego) { 
-            int[] proxima = obtenerSiguientesElementos();
             imprimirTablero(tablero);
             System.out.println("los siguientes elementos son "+ Arrays.toString(proxima));
             int[] movimiento = obtenerJugada();
@@ -243,9 +243,8 @@ public class Logica{
             boolean elimino = verificarYEliminar(tablero[movido[0]][movido[1]].getValor());
             if (!elimino) {
                 iniciarTablero(proxima);
-            }
-            if (terminoElJuego()) {
-                juego = false;
+                proxima = obtenerSiguientesElementos();
+                juego = !terminoElJuego();
             }
         }
     }
