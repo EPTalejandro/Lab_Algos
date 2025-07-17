@@ -67,7 +67,7 @@ public class Graficos extends JFrame {
         JPanel tableroPanel = new JPanel(new GridLayout(FIL, COL));
         for (int r = 0; r < FIL; r++) {
             for (int c = 0; c < COL; c++) {
-                Celd cell = new Celd(r, c);
+                Celd cell = new Celd();
                 tablero[r][c] = cell;
                 tableroPanel.add(cell);
             }
@@ -80,7 +80,7 @@ public class Graficos extends JFrame {
         contenedor_siguientes_elemntos.setPreferredSize(new Dimension(200,60));
 
         for(int i = 0; i<3;i++){
-            siguientes_elementos[i] = new Celd(-1,-1);
+            siguientes_elementos[i] = new Celd();
             siguientes_elementos[i].setBorder(null);
             siguientes_elementos[i].setBackground(topPanel.getBackground());
             siguientes_elementos[i].setMinimumSize(new Dimension(50,50));
@@ -115,11 +115,9 @@ public class Graficos extends JFrame {
     // Clase interna que extiende `JPanel` y representa cada casilla del tablero.
     // Maneja el dibujo de la ficha.
     public class Celd extends JPanel {
-        private int fila, col, valor;
+        private int valor;
 
-        public Celd(int fila, int col) {
-            this.fila = fila;
-            this.col = col;
+        public Celd() {
             this.valor = 0; // 0 representa que está vacía la celda
             setBackground(Color.WHITE);
             setBorder(BorderFactory.createLineBorder(Color.BLACK));
