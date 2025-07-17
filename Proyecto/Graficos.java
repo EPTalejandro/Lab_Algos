@@ -6,15 +6,11 @@ public class Graficos extends JFrame {
     private static final int FIL = 9;
     private static final int COL = 9;
     static final Celd[][] tablero = new Celd[FIL][COL];
-    private JLabel puntaje;
+    private JLabel puntos;
     // La lista de colores sera usada para asignarle un color a cada figura a la hora de ser dibujada, dependiendo de su numero(valor)
     private static final Color[] colores = {Color.GREEN,Color.RED,Color.BLUE,Color.YELLOW,Color.PINK,Color.ORANGE,Color.MAGENTA};
 
     // crear lista con los colores dependiendo de la posicion 
-
-    // Coordenadas de la celda seleccionada
-    private int selecFila = -1;
-    private int selecCol = -1;
 
     public static Celd[][] getTablero(){
         return tablero;
@@ -34,9 +30,9 @@ public class Graficos extends JFrame {
         topPanel.setPreferredSize(new Dimension(700, 60));
 
         // Panel del puntaje
-        puntaje = new JLabel("Puntaje: ", SwingConstants.CENTER); // Espacio para puntaje
-        puntaje.setFont(new Font("SansSerif", Font.BOLD, 16));
-        topPanel.add(puntaje);
+        puntos = new JLabel("Puntaje: " + Logica.puntaje, SwingConstants.CENTER);
+        puntos.setFont(new Font("SansSerif", Font.BOLD, 16));
+        topPanel.add(puntos);
 
         // Panel adicional para contener un espacio en blanco y las etiquetas de las columnas 
         JPanel colfix = new JPanel(new BorderLayout());
@@ -60,7 +56,7 @@ public class Graficos extends JFrame {
 
         // Panel izquierdo para etiquetas de fila
         JPanel filaLabels = new JPanel(new GridLayout(COL, 1));
-        filaLabels.setPreferredSize(new Dimension(40, 700));
+        filaLabels.setPreferredSize(new Dimension(40, 700)); // Aumenta el ancho del panel de etiquetas de fila
         for (int r = 0; r < COL; r++) {
             JLabel label = new JLabel(String.valueOf(r + 1), SwingConstants.CENTER);
             filaLabels.add(label);
@@ -81,9 +77,23 @@ public class Graficos extends JFrame {
         setVisible(true);
     }
 
+    // Método para actualizar el puntaje en la etiqueta
+    public void actualizarPuntaje(int nuevoPuntaje) {
+        puntos.setText("Puntaje: " + nuevoPuntaje);
+    }
+
+    // Método para repintar todas las celdas del tablero
+    public void repintarTablero() {
+        for (int r = 0; r < FIL; r++) {
+            for (int c = 0; c < COL; c++) {
+                tablero[r][c].repaint();
+            }
+        }
+    }
+
     // Clase interna que extiende `JPanel` y representa cada casilla del tablero.
-    // Maneja el dibujo de la ficha y la detección de clics del ratón.
-    public class Celd extends JPanel implements MouseListener {
+    // Maneja el dibujo de la ficha.
+    public class Celd extends JPanel {
         private int fila, col, valor;
 
         public Celd(int fila, int col) {
@@ -92,7 +102,6 @@ public class Graficos extends JFrame {
             this.valor = 0; // 0 representa que está vacía la celda
             setBackground(Color.WHITE);
             setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            addMouseListener(this);
         }
 
         public int getValor(){
@@ -103,9 +112,10 @@ public class Graficos extends JFrame {
             this.valor = valorN;
         }
 
-        // Sobrescribe `paintComponent` para dibujar en la casilla: si `hasPiece` es `true`,
-        // dibuja un óvalo (ficha); si la celda está seleccionada (`selecFila/Col`),
-        // dibuja un borde rojo alrededor.
+        // Sobrescribe `paintComponent` para dibujar en la casilla si `valor` es distinto de 0,
+        // dibuja un círculo (ficha) si valor > 1, 
+        // dibuja un rectángulo si valor == 1,
+        // si la celda está seleccionada `selecFila/Col` dibuja un borde rojo alrededor.
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
@@ -121,58 +131,6 @@ public class Graficos extends JFrame {
         		g.fillRect((getWidth() - size) / 2, (getHeight() - size) / 2, size, size);
               	
             }
-            // Resaltar selección
-            if (fila == selecFila && col == selecCol) {
-                g.setColor(Color.RED);
-                g.drawRect(2, 2, getWidth()-4, getHeight()-4);
-            }
         }
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            // Caso 1: Seleccionar ficha si no hay selección previa y hay ficha en esta celda
-            if (selecFila == -1 && valor != 0) {
-                selecFila = fila;
-                selecCol = col;
-                repaintAll();
-            }
-            // Caso 2: Intentar mover ficha seleccionada a celda vacía
-            else if (selecFila != -1 && valor == 0) {
-                valor = tablero[selecFila][selecCol].valor;
-                tablero[selecFila][selecCol].valor = 0;
-                selecFila = -1;
-                selecCol = -1;
-                repaintAll();
-            }
-            // Caso 3: Deseleccionar ficha si se pulsa de nuevo sobre ella
-            else if (selecFila == fila && selecCol == col) {
-                selecFila = -1;
-                selecCol = -1;
-                repaintAll();
-            }
-        }
-
-        // Método auxiliar que fuerza el repintado de todas las casillas del tablero,
-        // necesario después de mover o deseleccionar fichas para actualizar el aspecto de cada `Celd`.
-        private void repaintAll() {
-            for (int r = 0; r < FIL; r++) {
-                for (int c = 0; c < COL; c++) {
-                    tablero[r][c].repaint();
-                }
-            }
-        }
-
-        // Métodos vacíos requeridos por MouseListener
-        @Override public void mousePressed(MouseEvent e) {}
-        @Override public void mouseReleased(MouseEvent e) {}
-        @Override public void mouseEntered(MouseEvent e) {}
-        @Override public void mouseExited(MouseEvent e) {}
-    }
-
-    // Punto de entrada de la aplicación. Crea una instancia del `TableroJuego`,
-    // coloca algunas fichas de ejemplo en la esquina superior izquierda
-    // y solicita repintar para mostrar las fichas iniciales.
-    public static void main(String[] args) {
-
     }
 }
