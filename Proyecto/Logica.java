@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Logica{
     static Graficos.Celd[][] tablero = Graficos.getTablero();
     // el 0 representa cuadros vacios
-    // 1 cuadrado verde 2 bola roja 3 bola azul 4 bola amarilla 5 bola rosada 6 bola naranja 7 bola morada
+    // 1 cuadrado verde 2 bola roja 3 bola azul 4 bola amarilla 5 bola rosada 6 bola negra 7 bola morada
     static int[] elementos = new int[]{1,2,3,4,5,6,7};
     static int[][] direcciones = {{0,1},{1,0},{1,1},{1,-1}}; // horizontal, vertical, diagonal derecha y diagonal izquierda
     // Tablita de puntos
@@ -11,7 +11,6 @@ public class Logica{
 
 
     static int puntaje = 0;
-    // funcion posiblemente no necesaria 
     public static void iniciarTablero(int[] jugada){
         for(int i=0;i<3;i++){
             int a = (int)(Math.random() * 9);
@@ -50,6 +49,7 @@ public class Logica{
             return puntos[Math.min(c,8)];
     }
     
+    // si el elemento pasado es un 1(el cuadrado) verifica los cuadrados que rodean, si es mayor a 1(una bola) revisa las referencias de posiciones
     public static boolean verificarYEliminar(int elemento){
         boolean[][] marcar = new boolean[9][9];
         int puntosGanados = 0;
@@ -118,8 +118,8 @@ public class Logica{
         return puntaje;
     }
 
-    public static boolean dentroTablero(int f, int c){
-        //verifica que los valores de la posicion a mover esten dentro de los confines del tablero
+    public static boolean fueraTablero(int f, int c){
+        //verifica que los valores de la posicion a mover esten fuera de los confines del tablero
         return (f<0|| c<0 || f>8 || c>8);
     }
 
@@ -131,7 +131,7 @@ public class Logica{
         System.out.println("ingrese la columna del objeto que quiere mover");
         int c = entrada.nextInt() - 1;
         // Si quire mover un elemento vacio reinicia la funcion
-        if(dentroTablero(f, c)){
+        if(fueraTablero(f, c)){
             System.out.println("estas intentando mover un elemento por fuera del tablero");
             return obtenerJugada();
         }
@@ -154,8 +154,8 @@ public class Logica{
         int fD = entrada.nextInt() - 1;
         System.out.println("ingrese la columna a donde desea moverlo");
         int cD = entrada.nextInt() - 1;
-        if(dentroTablero(fD, cD)){
-            System.out.println("estas intentando mover un elemento por fuera del tablero");
+        if(fueraTablero(fD, cD)){
+            System.out.println("estas intentando mover un elemento hacia afuera del tablero");
             return siguienteJugada(f, c);
         }
         if(tablero[fD][cD].getValor() == 0){
@@ -171,6 +171,7 @@ public class Logica{
     }
 
     // imprime el estado actual del tablero con una ligera estilizacion grafica
+    // en caso de querer mostrar el tablero por terminar, puede usar esta funcion, fue usada para probar antes de tener la interfaz grafica
     // public static void imprimirTablero(Graficos.Celd[][] tablero) {
     //     System.out.print("    1 2 3 4 5 6 7 8 9");
     //     System.out.println();
