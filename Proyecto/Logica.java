@@ -53,44 +53,57 @@ public class Logica{
     public static boolean verificarYEliminar(int elemento){
         boolean[][] marcar = new boolean[9][9];
         int puntosGanados = 0;
+        // Aquí evaluamos un primer caso, cuando los valores están entre 2 y 7 lo que indica que se trata de las bolas de colores
         if(elemento > 1){
+            // recorremos todas las celdas del tablero 9x9
             for(int i = 0; i < 9; i++) {
                 for(int j = 0; j < 9; j++) {
-                    int a = tablero[i][j].getValor();
+                    int a = tablero[i][j].getValor(); // nos indica el valor de la celda actual
+                    // si el valor no está entre 2 y 7 no nos interesa
                     if(a < 2 || a > 7) continue;
 
+                    // recorremos todas las direcciones posibles (horizontal, vertical y diagonal)
                     for(int[] d:direcciones) {
                         int ci = i - d[0], cj = j - d[1]; // ci,cj son coordenadas antes de i,j en la misma dirección
+                        // si la celda que va antes (ci, cj) tiene el mismo valor a entonces significa que la secuencia que se iba a contar ya se realizo antes
+                        // esto asegura de que no se realice más de una vez el mismo análisis y punteo 
                         if(ci >= 0 && ci < 9 && cj >= 0 && cj < 9 && tablero[ci][cj].getValor() == a ) continue;
 
-                        int len = 1, ri = i + d[0], rj =  j + d[1]; // son las coordenadas que van después de i,j en la misma dirección
+                        int len = 1, ri = i + d[0], rj =  j + d[1];
+                        // seguimos avanzando mientras haya bolas seguidas del mismo color
                         while(ri >= 0 && ri < 9 && rj >= 0 && rj < 9 && tablero[ri][rj].getValor() == a ) {
                             len++; ri += d[0]; rj += d[1];
                         }
+                        // si se encuentra filas de 5 o más bolas entonces se marca para ser eliminados
                         if(len >= 5) {
                             int mi = i, mj = j;
                             for(int k = 0; k < len; k++) { 
                                 marcar[mi][mj] = true;
                                 mi += d[0]; mj += d[1];
                             }
+                            // se calcula la puntuación segun la longitud de la fila
                             puntosGanados += calcularPuntos(len);
                         }
                     }
                 }
             }
         }
+        // Aquí evaluamos el segundo caso, cuando el valor es 1, es decir, nos encontramos con cuadrados verdes
         else if(elemento == 1){
+            // intentamos buscar el cuadrado más grande desde 9x9 hasta 2x2
             for(int size = 9; size >= 2; size--) {  
                 for(int i = 0; i <= 9 - size; i++) {
                     for(int j = 0;j <= 9-size; j++) {
                             if(marcar[i][j] || tablero[i][j].getValor() != 1) continue;
     
                         boolean lleno=true;
+                        // verifica si todas las celdas del cuadrado son 1
                         for(int x = i; x < i + size && lleno; x++)
                             for(int y = j; y < j + size; y++)
                                     if(tablero[x][y].getValor() != 1){ lleno = false; break; }
     
                         if(lleno) {
+                            // marca y puntua
                             for(int x = i;x < i + size; x++)
                                 for(int y = j; y < j + size; y++)
                                     marcar[x][y] = true;
@@ -100,6 +113,7 @@ public class Logica{
                 }
             }
         }
+        // elimina los elementos marcados y muestra la puntuación
         int eliminados = 0;
         for(int i = 0; i < 9; i++)
             for(int j = 0; j < 9; j++)
