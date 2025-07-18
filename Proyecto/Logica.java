@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Logica{
@@ -226,35 +225,5 @@ public class Logica{
         }
         proxima_jugada[2] = elementos[menos_apariciones];
         return proxima_jugada;
-    }
-    public static void main(String[] args) {
-        boolean juego = true;
-        Graficos grafico = new Graficos();
-        iniciarTablero(obtenerSiguientesElementos());
-        int[] proxima = obtenerSiguientesElementos();
-
-        while (juego) {
-            grafico.actulizarPanelSiguientes(proxima); 
-            // imprimirTablero(tablero);
-            System.out.println("los siguientes elementos son "+ Arrays.toString(proxima));
-            int[] movimiento = obtenerJugada();
-            int[] movido = siguienteJugada(movimiento[0],movimiento[1]);
-            boolean elimino = verificarYEliminar(tablero[movido[0]][movido[1]].getValor());
-            // Actualiza la interfaz gráfica después de cada jugada
-            grafico.repintarTablero();
-            grafico.actualizarPuntaje(puntaje);
-            if (!elimino) {
-                iniciarTablero(proxima);
-                proxima = obtenerSiguientesElementos();
-                // Actualiza la interfaz gráfica después de agregar nuevos elementos
-                grafico.repintarTablero();
-                grafico.actualizarPuntaje(puntaje);
-                if(terminoElJuego()){
-                    System.out.println("EL juego termino, se lleno el tablero. Puntuacion final: "+puntaje);
-                    grafico.dispose();
-                    break;
-                }
-            }
-        }
     }
 }

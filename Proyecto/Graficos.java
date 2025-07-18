@@ -77,7 +77,10 @@ public class Graficos extends JFrame {
         setVisible(true);
 
         JPanel contenedor_siguientes_elemntos = new JPanel(new FlowLayout(FlowLayout.RIGHT,10,0));
-        contenedor_siguientes_elemntos.setPreferredSize(new Dimension(200,60));
+        contenedor_siguientes_elemntos.setPreferredSize(new Dimension(300,60));
+        JLabel tituloSiguientes = new JLabel("Siguientes:", SwingConstants.CENTER);
+        tituloSiguientes.setFont(new Font("SansSerif", Font.BOLD, 14));
+        contenedor_siguientes_elemntos.add(tituloSiguientes, BorderLayout.NORTH);
 
         for(int i = 0; i<3;i++){
             siguientes_elementos[i] = new Celd();
