@@ -151,7 +151,7 @@ public class Graficos extends JFrame {
         }
 
         //@ requires true;
-        //@ ensures 0 <= result <= 7;
+        //@ ensures 0 <= \result <= 7;
         public int getValor(){
            return this.valor;
         }
