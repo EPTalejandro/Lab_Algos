@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Logica{
     static Graficos.Celd[][] tablero = Graficos.getTablero();
     // el 0 representa cuadros vacios
-    // 1 cuadrado verde 2 bola roja 3 bola azul 4 bola amarilla 5 bola rosada 6 bola negra 7 bola morada
+    // 1 cuadrado verde 2 cículo rojo 3 cículo azul 4 cículo amarillo 5 cículo rosado 6 cículo negro 7 cículo morado
     static int[] elementos = new int[]{1,2,3,4,5,6,7};
     static int[][] direcciones = {{0,1},{1,0},{1,1},{1,-1}}; // horizontal, vertical, diagonal derecha y diagonal izquierda
     // Tablita de puntos
@@ -57,16 +57,18 @@ public class Logica{
             return puntos[Math.min(c,8)];
     }
     
-    // si el elemento pasado es un 1(el cuadrado) verifica los cuadrados que rodean, si es mayor a 1(una bola) revisa las referencias de posiciones
+    // si el elemento pasado es un 1(el cuadrado) verifica los cuadrados que rodean, si es mayor a 1 (un círculo) revisa las referencias de posiciones
     //@ assignable tablero[*][*];
     //@ assignable puntaje;
     public static boolean verificarYEliminar(int elemento){
         boolean[][] marcar = new boolean[9][9];
         int puntosGanados = 0;
-        // Aquí evaluamos un primer caso, cuando los valores están entre 2 y 7 lo que indica que se trata de las bolas de colores
+        // Aquí evaluamos un primer caso, cuando los valores están entre 2 y 7 lo que indica que se trata de círculos de colores
         if(elemento > 1){
             // recorremos todas las celdas del tablero 9x9
+            //@ maintaining 0 <= i <= 9;
             for(int i = 0; i < 9; i++) {
+                //@ maintaining 0 <= j <= 9;
                 for(int j = 0; j < 9; j++) {
                     int a = tablero[i][j].getValor(); // nos indica el valor de la celda actual
                     // si el valor no está entre 2 y 7 no nos interesa
@@ -80,13 +82,14 @@ public class Logica{
                         if(ci >= 0 && ci < 9 && cj >= 0 && cj < 9 && tablero[ci][cj].getValor() == a ) continue;
 
                         int len = 1, ri = i + d[0], rj =  j + d[1];
-                        // seguimos avanzando mientras haya bolas seguidas del mismo color
+                        // seguimos avanzando mientras haya círculos seguidos del mismo color
                         while(ri >= 0 && ri < 9 && rj >= 0 && rj < 9 && tablero[ri][rj].getValor() == a ) {
                             len++; ri += d[0]; rj += d[1];
                         }
-                        // si se encuentra filas de 5 o más bolas entonces se marca para ser eliminados
+                        // si se encuentra filas de 5 o más círculos entonces se marca para ser eliminados
                         if(len >= 5) {
                             int mi = i, mj = j;
+                            //@ maintaining 0 <= k <= len;
                             for(int k = 0; k < len; k++) { 
                                 marcar[mi][mj] = true;
                                 mi += d[0]; mj += d[1];
@@ -101,9 +104,12 @@ public class Logica{
         // Aquí evaluamos el segundo caso, cuando el valor es 1, es decir, nos encontramos con cuadrados verdes
         else if(elemento == 1){
             // intentamos buscar el cuadrado más grande desde 9x9 hasta 2x2
+            //@ maintainig 1 <= size <= 9;
             for(int size = 9; size >= 2; size--) {  
+                //@ maintaining 0 <= i <= 10 - size;
                 for(int i = 0; i <= 9 - size; i++) {
-                    for(int j = 0;j <= 9-size; j++) {
+                    //@ maintaining 0 <= j <= 10 - size;
+                    for(int j = 0; j <= 9 - size; j++) {
                             if(marcar[i][j] || tablero[i][j].getValor() != 1) continue;
     
                         boolean lleno=true;
