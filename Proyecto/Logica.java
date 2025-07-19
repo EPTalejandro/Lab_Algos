@@ -11,6 +11,11 @@ public class Logica{
 
 
     static int puntaje = 0;
+    //@ requires jugada != null && jugada.length == 3
+    //@ requires (\forall int i; 0 <= i && i < 3; 1 <= jugada[i] && jugada[i] <= 7);
+    //@ assignable tablero[*][*].valor;
+    //@ ensures (\exists int i; 0 <= i && i < 9; 
+    //@ ensures (\exists int j; 0 <= j && j < 9; tablero[i][j].getValor() == jugada[0] || tablero[i][j].getValor() == jugada[1] || tablero[i][j].getValor() == jugada[2]));
     public static void iniciarTablero(int[] jugada){
         for(int i=0;i<3;i++){
             int a = (int)(Math.random() * 9);
