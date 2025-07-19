@@ -33,6 +33,8 @@ public class Logica{
     // y todos sus variantes abajo izquierada,derecha y debajo(-1<=j<2) luego verifica los que estan a la misma altura(i=0) se ignora el caso de i y j iguales a 0 ya que es el mismo
     // elemento que estamos verificando finalmente se verifican los de arriba(i=1) y para que no haya errores con la primera y ultima fila y columna siempre se verifica que 
     // las tablero a verificar esten dentro de los confines de el tablero
+    //@ requires 0 <= f && f < 9 && 0 <= c && c < 9;
+    //@ requires tablero != null;
     public static boolean jugadaEsValida(int f,int c, Graficos.Celd[][] tablero){
         //@ maintaining -1 <= i <= 2;
         for(int i = -1; i < 2; i++){
