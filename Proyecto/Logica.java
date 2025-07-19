@@ -15,7 +15,8 @@ public class Logica{
     //@ requires (\forall int i; 0 <= i && i < 3; 1 <= jugada[i] && jugada[i] <= 7);
     //@ assignable tablero[*][*].valor;
     public static void iniciarTablero(int[] jugada){
-        for(int i=0;i<3;i++){
+        //@ maintaining 0 <= i <= 3;
+        for(int i = 0; i < 3; i++){
             int a = (int)(Math.random() * 9);
             int b = (int)(Math.random() * 9);
             if(tablero[a][b].getValor() == 0){
@@ -33,8 +34,10 @@ public class Logica{
     // elemento que estamos verificando finalmente se verifican los de arriba(i=1) y para que no haya errores con la primera y ultima fila y columna siempre se verifica que 
     // las tablero a verificar esten dentro de los confines de el tablero
     public static boolean jugadaEsValida(int f,int c, Graficos.Celd[][] tablero){
-        for(int i=-1;i<2;i++){
-            for( int j=-1;j<2;j++){
+        //@ maintaining -1 <= i <= 2;
+        for(int i = -1; i < 2; i++){
+            //@ maintaining -1 <= j <= 2;
+            for( int j = -1; j < 2; j++){
                 if( i == 0 && j == 0 ){continue;}
                 if(f+i >= 0 && c+j >= 0 && f+i < 9 && c+j < 9){
                     if(tablero[f+i][c+j].getValor()==0){
@@ -47,7 +50,9 @@ public class Logica{
     }
     
     // hay una lista ya hecha de puntos donde los indices significan la cantidad de objetos eliminados se usa min por que eliminando 8 o mas
-    // da el mismo puntaje, que esta en la posicion 8 de la lista y son 40 puntos 
+    // da el mismo puntaje, que esta en la posicion 8 de la lista y son 40 puntos
+    //@ requires c != null;
+    //@ ensures \result < Integer.MAX_VALUE;
     public static int calcularPuntos(int c){
             return puntos[Math.min(c,8)];
     }
@@ -120,7 +125,9 @@ public class Logica{
         }
         // elimina los elementos marcados y muestra la puntuación
         int eliminados = 0;
+        //@ maintaining 0 <= i <= 9;
         for(int i = 0; i < 9; i++)
+            //@ maintaining 0 <= j <= 9;
             for(int j = 0; j < 9; j++)
                 if(marcar[i][j]){ tablero[i][j].setValor(0); eliminados++; }
 
@@ -132,7 +139,9 @@ public class Logica{
         }
         return false;
     }
-    
+
+    //@ requires true;
+    //@ ensures \result < Integer.MAX_VALUE;
     public static int getPuntaje(){
         return puntaje;
     }
@@ -211,9 +220,12 @@ public class Logica{
     // }
 
     // Si hay alguna casilla no vacia significa que el juego no ha terminado
+    //@ requires true
     //@ ensures \result = (\forall int i; 0<=i && i<9; (\forall int j; 0<=j && j<9; tablero[i][j].getValor()==0)) 
     public static boolean terminoElJuego(){
-        for(int i=0;i<9;i++){
+        //@ maintaining 0 <= i <= 9;
+        for(int i = 0; i < 9; i++){
+            //@ maintaining 0 <= j <= 9;
             for (int j = 0; j < 9; j++) {
                 if(tablero[i][j].getValor() == 0){
                     return false;
@@ -226,16 +238,19 @@ public class Logica{
     // Retorna los siguientes elementos a ser puestos en el tablero 
     public static int[] obtenerSiguientesElementos(){
         int[] proxima_jugada = new int[3];
-        for(int i=0; i<2;i++){
+        //@ maintaining 0 <= i <= 2;
+        for(int i = 0; i < 2; i++){
             int a = (int)(Math.random() * 7);
             proxima_jugada[i] = elementos[a];
         }
 
         int[] conteo = new int[7];
-        for(int i=0; i < 9;i++){
-            for(int j=0; j<9;j++){
+        //@ maintaining 0 <= i <= 9;
+        for(int i = 0; i < 9; i++){
+            //@ maintaining 0 <= j <= 9;
+            for(int j = 0; j < 9; j++){
                 int valor = tablero[i][j].getValor();
-                if(valor>=1 && valor<= 7){
+                if(valor >= 1 && valor <= 7){
                     // valor vendria figurando entre 1 y 7 esto justifica la siguiente asignacion ya que que los valores de cada numero
                     // se guardarian en la posicion equivalente a su indice en la lista menos 1 es decir las apariciones de 4 estarian en 
                     // la posicion 3, asi se recorre todo el tablero una sola ves y cada posicion guarda el total de ese numero 
@@ -244,7 +259,8 @@ public class Logica{
             }
         }
         int menos_apariciones = 0;
-        for(int i=1; i < 7;i++){
+        //@ maintaining 1 <= i <= 7;
+        for(int i = 1; i < 7; i++){
             //se compara el primero con el siguiente y asi sucesivamente 
             if(conteo[i] < conteo[menos_apariciones])
             menos_apariciones=i;
