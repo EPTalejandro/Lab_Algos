@@ -50,6 +50,8 @@ public class Logica{
     }
     
     // si el elemento pasado es un 1(el cuadrado) verifica los cuadrados que rodean, si es mayor a 1(una bola) revisa las referencias de posiciones
+    //@ assignable tablero[*][*];
+    //@ assignable puntaje;
     public static boolean verificarYEliminar(int elemento){
         boolean[][] marcar = new boolean[9][9];
         int puntosGanados = 0;
@@ -132,6 +134,9 @@ public class Logica{
         return puntaje;
     }
 
+    //@ requires f != null;
+    //@ requires c != null;
+    //@ ensures \result == True || \result ==False;
     public static boolean fueraTablero(int f, int c){
         //verifica que los valores de la posicion a mover esten fuera de los confines del tablero
         return (f<0|| c<0 || f>8 || c>8);
@@ -160,8 +165,10 @@ public class Logica{
         return new int[]{f,c};
     }
 
+    //@ assignable tablero[*][*];
+    //@ requires f != null;
+    //@ requires c != null;
     public static int[] siguienteJugada(int f, int c){
-        // int[][] tablero = Graficos.getTablero();
         Scanner entrada = new Scanner(System.in);
         //Si el elemento que quiere mover es valido continua con las siguientes comprobaciones
         System.out.println("ingrese la fila a donde desea moverlo");
@@ -200,7 +207,8 @@ public class Logica{
     //     }
     // }
 
-    // Si hay alguna casilla no vacia significa que el juego no ha terminado 
+    // Si hay alguna casilla no vacia significa que el juego no ha terminado
+    //@ ensures \result = (\forall int i; 0<=i && i<9; (\forall int j; 0<=j && j<9; tablero[i][j].getValor()==0)) 
     public static boolean terminoElJuego(){
         for(int i=0;i<9;i++){
             for (int j = 0; j < 9; j++) {
