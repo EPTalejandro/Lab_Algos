@@ -111,6 +111,7 @@ public class Graficos extends JFrame {
     // Recibe una lista con los nuevos elementos que se agregarán al tablero, actualiza
     // la lista siguientesElementos y repinta cada uno para actualizar la interfaz gráfica.
     //@ requires siguientes != null && siguientes.length == 3;
+    //@ assignable siguientesElementos[*];
     public void actulizarPanelSiguientes(int[] siguientes){
         //@ maintaining 0 <= i <= 3;
         for(int i = 0; i < 3; i++){
@@ -126,6 +127,7 @@ public class Graficos extends JFrame {
     }
 
     // Método para repintar todas las celdas del tablero
+    //@ requires true;
     public void repintarTablero() {
         //@ maintaining 0 <= r <= FIL;
         for (int r = 0; r < FIL; r++) {
@@ -147,11 +149,14 @@ public class Graficos extends JFrame {
             setBackground(Color.WHITE);
             setBorder(BorderFactory.createLineBorder(Color.BLACK));
         }
-        
+
+        //@ requires true;
+        //@ ensures 0 <= result <= 7;
         public int getValor(){
            return this.valor;
         }
 
+        //@ requires 0 <= valorN <= 7;
         public void setValor(int valorN){
             this.valor = valorN;
         }
